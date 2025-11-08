@@ -24,7 +24,7 @@ func _start_falling():
 		cede.sprite,                              
 		"scale",                             
 		Vector2.ZERO,                        
-		1.2                                  
+		0.7                                  
 	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 
 	falling_tween.tween_property(
@@ -40,5 +40,5 @@ func exit():
 	if falling_tween and falling_tween.is_running():
 		falling_tween.kill()
 
-	cede.sprite.scale = Vector2.ONE
+	cede.sprite.scale = Vector2(0.5, 0.5)
 	cede.sprite.modulate.a = 1.0

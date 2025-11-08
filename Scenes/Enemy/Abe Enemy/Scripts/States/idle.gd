@@ -8,10 +8,10 @@ func exit() -> void:
 
 func _on_player_turn(player_move_dir: Vector2i):
 	var all_moves = [
-		Vector2i(-1, -1), 
-		Vector2i(1, -1), 
-		Vector2i(-1, 1), 
-		Vector2i(1, 1)
+		Vector2i(1, 0), # Up
+		Vector2i(0, 1),  # Right
+		Vector2i(0, -1),  # Left
+		Vector2i(-1, 0)    # Down
 		]
 	var enemy_move_dir: Vector2i = all_moves.pick_random()
 	

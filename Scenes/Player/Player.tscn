@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://cy0ocl2wy3syl" path="res://Scenes/Player/Scripts/States/respawning.gd" id="9_ji083"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h54ih"]
-radius = 5.0
+radius = 23.086792
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ft8w5")
@@ -22,7 +22,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_825xp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -30)
+position = Vector2(-1, -25)
 shape = SubResource("CircleShape2D_h54ih")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
