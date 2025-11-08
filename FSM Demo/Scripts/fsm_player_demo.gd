@@ -1,4 +1,4 @@
-class_name Player extends CharacterBody2D
+class_name PlayerDEMO extends CharacterBody2D
 
 ## Variables
 @export var speed := 500.0

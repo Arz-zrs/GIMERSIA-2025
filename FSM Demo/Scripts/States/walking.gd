@@ -1,4 +1,4 @@
-extends PlayerState
+extends PlayerStateDEMO
 
 func physics_update(_delta: float) -> void:
 	var input_direction_x := Input.get_axis("Left", "Right")

@@ -1,4 +1,4 @@
-extends PlayerState
+extends PlayerStateDEMO
 
 func enter(previous_state_path: String, data := {}) -> void:
 	player.velocity.y = -player.jump_impulse

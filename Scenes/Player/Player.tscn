@@ -1,7 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkd2van6gammi"]
+[gd_scene load_steps=11 format=3 uid="uid://bkd2van6gammi"]
 
 [ext_resource type="Script" uid="uid://c02yytw51mm1q" path="res://Scenes/Player/Scripts/player.gd" id="1_ft8w5"]
 [ext_resource type="Texture2D" uid="uid://dr7ckrgacd0jr" path="res://Assets/Placeholder/critters/wolf/no effects/wolf-idle.png" id="1_s0eop"]
+[ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/state_machine.gd" id="3_4wape"]
+[ext_resource type="Script" uid="uid://djjx43xw7eb7k" path="res://Scenes/Player/Scripts/States/idle.gd" id="4_t26db"]
+[ext_resource type="Script" uid="uid://b6t7lundra15l" path="res://Scenes/Player/Scripts/States/hopping.gd" id="5_fk5o5"]
+[ext_resource type="Script" uid="uid://cdlyqsvcw85vr" path="res://Scenes/Player/Scripts/States/landing.gd" id="6_825xp"]
+[ext_resource type="Script" uid="uid://bsw0bfyxd6vob" path="res://Scenes/Player/Scripts/States/falling.gd" id="7_t26db"]
+[ext_resource type="Script" uid="uid://bhnmqur0gigqc" path="res://Scenes/Player/Scripts/States/dead.gd" id="8_825xp"]
+[ext_resource type="Script" uid="uid://cy0ocl2wy3syl" path="res://Scenes/Player/Scripts/States/respawning.gd" id="9_ji083"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h54ih"]
 radius = 6.0
@@ -10,10 +17,33 @@ radius = 6.0
 script = ExtResource("1_ft8w5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
 texture = ExtResource("1_s0eop")
 hframes = 4
 vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 6)
+position = Vector2(1, -25)
 shape = SubResource("CircleShape2D_h54ih")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_4wape")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_t26db")
+
+[node name="Hopping" type="Node" parent="StateMachine"]
+script = ExtResource("5_fk5o5")
+
+[node name="Landing" type="Node" parent="StateMachine"]
+script = ExtResource("6_825xp")
+
+[node name="Falling" type="Node" parent="StateMachine"]
+script = ExtResource("7_t26db")
+
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource("8_825xp")
+
+[node name="Respawning" type="Node" parent="StateMachine"]
+script = ExtResource("9_ji083")

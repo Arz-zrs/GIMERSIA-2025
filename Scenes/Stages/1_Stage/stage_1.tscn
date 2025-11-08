@@ -14,3 +14,7 @@ tile_set = ExtResource("1_t1uq6")
 
 [node name="Player" parent="." node_paths=PackedStringArray("world") instance=ExtResource("2_0j8e6")]
 world = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(637, 342)
+zoom = Vector2(2, 2)
