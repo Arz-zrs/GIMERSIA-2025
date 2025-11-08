@@ -24,14 +24,14 @@ func _start_hop(target_grid_pos: Vector2i):
 	var target_screen_pos = abe.world.get_screen_pos_for_cell(target_grid_pos)
 	
 	hop_tween = abe.create_tween()
-	hop_tween.set_parallel(true)
+	hop_tween.set_parallel(true) 
 	hop_tween.tween_property(abe, "global_position", target_screen_pos, 0.25)\
 		.set_trans(Tween.TRANS_QUAD)\
 		.set_ease(Tween.EASE_OUT)
 		
 	var arc_tween = abe.create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	arc_tween.tween_property(abe.sprite, "scale:y", abe.sprite.y + 0.5, 0.125) 
-	arc_tween.tween_property(abe.sprite, "scale:y", abe.sprite.y - 0.5, 0.125) 
+	arc_tween.tween_property(abe.sprite, "scale:y", 1.0, 0.125) 
+	arc_tween.tween_property(abe.sprite, "scale:y", 0.5, 0.125)
 	
 	await hop_tween.finished
 	var data: Dictionary = {"target_grid_pos": target_grid_pos}

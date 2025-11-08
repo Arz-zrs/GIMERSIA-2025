@@ -35,6 +35,7 @@ func _start_falling():
 	).set_trans(Tween.TRANS_SINE)
 	
 	await falling_tween.finished
+	finished.emit(SPAWNING)
 
 func exit():
 	if falling_tween and falling_tween.is_running():

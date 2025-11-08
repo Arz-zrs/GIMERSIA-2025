@@ -5,6 +5,8 @@ var move_counter: int = 0
 var has_player_spawned: bool = false
 
 func enter(previous_state_path: String, data := {}) -> void:
+	abe.current_grid_pos = abe.spawn_grid_pos
+	abe.global_position = abe.world.get_screen_pos_for_cell(abe.current_grid_pos)
 	move_counter = 0
 	print("test")
 	has_player_spawned = false

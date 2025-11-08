@@ -5,6 +5,8 @@ var move_counter: int = 0
 var has_player_spawned: bool = false
 
 func enter(previous_state_path: String, data := {}) -> void:
+	cede.current_grid_pos = cede.spawn_grid_pos
+	cede.global_position = cede.world.get_screen_pos_for_cell(cede.current_grid_pos)
 	move_counter = 0
 	print("test")
 	has_player_spawned = false
