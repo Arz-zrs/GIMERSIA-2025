@@ -4,6 +4,7 @@ class_name Abe extends CharacterBody2D
 var current_grid_pos: Vector2i
 var spawn_grid_pos: Vector2i
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var move_highlighter: Sprite2D = $MoveHighlighter
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

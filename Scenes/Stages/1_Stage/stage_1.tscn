@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://daxnu8a1uxkjv" path="res://Scenes/Stages/Scripts/States/game_over.gd" id="8_7828x"]
 [ext_resource type="Script" uid="uid://5boubu6k3rn6" path="res://Scenes/Stages/Scripts/level_cleared_menu.gd" id="9_gtyqx"]
 [ext_resource type="Script" uid="uid://drw3spke2r61c" path="res://Scenes/Stages/Scripts/game_over_menu.gd" id="10_f1gwu"]
-[ext_resource type="PackedScene" uid="uid://3lfqcf0p51yk" path="res://Scenes/Enemy/Cede Enemy/cede_enemy.tscn" id="11_r1t47"]
+[ext_resource type="PackedScene" uid="uid://bodfdnmi8mavi" path="res://Scenes/Enemy/Abe Enemy/abe_enemy.tscn" id="11_r1t47"]
 
 [node name="Stage1" type="Node2D" node_paths=PackedStringArray("tilemap_layer", "player", "level_cleared_menu", "game_over_menu")]
 script = ExtResource("1_qwrnw")
@@ -111,5 +111,5 @@ theme_override_font_sizes/font_size = 64
 text = "You Lose
 "
 
-[node name="CedeEnemy" parent="." node_paths=PackedStringArray("world") instance=ExtResource("11_r1t47")]
+[node name="AbeEnemy" parent="." node_paths=PackedStringArray("world") instance=ExtResource("11_r1t47")]
 world = NodePath("..")
