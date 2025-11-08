@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://pd3tx65n8mti" path="res://FSM Demo/fsm_player_demo.tscn" id="1_pe24o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pe24o"]
-size = Vector2(1347, 26)
+size = Vector2(1346.5, 26)
 
 [node name="FsmDemo" type="Node2D"]
 
@@ -13,5 +13,5 @@ position = Vector2(717, 299)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(649, 724)
+position = Vector2(648.75, 724)
 shape = SubResource("RectangleShape2D_pe24o")

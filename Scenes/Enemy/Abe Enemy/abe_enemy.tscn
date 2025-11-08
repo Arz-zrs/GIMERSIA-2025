@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=3 uid="uid://bodfdnmi8mavi"]
+
+[ext_resource type="Script" uid="uid://67phwo4v7smj" path="res://Scenes/Enemy/Abe Enemy/Scripts/abe_enemy.gd" id="1_ipp3g"]
+[ext_resource type="Texture2D" uid="uid://b3ra7mrpomd7e" path="res://Assets/Placeholder/critters/boar/boar_SE_idle_0.png" id="1_o7cib"]
+[ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/state_machine.gd" id="3_e8apx"]
+[ext_resource type="Script" uid="uid://dotwni1q2bh7u" path="res://Scenes/Enemy/Abe Enemy/Scripts/States/idle.gd" id="4_6bmev"]
+[ext_resource type="Script" uid="uid://ddgs0r173jhwt" path="res://Scenes/Enemy/Abe Enemy/Scripts/States/hopping.gd" id="5_6oqfi"]
+[ext_resource type="Script" uid="uid://d3g0d3ljvq0rj" path="res://Scenes/Enemy/Abe Enemy/Scripts/States/spawning.gd" id="6_xkms2"]
+[ext_resource type="Script" uid="uid://cn851ibr420tk" path="res://Scenes/Enemy/Abe Enemy/Scripts/States/falling.gd" id="7_een2v"]
+[ext_resource type="Script" uid="uid://c07lc4hx7cnm6" path="res://Scenes/Enemy/Abe Enemy/Scripts/States/landing.gd" id="7_uddw2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o7cib"]
+radius = 5.0
+
+[node name="AbeEnemy" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_ipp3g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("1_o7cib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -30)
+shape = SubResource("CircleShape2D_o7cib")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_e8apx")
+initial_state = NodePath("Spawning")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_6bmev")
+
+[node name="Hopping" type="Node" parent="StateMachine"]
+script = ExtResource("5_6oqfi")
+
+[node name="Spawning" type="Node" parent="StateMachine"]
+script = ExtResource("6_xkms2")
+
+[node name="Landing" type="Node" parent="StateMachine"]
+script = ExtResource("7_uddw2")
+
+[node name="Falling" type="Node" parent="StateMachine"]
+script = ExtResource("7_een2v")
