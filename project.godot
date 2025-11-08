@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameStates="*res://Scripts/1_Singleton/game_states.gd"
+TurnManager="*res://Scripts/1_Singleton/TurnManager.gd"
 
 [display]
 

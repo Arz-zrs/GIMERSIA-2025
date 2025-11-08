@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://c03yw85t8qyf2"]
+[gd_scene load_steps=12 format=4 uid="uid://c03yw85t8qyf2"]
 
 [ext_resource type="Script" uid="uid://hha50x3tkip2" path="res://Scenes/Stages/Scripts/level.gd" id="1_qwrnw"]
 [ext_resource type="TileSet" uid="uid://buud1shxc1yr2" path="res://Assets/Placeholder/Tileset/pyramid_tileset.tres" id="1_t1uq6"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://daxnu8a1uxkjv" path="res://Scenes/Stages/Scripts/States/game_over.gd" id="8_7828x"]
 [ext_resource type="Script" uid="uid://5boubu6k3rn6" path="res://Scenes/Stages/Scripts/level_cleared_menu.gd" id="9_gtyqx"]
 [ext_resource type="Script" uid="uid://drw3spke2r61c" path="res://Scenes/Stages/Scripts/game_over_menu.gd" id="10_f1gwu"]
+[ext_resource type="PackedScene" uid="uid://3lfqcf0p51yk" path="res://Scenes/Enemy/Cede Enemy/cede_enemy.tscn" id="11_r1t47"]
 
 [node name="Stage1" type="Node2D" node_paths=PackedStringArray("tilemap_layer", "player", "level_cleared_menu", "game_over_menu")]
 script = ExtResource("1_qwrnw")
@@ -100,3 +101,6 @@ offset_right = 665.0
 offset_bottom = 244.0
 text = "You Lose
 "
+
+[node name="CedeEnemy" parent="." node_paths=PackedStringArray("world") instance=ExtResource("11_r1t47")]
+world = NodePath("..")
