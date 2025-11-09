@@ -30,8 +30,8 @@ func _start_hop(target_grid_pos: Vector2i):
 		.set_ease(Tween.EASE_OUT)
 		
 	var arc_tween = abe.create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	arc_tween.tween_property(abe.sprite, "scale:y", 1.0, 0.125) 
-	arc_tween.tween_property(abe.sprite, "scale:y", 0.5, 0.125)
+	arc_tween.tween_property(abe.sprite, "scale:y", DEFAULT_SCALE.y + DEFAULT_SCALE.y/2, 0.125) 
+	arc_tween.tween_property(abe.sprite, "scale:y", DEFAULT_SCALE.y, 0.125)
 	
 	await hop_tween.finished
 	var data: Dictionary = {"target_grid_pos": target_grid_pos}

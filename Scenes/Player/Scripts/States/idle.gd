@@ -1,6 +1,18 @@
 extends PlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
+	if data.has("next_move"):
+		if data["next_move"] == Vector2i(1,0):
+			player.animation_player.play("idle_up")
+		elif data["next_move"] == Vector2i(0,1):
+			player.animation_player.play("idle_right")
+		elif data["next_move"] == Vector2i(0,-1):
+			player.animation_player.play("idle_left")
+		elif data["next_move"] == Vector2i(-1,0):
+			player.animation_player.play("idle_down")
+	else:
+		player.animation_player.play("idle_down")
+	
 	if player.input_buffer != Vector2i.ZERO:
 		finished.emit(HOPPING)
 

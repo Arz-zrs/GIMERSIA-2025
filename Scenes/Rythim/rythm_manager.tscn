@@ -1,11 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhg2ek4b2v330"]
+[gd_scene load_steps=4 format=3 uid="uid://bhg2ek4b2v330"]
 
 [ext_resource type="Script" uid="uid://blqxm2qtw031a" path="res://Scenes/Rythim/Scripts/rythm_manager.gd" id="1_hwo2s"]
+[ext_resource type="Texture2D" uid="uid://cq0bi32cr507g" path="res://Assets/beat.png" id="2_ajohh"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ajohh"]
+size = Vector2(600, 30)
 
 [node name="RythmManager" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_hwo2s")
+metadata/_edit_use_anchors_ = true
 
 [node name="BeatIndicator" type="ColorRect" parent="."]
 layout_mode = 0
@@ -15,3 +20,29 @@ offset_right = 1230.0
 offset_bottom = 695.0
 
 [node name="BeatTimer" type="Timer" parent="."]
+
+[node name="left_progress_bar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = 659.0
+offset_right = 631.0
+offset_bottom = 689.0
+grow_vertical = 2
+fill_mode = 1
+texture_progress = SubResource("PlaceholderTexture2D_ajohh")
+
+[node name="right_progress_bar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 647.0
+offset_top = 660.0
+offset_right = 1247.0
+offset_bottom = 691.0
+texture_progress = SubResource("PlaceholderTexture2D_ajohh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(648, 662)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_ajohh")
+hframes = 2

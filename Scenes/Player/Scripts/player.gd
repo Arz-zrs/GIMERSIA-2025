@@ -7,6 +7,7 @@ var lives: int = 3
 var is_hopping: bool = false
 
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready():
 	current_grid_pos = world.get_spawn_pos()

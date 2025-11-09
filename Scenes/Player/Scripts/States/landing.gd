@@ -9,7 +9,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 			finished.emit(DEAD)
 		else:
 			player.world.on_player_landed(player.current_grid_pos)
-			finished.emit(IDLE)
+			finished.emit(IDLE, {"next_move" : data["next_move"]})
 	else:
 		finished.emit(FALLING)
 

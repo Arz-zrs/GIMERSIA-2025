@@ -7,6 +7,8 @@ const FALLING = "Falling"
 const DEAD = "Dead"
 const RESPAWNING = "Respawning"
 
+const DEFAULT_SCALE: Vector2 = Vector2(0.2, 0.2)
+
 var player: Player
 
 func _ready() -> void:
