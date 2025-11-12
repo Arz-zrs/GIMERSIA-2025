@@ -10,6 +10,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tq4a2"]
 
 [node name="LevelSelection" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_8xar1")
@@ -35,6 +36,7 @@ alignment = 1
 [node name="Stage1" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_wrvio")
 texture_disabled = ExtResource("4_tq4a2")
 ignore_texture_size = true
@@ -42,12 +44,14 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Stage1"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 1
 layout_mode = 0
 offset_left = 96.0
 offset_top = 41.0
 offset_right = 136.0
 offset_bottom = 86.0
 scale = Vector2(2.5837834, 2.4974613)
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 text = "1"
 horizontal_alignment = 1
@@ -56,6 +60,7 @@ vertical_alignment = 1
 [node name="Stage2" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_wrvio")
 texture_disabled = ExtResource("4_tq4a2")
 ignore_texture_size = true
@@ -63,12 +68,14 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Stage2"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 1
 layout_mode = 0
 offset_left = 96.0
 offset_top = 41.0
 offset_right = 136.0
 offset_bottom = 86.0
 scale = Vector2(2.5837834, 2.4974613)
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 text = "2"
 horizontal_alignment = 1
@@ -77,6 +84,7 @@ vertical_alignment = 1
 [node name="Stage3" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_wrvio")
 texture_disabled = ExtResource("4_tq4a2")
 ignore_texture_size = true
@@ -84,12 +92,14 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Stage3"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 1
 layout_mode = 0
 offset_left = 96.0
 offset_top = 41.0
 offset_right = 136.0
 offset_bottom = 86.0
 scale = Vector2(2.5837834, 2.4974613)
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 text = "3"
 horizontal_alignment = 1
@@ -100,8 +110,10 @@ layout_mode = 2
 alignment = 1
 
 [node name="Stage4" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
+texture_filter = 1
 custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_wrvio")
 texture_disabled = ExtResource("4_tq4a2")
 ignore_texture_size = true
@@ -109,20 +121,24 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/Stage4"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 1
 layout_mode = 0
 offset_left = 96.0
 offset_top = 41.0
 offset_right = 136.0
 offset_bottom = 86.0
 scale = Vector2(2.5837834, 2.4974613)
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 text = "4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Stage5" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
+texture_filter = 1
 custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_wrvio")
 texture_disabled = ExtResource("4_tq4a2")
 ignore_texture_size = true
@@ -130,20 +146,24 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/Stage5"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 1
 layout_mode = 0
 offset_left = 96.0
 offset_top = 41.0
 offset_right = 136.0
 offset_bottom = 86.0
 scale = Vector2(2.5837834, 2.4974613)
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Stage6" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
+texture_filter = 1
 custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_wrvio")
 texture_disabled = ExtResource("4_tq4a2")
 ignore_texture_size = true
@@ -151,18 +171,21 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/Stage6"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 1
 layout_mode = 0
 offset_left = 96.0
 offset_top = 41.0
 offset_right = 136.0
 offset_bottom = 86.0
 scale = Vector2(2.5837834, 2.4974613)
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 text = "6"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="."]
+texture_filter = 1
 layout_mode = 0
 offset_left = 327.0
 offset_top = 81.0
@@ -182,6 +205,7 @@ offset_top = 63.0
 offset_right = 204.0
 offset_bottom = 186.0
 scale = Vector2(0.83763057, 0.83763057)
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("3_tcw1j")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tq4a2")

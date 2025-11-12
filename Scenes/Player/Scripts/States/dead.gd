@@ -1,8 +1,9 @@
 extends PlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
-	if player.lives > 0:
-		player.lives -= 1
+	if GameStates.player_lives > 0:
+		GameStates.player_lives -= 1
+		player.world.rythim_manager.update_hp()
 		finished.emit(RESPAWNING)
 	else:
 		print("Game Over")

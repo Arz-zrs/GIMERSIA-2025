@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://bxavt201ne8dd"]
+[gd_scene load_steps=39 format=4 uid="uid://bxavt201ne8dd"]
 
 [ext_resource type="Script" uid="uid://wchgvoygwfam" path="res://Scenes/Stages/3_Stage/stage_3.gd" id="1_wahff"]
 [ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Player/Player.tscn" id="2_0j8e6"]
@@ -13,7 +13,6 @@
 [ext_resource type="Script" uid="uid://daxnu8a1uxkjv" path="res://Scenes/Stages/Scripts/States/game_over.gd" id="8_7828x"]
 [ext_resource type="Script" uid="uid://5boubu6k3rn6" path="res://Scenes/Stages/Scripts/level_cleared_menu.gd" id="9_gtyqx"]
 [ext_resource type="Script" uid="uid://drw3spke2r61c" path="res://Scenes/Stages/Scripts/game_over_menu.gd" id="10_f1gwu"]
-[ext_resource type="Texture2D" uid="uid://bn2ycn6juow7f" path="res://Assets/Menu/Asset_25.png" id="11_8x5cj"]
 [ext_resource type="Texture2D" uid="uid://doa2lmuqeux4f" path="res://Assets/Menu/Asset_27.png" id="11_akl1l"]
 [ext_resource type="PackedScene" uid="uid://bodfdnmi8mavi" path="res://Scenes/Enemy/Abe Enemy/abe_enemy.tscn" id="11_r1t47"]
 [ext_resource type="PackedScene" uid="uid://bhg2ek4b2v330" path="res://Scenes/Rythim/rythm_manager.tscn" id="12_1bqcc"]
@@ -33,8 +32,6 @@
 [ext_resource type="PackedScene" uid="uid://3lfqcf0p51yk" path="res://Scenes/Enemy/Cede Enemy/cede_enemy.tscn" id="31_2c5un"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_055xg"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjpfr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1krj1"]
 
@@ -142,26 +139,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxEmpty_055xg")
 icon = ExtResource("11_akl1l")
-flat = true
-icon_alignment = 1
-
-[node name="NextButton" type="Button" parent="LevelClearedMenu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -21.0
-offset_right = 12.0
-offset_bottom = 72.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.2326714, 1.2326714)
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 64
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sjpfr")
-icon = ExtResource("11_8x5cj")
 flat = true
 icon_alignment = 1
 
@@ -292,15 +269,25 @@ world = NodePath("..")
 script = ExtResource("13_lhrxu")
 
 [node name="ScoreLabel" type="Label" parent="Score"]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.5
+offset_right = 52.5
+offset_bottom = 39.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "Score: 0"
 
 [node name="MultiplierLabel" type="Label" parent="Score"]
-offset_top = 29.0
-offset_right = 105.0
-offset_bottom = 68.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -53.0
+offset_top = 39.0
+offset_right = 52.0
+offset_bottom = 78.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "Score: 0"
 
@@ -460,6 +447,10 @@ position = Vector2(519, 550)
 world = NodePath("..")
 target_move_counter = 7
 
+[connection signal="pressed" from="LevelClearedMenu/RetryButton" to="." method="_on_game_over_retry_pressed"]
+[connection signal="pressed" from="LevelClearedMenu/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="GameOverMenu/RetryButton" to="." method="_on_game_over_retry_pressed"]
+[connection signal="pressed" from="GameOverMenu/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="PausedMenu/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="PausedMenu/CanvasLayer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PausedMenu/CanvasLayer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

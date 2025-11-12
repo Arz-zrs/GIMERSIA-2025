@@ -7,7 +7,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	print("Game Started")
 
 func update(_delta: float) -> void:
-	if level.player.lives <= 0:
+	if GameStates.player_lives <= 0:
 		finished.emit(GAME_OVER)
 		return
 	

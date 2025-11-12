@@ -7,6 +7,10 @@ var score: int = 0
 var multiplier: int = 1
 var consecutive_jumps: int = 0
 var on_ride_disc: bool = false
+var player_lives: int = 3
+
+@onready var scene_main_menu = preload("res://Scenes/Stages/menu/main_menu.tscn")
+@onready var scene_level_selector = preload("res://Scenes/Stages/level_selection/level_selection.tscn")
 
 signal game
 signal score_updated(new_score)
@@ -36,6 +40,7 @@ func reset_game_stats():
 	score = 0
 	multiplier = 1
 	consecutive_jumps = 0
+	player_lives = 3
 	game_over = false
 	score_updated.emit(score)
 	multiplier_updated.emit(multiplier)

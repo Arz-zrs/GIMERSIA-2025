@@ -13,3 +13,6 @@ func get_cell_for_global_pos(global_pos: Vector2) -> Vector2i:
 
 func get_spawn_pos() -> Vector2i:
 	return Vector2i(1, 4)
+
+func _on_next_button_pressed() -> void:
+	get_tree().change_scene_to_packed(preload("res://Scenes/Stages/3_Tutorial/tutorial_3.tscn"))

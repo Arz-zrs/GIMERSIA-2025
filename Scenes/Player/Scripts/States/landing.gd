@@ -13,6 +13,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	print(player.current_grid_pos)
 	if _is_valid_cell(player.current_grid_pos):
 		if _is_on_enemy_tile(player.current_grid_pos):
+			AudioAutoloader.playHitSound()
 			finished.emit(DEAD)
 		else:
 			player.world.on_player_landed(player.current_grid_pos)

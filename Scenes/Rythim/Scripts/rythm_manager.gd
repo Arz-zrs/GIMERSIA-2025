@@ -11,6 +11,7 @@ var beat_per_second:float = 60/beat_per_minute
 @onready var right_progress_bar =  $right_progress_bar
 @onready var left_progress_bar =  $left_progress_bar
 
+@onready var health_bar = $HBoxContainer
 
 func _ready() -> void:
 	beat_timer.wait_time = beat_per_second
@@ -42,6 +43,7 @@ func beat_stop():
 
 func _on_beat_timer_timeout():
 	if player.is_hopping:
+		AudioAutoloader.playPerfectSound()
 		beat_indicator.color = Color.GREEN
 		beat_sprite.frame_coords = Vector2(1, 0)
 		await get_tree().create_timer(0.2).timeout
@@ -57,3 +59,16 @@ func _on_beat_timer_timeout():
 	await get_tree().create_timer(0.2).timeout
 	beat_indicator.color = Color.WHITE
 	beat_sprite.frame_coords = Vector2(0, 0)
+
+func update_hp():
+	print("Updating HP")
+	var current_lives: int = GameStates.player_lives
+
+	for i in range(health_bar.get_child_count()):
+		var heart_icon = health_bar.get_child(i)
+		if i < current_lives:
+			heart_icon.visible = true
+		else:
+			heart_icon.visible = false
+		
+	

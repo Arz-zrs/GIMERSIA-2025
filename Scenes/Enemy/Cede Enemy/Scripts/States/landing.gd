@@ -6,6 +6,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	if _is_valid_cell(cede.current_grid_pos):
 		if _is_on_player_tile(cede.current_grid_pos):
 			var player_node = cede.get_meta("player_node")
+			AudioAutoloader.playHitSound()
 			player_node.emit_signal("hit_by_enemy")
 		finished.emit(IDLE)
 	else:

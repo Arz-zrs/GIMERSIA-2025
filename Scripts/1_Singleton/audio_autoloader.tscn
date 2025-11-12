@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2jvedrgo018g"]
+
+[ext_resource type="AudioStream" uid="uid://cu0gcssbxx57n" path="res://Assets/myinstants.mp3" id="1_ie4j8"]
+[ext_resource type="Script" uid="uid://dt7qy3b2f48of" path="res://Scripts/1_Singleton/audio_autoloader.gd" id="1_l6yye"]
+[ext_resource type="AudioStream" uid="uid://qmt2a4fjjmww" path="res://Assets/game-bonus-02-294436.mp3" id="3_6exk0"]
+
+[node name="AudioAutoloader" type="Node2D"]
+script = ExtResource("1_l6yye")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_ie4j8")
+
+[node name="PerfectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6exk0")
