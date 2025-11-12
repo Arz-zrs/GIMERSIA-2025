@@ -1,0 +1,337 @@
+[gd_scene load_steps=30 format=4 uid="uid://5jf1d8r4hhcw"]
+
+[ext_resource type="Script" uid="uid://btqtaju2ak8av" path="res://Scenes/Stages/1_Tutorial/tutorial_1.gd" id="1_quoc6"]
+[ext_resource type="PackedScene" uid="uid://54msct5mm3np" path="res://Scenes/Cube/Floating Disc/floating_disc.tscn" id="2_jyy2b"]
+[ext_resource type="TileSet" uid="uid://buud1shxc1yr2" path="res://Assets/Tileset/pyramid_tileset.tres" id="3_xqfws"]
+[ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Player/Player.tscn" id="4_wwam5"]
+[ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/state_machine.gd" id="5_r78vx"]
+[ext_resource type="Script" uid="uid://btdyr5fij8mdv" path="res://Scenes/Stages/Scripts/States/ready.gd" id="6_nsdeq"]
+[ext_resource type="Script" uid="uid://cf0fhq4jg7n28" path="res://Scenes/Stages/Scripts/States/playing.gd" id="7_mrr7p"]
+[ext_resource type="Script" uid="uid://dpgsgkseg6256" path="res://Scenes/Stages/Scripts/States/level_cleared.gd" id="8_u4gmt"]
+[ext_resource type="Script" uid="uid://daxnu8a1uxkjv" path="res://Scenes/Stages/Scripts/States/game_over.gd" id="9_75rwc"]
+[ext_resource type="Script" uid="uid://5boubu6k3rn6" path="res://Scenes/Stages/Scripts/level_cleared_menu.gd" id="10_vym35"]
+[ext_resource type="Script" uid="uid://drw3spke2r61c" path="res://Scenes/Stages/Scripts/game_over_menu.gd" id="11_e2tqj"]
+[ext_resource type="PackedScene" uid="uid://bhg2ek4b2v330" path="res://Scenes/Rythim/rythm_manager.tscn" id="12_q3fcs"]
+[ext_resource type="Script" uid="uid://47wo1rcc8wi5" path="res://Scripts/ScoreUI.gd" id="14_j214j"]
+[ext_resource type="Texture2D" uid="uid://bfyqajirycyn0" path="res://Assets/Menu/Pause_Icon.png" id="15_6quh5"]
+[ext_resource type="Texture2D" uid="uid://cwofxiij4ywav" path="res://Assets/Menu/Pause_Bg_Menu.png" id="16_gcr7j"]
+[ext_resource type="Texture2D" uid="uid://c2qgma72oly7f" path="res://Assets/Menu/Bacground_text_Game_Paused.png" id="17_qpdfw"]
+[ext_resource type="FontFile" uid="uid://c4taoa7bk06us" path="res://Assets/Fonts/CALIFB.TTF" id="18_4tfpb"]
+[ext_resource type="Script" uid="uid://d1ow7lbaixyxk" path="res://Scenes/Stages/Scripts/AudioManager.gd" id="19_l7fnw"]
+[ext_resource type="Texture2D" uid="uid://dsdh8iulbty2x" path="res://Assets/Menu/Background_Icon_Sound_And_Music.png" id="20_aept8"]
+[ext_resource type="Texture2D" uid="uid://d21yi1hn284r0" path="res://Assets/Menu/Icon_Sound.png" id="21_bwoj1"]
+[ext_resource type="Texture2D" uid="uid://do5ilt2p8aaf0" path="res://Assets/Menu/Toggle_Bar_Volume.png" id="22_tkf5i"]
+[ext_resource type="Texture2D" uid="uid://de6fgpqoxnfkr" path="res://Assets/Menu/Bar_Volume.png" id="23_bt1s5"]
+[ext_resource type="Texture2D" uid="uid://cixayqhfxd7tp" path="res://Assets/Menu/Icon_Music.png" id="24_5n3ht"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oayhs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d5tw0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ljpar"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e2klu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n4qih"]
+texture = ExtResource("23_bt1s5")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ibjl"]
+texture = ExtResource("23_bt1s5")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[node name="Tutorial1" type="Node2D" node_paths=PackedStringArray("tilemap_layer", "player", "level_cleared_menu", "game_over_menu", "rythim_manager")]
+script = ExtResource("1_quoc6")
+tilemap_layer = NodePath("TileMapLayer")
+player = NodePath("Player")
+level_cleared_menu = NodePath("LevelClearedMenu")
+game_over_menu = NodePath("GameOverMenu")
+rythim_manager = NodePath("RythmManager")
+
+[node name="FloatingDisc1" parent="." instance=ExtResource("2_jyy2b")]
+position = Vector2(353, 493)
+target_marker = NodePath("../Marker2D")
+
+[node name="FloatingDisc2" parent="." instance=ExtResource("2_jyy2b")]
+position = Vector2(875, 496)
+target_marker = NodePath("../Marker2D")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-1.9999999, 79.99999)
+scale = Vector2(0.2, 0.2)
+tile_map_data = PackedByteArray("AAAFAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAACAAYAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAkAAAAAAAAAAAAFAAoAAAAAAAAAAAAEAAkAAAAAAAAAAAADAAgAAAAAAAAAAAACAAcAAAAAAAAAAAABAAYAAAAAAAAAAAA=")
+tile_set = ExtResource("3_xqfws")
+
+[node name="Player" parent="." node_paths=PackedStringArray("world") instance=ExtResource("4_wwam5")]
+z_index = 1
+position = Vector2(610, 296)
+world = NodePath("..")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_r78vx")
+initial_state = NodePath("Ready")
+
+[node name="Ready" type="Node" parent="StateMachine"]
+script = ExtResource("6_nsdeq")
+
+[node name="Playing" type="Node" parent="StateMachine"]
+script = ExtResource("7_mrr7p")
+
+[node name="LevelCleared" type="Node" parent="StateMachine"]
+script = ExtResource("8_u4gmt")
+
+[node name="GameOver" type="Node" parent="StateMachine"]
+script = ExtResource("9_75rwc")
+
+[node name="LevelClearedMenu" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("10_vym35")
+
+[node name="RetryButton" type="Button" parent="LevelClearedMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -15.5
+offset_right = 25.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Retry"
+
+[node name="Label" type="Label" parent="LevelClearedMenu"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -137.5
+offset_right = 137.5
+offset_bottom = 188.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "You Won
+"
+
+[node name="NextButton" type="Button" parent="LevelClearedMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -168.0
+offset_right = 85.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Next"
+
+[node name="GameOverMenu" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("11_e2tqj")
+
+[node name="RetryButton" type="Button" parent="GameOverMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -15.5
+offset_right = 25.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Retry"
+
+[node name="Label" type="Label" parent="GameOverMenu"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -138.0
+offset_right = 138.0
+offset_bottom = 179.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "You Lose
+"
+
+[node name="RythmManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("12_q3fcs")]
+player = NodePath("../Player")
+
+[node name="Score" type="CanvasLayer" parent="."]
+script = ExtResource("14_j214j")
+
+[node name="ScoreLabel" type="Label" parent="Score"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 28
+text = "Score: 0"
+
+[node name="MultiplierLabel" type="Label" parent="Score"]
+offset_top = 29.0
+offset_right = 105.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 28
+text = "Score: 0"
+
+[node name="PausedMenu" type="CanvasLayer" parent="."]
+
+[node name="PauseButton" type="Button" parent="PausedMenu"]
+offset_left = 1178.0
+offset_top = 15.0
+offset_right = 1699.0
+offset_bottom = 536.0
+scale = Vector2(0.1600049, 0.15555653)
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oayhs")
+toggle_mode = true
+icon = ExtResource("15_6quh5")
+flat = true
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PausedMenu"]
+process_mode = 3
+visible = false
+
+[node name="PauseInterface" type="TextureRect" parent="PausedMenu/CanvasLayer"]
+offset_left = 10.0
+offset_top = -70.0
+offset_right = 1291.0
+offset_bottom = 651.0
+texture = ExtResource("16_gcr7j")
+
+[node name="PausedTextBackground" type="TextureRect" parent="PausedMenu/CanvasLayer"]
+offset_left = 473.0
+offset_top = 137.0
+offset_right = 834.0
+offset_bottom = 194.0
+texture = ExtResource("17_qpdfw")
+
+[node name="PauseLabel" type="Label" parent="PausedMenu/CanvasLayer/PausedTextBackground"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = -3.9999988
+offset_right = 128.0
+offset_bottom = 19.000002
+scale = Vector2(3.011603, 3.011603)
+theme_override_fonts/font = ExtResource("18_4tfpb")
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PausedMenu/CanvasLayer"]
+offset_left = 532.00006
+offset_top = 304.0
+offset_right = 644.32
+offset_bottom = 387.0
+scale = Vector2(2.1430452, 2.1430452)
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PausedMenu/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("18_4tfpb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d5tw0")
+toggle_mode = true
+text = "Resume"
+flat = true
+
+[node name="QuitButton" type="Button" parent="PausedMenu/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("18_4tfpb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ljpar")
+text = "Quit
+"
+flat = true
+
+[node name="MenuButton" type="Button" parent="PausedMenu/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("18_4tfpb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e2klu")
+text = "Main Menu"
+flat = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PausedMenu/CanvasLayer"]
+offset_left = 493.0
+offset_top = 206.0
+offset_right = 564.0
+offset_bottom = 292.0
+script = ExtResource("19_l7fnw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PausedMenu/CanvasLayer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="IconBackground" type="TextureRect" parent="PausedMenu/CanvasLayer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("20_aept8")
+
+[node name="SoundIcon" type="TextureRect" parent="PausedMenu/CanvasLayer/VBoxContainer2/HBoxContainer/IconBackground"]
+layout_mode = 0
+offset_left = 7.9999995
+offset_top = 5.0
+offset_right = 22.0
+offset_bottom = 46.0
+scale = Vector2(1.5793732, 0.74864525)
+texture = ExtResource("21_bwoj1")
+
+[node name="MusicSlider" type="HSlider" parent="PausedMenu/CanvasLayer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(250, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_icons/grabber = ExtResource("22_tkf5i")
+theme_override_icons/grabber_highlight = ExtResource("22_tkf5i")
+theme_override_styles/slider = SubResource("StyleBoxTexture_n4qih")
+max_value = 1.0
+step = 0.01
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PausedMenu/CanvasLayer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="IconBackground2" type="TextureRect" parent="PausedMenu/CanvasLayer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("20_aept8")
+
+[node name="MusicIcon" type="TextureRect" parent="PausedMenu/CanvasLayer/VBoxContainer2/HBoxContainer2/IconBackground2"]
+layout_mode = 0
+offset_left = 7.999999
+offset_top = 8.000001
+offset_right = 28.0
+offset_bottom = 49.0
+scale = Vector2(1.0521222, 0.61714286)
+texture = ExtResource("24_5n3ht")
+
+[node name="SfxSlider" type="HSlider" parent="PausedMenu/CanvasLayer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_icons/grabber = ExtResource("22_tkf5i")
+theme_override_icons/grabber_highlight = ExtResource("22_tkf5i")
+theme_override_icons/grabber_disabled = ExtResource("22_tkf5i")
+theme_override_styles/slider = SubResource("StyleBoxTexture_4ibjl")
+max_value = 1.0
+step = 0.01
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(612, 237)
