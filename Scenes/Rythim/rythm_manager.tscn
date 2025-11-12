@@ -22,6 +22,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BeatIndicator" type="ColorRect" parent="."]
 visible = false
+modulate = Color(0.47397572, 0.47397572, 0.47397572, 1)
 layout_mode = 0
 offset_left = 49.0
 offset_top = 655.0

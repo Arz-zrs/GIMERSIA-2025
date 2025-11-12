@@ -7,6 +7,7 @@ func exit() -> void:
 	TurnManager.player_turn_taken.disconnect(_on_player_turn)
 
 func _on_player_turn(player_move_dir: Vector2i):
+	GameStates.game_turn += 1
 	cede.player_move_count += 1
 	if cede.player_move_count < 2:
 		return

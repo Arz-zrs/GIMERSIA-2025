@@ -19,6 +19,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	TurnManager.player_turn_taken.connect(_on_player_turn)
 
 func _on_player_turn(player_move_dir: Vector2i):
+	GameStates.game_turn += 1
 	abe.move_highlighter.hide()
 	finished.emit(HOPPING, {"move_direction": _next_move_dir})
 
