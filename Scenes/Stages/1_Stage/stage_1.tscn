@@ -1,9 +1,10 @@
-[gd_scene load_steps=38 format=4 uid="uid://c03yw85t8qyf2"]
+[gd_scene load_steps=39 format=4 uid="uid://c03yw85t8qyf2"]
 
-[ext_resource type="Script" uid="uid://hha50x3tkip2" path="res://Scenes/Stages/Scripts/level.gd" id="1_qwrnw"]
+[ext_resource type="Script" uid="uid://bcfxfsqcjn5js" path="res://Scenes/Stages/1_Stage/stage_1.gd" id="1_sjpfr"]
 [ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Player/Player.tscn" id="2_0j8e6"]
 [ext_resource type="PackedScene" uid="uid://54msct5mm3np" path="res://Scenes/Cube/Floating Disc/floating_disc.tscn" id="2_akl1l"]
 [ext_resource type="TileSet" uid="uid://buud1shxc1yr2" path="res://Assets/Tileset/pyramid_tileset.tres" id="2_f1gwu"]
+[ext_resource type="Texture2D" uid="uid://b4or30hio36fm" path="res://Assets/background_3.png" id="2_vbrga"]
 [ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/state_machine.gd" id="4_n86wx"]
 [ext_resource type="Script" uid="uid://btdyr5fij8mdv" path="res://Scenes/Stages/Scripts/States/ready.gd" id="5_nceub"]
 [ext_resource type="Script" uid="uid://cf0fhq4jg7n28" path="res://Scenes/Stages/Scripts/States/playing.gd" id="6_7828x"]
@@ -58,24 +59,40 @@ texture_margin_right = 5.0
 texture_margin_bottom = 5.0
 
 [node name="Stage1" type="Node2D" node_paths=PackedStringArray("tilemap_layer", "player", "level_cleared_menu", "game_over_menu", "rythim_manager")]
-script = ExtResource("1_qwrnw")
+script = ExtResource("1_sjpfr")
 tilemap_layer = NodePath("TileMapLayer")
 player = NodePath("Player")
 level_cleared_menu = NodePath("LevelClearedMenu")
 game_over_menu = NodePath("GameOverMenu")
 rythim_manager = NodePath("RythmManager")
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1282.0
+offset_bottom = 718.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vbrga")
+
 [node name="FloatingDisc1" parent="." instance=ExtResource("2_akl1l")]
-position = Vector2(256, 588)
+position = Vector2(578, 486)
 target_marker = NodePath("../Marker2D")
 
 [node name="FloatingDisc2" parent="." instance=ExtResource("2_akl1l")]
-position = Vector2(974, 586)
+position = Vector2(680, 485)
 target_marker = NodePath("../Marker2D")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(115.99999, -33.999996)
 scale = Vector2(0.2, 0.2)
-tile_map_data = PackedByteArray("AAAFAAYAAgAAAAAAAAAEAAYAAgAAAAAAAAAFAAcAAgAAAAAAAAADAAYAAgAAAAAAAAAEAAcAAgAAAAAAAAAFAAgAAgAAAAAAAAACAAYAAgAAAAAAAAADAAcAAgAAAAAAAAAEAAgAAgAAAAAAAAAFAAkAAgAAAAAAAAABAAYAAgAAAAAAAAACAAcAAgAAAAAAAAADAAgAAgAAAAAAAAAEAAkAAgAAAAAAAAAFAAoAAgAAAAAAAAAAAAYAAgAAAAAAAAABAAcAAgAAAAAAAAACAAgAAgAAAAAAAAADAAkAAgAAAAAAAAAEAAoAAgAAAAAAAAAFAAsAAgAAAAAAAAD//wYAAgAAAAAAAAAAAAcAAgAAAAAAAAABAAgAAgAAAAAAAAACAAkAAgAAAAAAAAADAAoAAgAAAAAAAAAEAAsAAgAAAAAAAAAFAAwAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAADAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAACAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAABAAQAAAAAAAAAAAACAAUAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAFAAkAAAAAAAAAAAAEAAgAAAAAAAAAAAADAAcAAAAAAAAAAAACAAYAAAAAAAAAAAABAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAD//wQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAYAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAoAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAYAAAAAAAAAAAADAAkAAAAAAAAAAAADAAoAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAsAAAAAAAAAAAAAAAcAAAAAAAAAAAABAAgAAAAAAAAAAAACAAkAAAAAAAAAAAD//wYAAAAAAAAAAAD+/wUAAAAAAAAAAAD9/wQAAAAAAAAAAAAEAAsAAAAAAAAAAAAFAAwAAAAAAAAAAAD9/wUAAAAAAAAAAAD+/wYAAAAAAAAAAAD//wcAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAkAAAAAAAAAAAACAAoAAAAAAAAAAAADAAsAAAAAAAAAAAAEAAwAAAAAAAAAAAA=")
 tile_set = ExtResource("2_f1gwu")
 
 [node name="Player" parent="." node_paths=PackedStringArray("world") instance=ExtResource("2_0j8e6")]
@@ -259,7 +276,18 @@ icon_alignment = 1
 player = NodePath("../Player")
 
 [node name="AbeEnemy" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("11_r1t47")]
+position = Vector2(740, 111)
 world = NodePath("..")
+
+[node name="AbeEnemy3" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("11_r1t47")]
+position = Vector2(832, 552)
+world = NodePath("..")
+target_move_counter = 2
+
+[node name="AbeEnemy2" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("11_r1t47")]
+position = Vector2(330, 403)
+world = NodePath("..")
+target_move_counter = 2
 
 [node name="Score" type="CanvasLayer" parent="."]
 script = ExtResource("13_lhrxu")
@@ -421,7 +449,7 @@ max_value = 1.0
 step = 0.01
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(612, 149)
+position = Vector2(625, 121)
 
 [node name="MusicPlayer" parent="." instance=ExtResource("28_sjpfr")]
 
