@@ -6,6 +6,7 @@ const LANDING = "Landing"
 const FALLING = "Falling"
 const DEAD = "Dead"
 const RESPAWNING = "Respawning"
+const ON_DISC = "OnDisc"
 
 const DEFAULT_SCALE: Vector2 = Vector2(0.2, 0.2)
 
