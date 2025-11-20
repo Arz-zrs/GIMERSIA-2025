@@ -3,30 +3,25 @@ extends Node
 signal player_turn_taken(move_dir: Vector2i)
 signal player_spawn_finished
 
-
 @export var pause_menu_scene: PackedScene
 
-var pause_menu_instance: Control
-
+var pause_menu_instance: CanvasLayer
 
 func _ready():
 	if pause_menu_scene:
 		pause_menu_instance = pause_menu_scene.instantiate()
-		add_child(pause_menu_instance)
-		pause_menu_instance.resume_pressed.connect(toggle_pause)
+		get_tree().get_root().add_child.call_deferred(pause_menu_instance)
+		pause_menu_instance.resume_pressed.connect(_resume)
 		pause_menu_instance.hide()
 	else:
 		push_error("TurnManager: PauseMenu.tscn has not been assigned!")
 
-func _unhandled_input(event: InputEvent):
-	if event.is_action_pressed("pause"):
-		toggle_pause()
-
-func toggle_pause():
-	var is_paused = not get_tree().paused
-	get_tree().paused = is_paused
-	
-	if is_paused:
+func pause():
+	get_tree().paused = true
+	if pause_menu_instance:
 		pause_menu_instance.show()
-	else:
+
+func _resume():
+	get_tree().paused = false
+	if pause_menu_instance:
 		pause_menu_instance.hide()
