@@ -19,8 +19,8 @@ var levels: Array[String] = [
 	"res://Scenes/Stages/3_Stage/stage_3.tscn",
 ]
 
-@onready var scene_main_menu = preload("res://Scenes/Stages/menu/main_menu.tscn")
-@onready var scene_level_selector = preload("res://Scenes/Stages/level_selection/level_selection.tscn")
+@onready var scene_main_menu = preload("res://Scenes/user_interface/menu/main_menu.tscn")
+@onready var scene_level_selector = preload("res://Scenes/user_interface/level_selection/level_selection.tscn")
 
 signal game
 signal score_updated(new_score)
