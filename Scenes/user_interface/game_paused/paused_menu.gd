@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-signal resume_pressed
-
 @onready var resume_button = $CanvasLayer/VBoxContainer/ResumeButton
 @onready var quit_button = $CanvasLayer/VBoxContainer/QuitButton
 @onready var menu_button = $CanvasLayer/VBoxContainer/MenuButton
@@ -20,7 +18,6 @@ func _on_pause_pressed() -> void:
 	$PauseButton.visible = false
 
 func _on_resume_pressed():
-	resume_pressed.emit()
 	get_tree().paused = false
 	$CanvasLayer.visible = false
 	$PauseButton.visible = true

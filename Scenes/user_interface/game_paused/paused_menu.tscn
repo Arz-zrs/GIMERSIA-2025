@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cwofxiij4ywav" path="res://Assets/Menu/Pause_Bg_Menu.png" id="3_xxo6t"]
 [ext_resource type="Texture2D" uid="uid://c2qgma72oly7f" path="res://Assets/Menu/Bacground_text_Game_Paused.png" id="4_p2cdt"]
 [ext_resource type="FontFile" uid="uid://c4taoa7bk06us" path="res://Assets/Fonts/CALIFB.TTF" id="5_dvi71"]
-[ext_resource type="Script" uid="uid://d1ow7lbaixyxk" path="res://Scenes/user_interface/menu/AudioSetting.gd" id="6_wrnld"]
+[ext_resource type="Script" uid="uid://d1ow7lbaixyxk" path="res://Scenes/user_interface/game_paused/AudioSetting.gd" id="6_wrnld"]
 [ext_resource type="Texture2D" uid="uid://dsdh8iulbty2x" path="res://Assets/Menu/Background_Icon_Sound_And_Music.png" id="7_wfsft"]
 [ext_resource type="Texture2D" uid="uid://d21yi1hn284r0" path="res://Assets/Menu/Icon_Sound.png" id="8_llyjq"]
 [ext_resource type="Texture2D" uid="uid://do5ilt2p8aaf0" path="res://Assets/Menu/Toggle_Bar_Volume.png" id="9_5evtf"]
