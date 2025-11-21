@@ -31,7 +31,7 @@ func _on_respawning():
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	
 	await respawing_tween.finished
-	TurnManager.player_spawn_finished.emit()
+	GameStates.player_spawn_finished.emit()
 	finished.emit(IDLE)
 
 func exit():
