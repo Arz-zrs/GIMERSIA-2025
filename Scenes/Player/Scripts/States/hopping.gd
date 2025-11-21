@@ -10,14 +10,14 @@ func enter(previous_state_path: String, data := {}) -> void:
 	if player.input_buffer != Vector2i.ZERO:
 		next_move = player.input_buffer
 		player.input_buffer = Vector2i.ZERO
-	
-		if next_move == Vector2i(1, 0):
+		
+		if next_move == moves[0]:
 			player.animation_player.play("hop_up")
-		elif next_move == Vector2i(0, 1):
+		elif next_move == moves[1]:
 			player.animation_player.play("hop_right")
-		elif next_move == Vector2i(0,-1):
+		elif next_move == moves[2]:
 			player.animation_player.play("hop_left")
-		elif next_move == Vector2i(-1, 0):
+		elif next_move == moves[3]:
 			player.animation_player.play("hop_down")
 		
 		var target_grid_pos = player.current_grid_pos + next_move
@@ -32,17 +32,18 @@ func handle_input(_event: InputEvent) -> void:
 	var move_dir = Vector2i.ZERO
 	
 	if _event.is_action_pressed("Up"):
-		move_dir = Vector2i(1, 0)
+		move_dir = moves[0]
 		
 	elif _event.is_action_pressed("Right"):
-		move_dir = Vector2i(0, 1)
+		move_dir = moves[1]
 		
 	elif _event.is_action_pressed("Left"):
-		move_dir = Vector2i(0, -1)
+		move_dir = moves[2]
 		
 	elif _event.is_action_pressed("Down"):
 		move_dir = Vector2i(-1, 0)
 		
+
 
 	if move_dir != Vector2i.ZERO:
 		player.input_buffer = move_dir

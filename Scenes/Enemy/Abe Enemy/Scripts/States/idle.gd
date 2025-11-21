@@ -5,10 +5,10 @@ var _next_move_dir: Vector2i = Vector2i.ZERO
 
 func enter(previous_state_path: String, data := {}) -> void:
 	var possible_moves = [
-		Vector2i(1, 0), # Up
-		Vector2i(0, 1),  # Right
-		Vector2i(0, -1), # Left
-		Vector2i(-1, 0)  # Down
+		Vector2i(2, -1), # Up
+		Vector2i(-1, 2),  # Right
+		Vector2i(1, -2), # Left
+		Vector2i(-2, 1)  # Down
 	]
 	_next_move_dir = possible_moves.pick_random()
 	

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://3lfqcf0p51yk"]
 
 [ext_resource type="Script" uid="uid://c28gnhrtf0um" path="res://Scenes/Enemy/Cede Enemy/Scripts/cede_enemy.gd" id="1_ou8ch"]
-[ext_resource type="Texture2D" uid="uid://duv7iohj2h1lx" path="res://Assets/cd.png" id="2_00r8d"]
+[ext_resource type="Texture2D" uid="uid://duv7iohj2h1lx" path="res://Assets/Entity/cd.png" id="2_00r8d"]
 [ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/state_machine.gd" id="2_1k7i7"]
 [ext_resource type="Script" uid="uid://bvfsrs0ihp335" path="res://Scenes/Enemy/Cede Enemy/Scripts/States/idle.gd" id="4_xkore"]
 [ext_resource type="Script" uid="uid://djj2xxd5ik113" path="res://Scenes/Enemy/Cede Enemy/Scripts/States/hopping.gd" id="5_83yd3"]

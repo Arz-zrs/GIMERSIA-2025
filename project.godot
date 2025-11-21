@@ -22,18 +22,18 @@ buses/default_bus_layout="res://Scenes/user_interface/game_paused/AudioSetting.t
 [autoload]
 
 GameStates="*res://Scripts/1_Singleton/game_states.gd"
-TurnManager="res://Scripts/1_Singleton/turn_manager.gd"
 AudioAutoloader="*res://Scripts/1_Singleton/audio_autoloader.tscn"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [global_group]
 
 disc=""
+player=""
 
 [input]
 

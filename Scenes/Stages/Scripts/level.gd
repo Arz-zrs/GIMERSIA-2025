@@ -5,16 +5,19 @@ class_name Level extends Node2D
 @export var level_cleared_menu: CanvasLayer
 @export var game_over_menu: CanvasLayer
 @export var rythim_manager: Control
+@export var conductor: Node
+@export var beat_map: BeatMap
 
 var current_cleared_cube = 0
 var target_cleared_cube = 15
 
-const TILE_OFFSET = Vector2(0.2, 0.2)
+const TILE_OFFSET = Vector2(1, 1)
 
 func _ready() -> void:
 	GameStates.reset_game_stats()
 	get_tree().paused = false	
 	print(get_screen_pos_for_cell(get_spawn_pos()))
+	conductor.load_map(beat_map)
 	
 func get_screen_pos_for_cell(grid_pos: Vector2i) -> Vector2:
 	return tilemap_layer.map_to_local(grid_pos) * TILE_OFFSET
@@ -27,7 +30,7 @@ func get_spawn_pos() -> Vector2i:
 	return Vector2i(5, 6)
 
 func on_player_landed(grid_pos: Vector2i):
-	GameStates.add_score()
+	
 	var tile_data = tilemap_layer.get_cell_tile_data(grid_pos)
 	if not tile_data:
 		return
@@ -43,18 +46,15 @@ func on_player_landed(grid_pos: Vector2i):
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,1))
 		await get_tree().create_timer(0.05).timeout
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,1))
-		await get_tree().create_timer(0.1).timeout
-		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(3,1))
 		await get_tree().create_timer(0.05).timeout
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,1))
 		return
 	
 	if current_index == target_index:
+		GameStates.add_score()
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
 		await get_tree().create_timer(0.05).timeout
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
-		await get_tree().create_timer(0.1).timeout
-		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(3,0))
 		await get_tree().create_timer(0.05).timeout
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,1))
 		current_cleared_cube += 1
