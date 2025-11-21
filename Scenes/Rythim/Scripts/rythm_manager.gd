@@ -24,7 +24,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if beat_timer.is_stopped():
-		print(beat_timer)
 		return
 	
 	left_progress_bar.value = beat_timer.time_left * 100
@@ -45,24 +44,20 @@ func beat_stop():
 func _on_beat_timer_timeout():
 	if player.is_hopping:
 		AudioAutoloader.playPerfectSound()
-		beat_indicator.color = Color.GREEN
 		beat_sprite.frame_coords = Vector2(1, 0)
 		await get_tree().create_timer(0.2).timeout
-		beat_indicator.color = Color.WHITE
 		beat_sprite.frame_coords = Vector2(0, 0)
 		return
 	
 	GameStates.player_turn_taken.emit(Vector2i.ZERO)
+	GameStates.game_turn += 1
 	
 	GameStates.reset_multiplier()
-	beat_indicator.color = Color.RED
 	beat_sprite.frame_coords = Vector2(1, 0)
 	await get_tree().create_timer(0.2).timeout
-	beat_indicator.color = Color.WHITE
 	beat_sprite.frame_coords = Vector2(0, 0)
 
 func update_hp():
-	print("Updating HP")
 	var current_lives: int = GameStates.player_lives
 
 	for i in range(health_bar.get_child_count()):

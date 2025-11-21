@@ -1,11 +1,11 @@
-[gd_scene load_steps=20 format=4 uid="uid://bxavt201ne8dd"]
+[gd_scene load_steps=19 format=4 uid="uid://bxavt201ne8dd"]
 
 [ext_resource type="Script" uid="uid://wchgvoygwfam" path="res://Scenes/Stages/3_Stage/stage_3.gd" id="1_wahff"]
 [ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Player/Player.tscn" id="2_0j8e6"]
 [ext_resource type="PackedScene" uid="uid://54msct5mm3np" path="res://Scenes/Cube/Floating Disc/floating_disc.tscn" id="2_akl1l"]
 [ext_resource type="TileSet" uid="uid://buud1shxc1yr2" path="res://Assets/Tileset/pyramid_tileset.tres" id="2_f1gwu"]
-[ext_resource type="Texture2D" uid="uid://cgq7e6vx5kkpw" path="res://Assets/Background_1.png" id="2_wahff"]
-[ext_resource type="Texture2D" uid="uid://csyx2c5i67yyf" path="res://Assets/Stage_3_Flying_Block.png" id="4_hmm0u"]
+[ext_resource type="Texture2D" uid="uid://cgq7e6vx5kkpw" path="res://Assets/UI/Background_1.png" id="2_wahff"]
+[ext_resource type="Texture2D" uid="uid://csyx2c5i67yyf" path="res://Assets/Tilemaps/Cube/Stage_3_Flying_Block.png" id="4_hmm0u"]
 [ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/state_machine.gd" id="4_n86wx"]
 [ext_resource type="Script" uid="uid://btdyr5fij8mdv" path="res://Scenes/Stages/Scripts/States/ready.gd" id="5_nceub"]
 [ext_resource type="Script" uid="uid://cf0fhq4jg7n28" path="res://Scenes/Stages/Scripts/States/playing.gd" id="6_7828x"]
@@ -16,7 +16,6 @@
 [ext_resource type="Script" uid="uid://47wo1rcc8wi5" path="res://Scripts/ScoreUI.gd" id="13_lhrxu"]
 [ext_resource type="PackedScene" uid="uid://c4h7s8wpriilm" path="res://Scenes/user_interface/game_paused/paused_menu.tscn" id="19_f0tlj"]
 [ext_resource type="PackedScene" uid="uid://b8p53gfj0k65k" path="res://Scenes/user_interface/game_over/game_over_menu.tscn" id="28_guj40"]
-[ext_resource type="PackedScene" uid="uid://do3tung4um34e" path="res://Scenes/Stages/1_Stage/stage1music.tscn" id="28_sjpfr"]
 [ext_resource type="PackedScene" uid="uid://dlefw2di5wvbd" path="res://Scenes/user_interface/level_cleared/level_cleared_menu.tscn" id="30_hmm0u"]
 [ext_resource type="PackedScene" uid="uid://3lfqcf0p51yk" path="res://Scenes/Enemy/Cede Enemy/cede_enemy.tscn" id="31_2c5un"]
 
@@ -44,24 +43,22 @@ grow_vertical = 2
 texture = ExtResource("2_wahff")
 
 [node name="FloatingDisc1" parent="." instance=ExtResource("2_akl1l")]
-position = Vector2(169, 380)
+position = Vector2(198, 398)
 target_marker = NodePath("../Marker2D2")
 sprite_texture = ExtResource("4_hmm0u")
 
 [node name="FloatingDisc2" parent="." instance=ExtResource("2_akl1l")]
-position = Vector2(731, 560)
+position = Vector2(752, 576)
 target_marker = NodePath("../Marker2D")
 sprite_texture = ExtResource("4_hmm0u")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(115.99999, -33.999996)
-scale = Vector2(0.2, 0.2)
-tile_map_data = PackedByteArray("AAAHAAkABAAAAAAAAAAIAAoABAAAAAAAAAAIAAsABAAAAAAAAAAHAAoABAAAAAAAAAAGAAkABAAAAAAAAAAGAAoABAAAAAAAAAAHAAsABAAAAAAAAAAFAAgABAAAAAAAAAAFAAkABAAAAAAAAAAFAAoABAAAAAAAAAAEAAcABAAAAAAAAAAEAAgABAAAAAAAAAAEAAkABAAAAAAAAAADAAcABAAAAAAAAAADAAgABAAAAAAAAAADAAkABAAAAAAAAAACAAcABAAAAAAAAAACAAgABAAAAAAAAAABAAYABAAAAAAAAAABAAcABAAAAAAAAAABAAgABAAAAAAAAAAAAAUABAAAAAAAAAAAAAYABAAAAAAAAAAAAAcABAAAAAAAAAD//wUABAAAAAAAAAD//wQABAAAAAAAAAD//wYABAAAAAAAAAD+/wQABAAAAAAAAAD+/wUABAAAAAAAAAD+/wMABAAAAAAAAAD9/wIABAAAAAAAAAD9/wMABAAAAAAAAAD9/wQABAAAAAAAAAD8/wIABAAAAAAAAAD8/wMABAAAAAAAAAACAAYABAAAAAAAAAACAAUABAAAAAAAAAACAAQABAAAAAAAAAACAAMABAAAAAAAAAADAAUABAAAAAAAAAADAAQABAAAAAAAAAADAAYABAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD2/wwACAAAAAAAAAD3/woACAAAAAAAAAD3/w0ACAAAAAAAAAD4/wsACAAAAAAAAAD4/w4ACAAAAAAAAAD5/wkACAAAAAAAAAD5/wwACAAAAAAAAAD5/w8ACAAAAAAAAAD6/woACAAAAAAAAAD6/w0ACAAAAAAAAAD6/xAACAAAAAAAAAD7/wsACAAAAAAAAAD7/w4ACAAAAAAAAAD7/xEACAAAAAAAAAD8/wwACAAAAAAAAAD8/w8ACAAAAAAAAAD9/w0ACAAAAAAAAAD9/xAACAAAAAAAAAD+/w4ACAAAAAAAAAD+/xEACAAAAAAAAAD//wwACAAAAAAAAAD//w8ACAAAAAAAAAAAAAoACAAAAAAAAAAAAA0ACAAAAAAAAAAAABAACAAAAAAAAAABAAgACAAAAAAAAAABAAsACAAAAAAAAAABAA4ACAAAAAAAAAABABEACAAAAAAAAAACAAYACAAAAAAAAAACAAkACAAAAAAAAAACAAwACAAAAAAAAAACAA8ACAAAAAAAAAADAAcACAAAAAAAAAADAA0ACAAAAAAAAAADABAACAAAAAAAAAAEAA4ACAAAAAAAAAAEABEACAAAAAAAAAAFAA8ACAAAAAAAAAAGABAACAAAAAAAAAAHAA4ACAAAAAAAAAAGAA0ACAAAAAAAAAA=")
 tile_set = ExtResource("2_f1gwu")
 
 [node name="Player" parent="." node_paths=PackedStringArray("world") instance=ExtResource("2_0j8e6")]
 z_index = 1
-position = Vector2(610, 296)
+position = Vector2(1103, 197)
 world = NodePath("..")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -84,12 +81,12 @@ script = ExtResource("8_7828x")
 player = NodePath("../Player")
 
 [node name="AbeEnemy2" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("11_r1t47")]
-position = Vector2(837, 265)
+position = Vector2(849, 271)
 world = NodePath("..")
 target_move_counter = 2
 
 [node name="AbeEnemy" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("11_r1t47")]
-position = Vector2(268, 473)
+position = Vector2(302, 492)
 world = NodePath("..")
 
 [node name="Score" type="CanvasLayer" parent="."]
@@ -124,10 +121,8 @@ position = Vector2(984, 193)
 [node name="Marker2D2" type="Marker2D" parent="."]
 position = Vector2(421, 125)
 
-[node name="MusicPlayer" parent="." instance=ExtResource("28_sjpfr")]
-
 [node name="CedeEnemy" parent="." node_paths=PackedStringArray("world") instance=ExtResource("31_2c5un")]
-position = Vector2(519, 550)
+position = Vector2(546, 565)
 world = NodePath("..")
 target_move_counter = 7
 

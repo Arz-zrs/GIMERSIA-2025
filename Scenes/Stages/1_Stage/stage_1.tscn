@@ -1,10 +1,10 @@
-[gd_scene load_steps=18 format=4 uid="uid://c03yw85t8qyf2"]
+[gd_scene load_steps=17 format=4 uid="uid://c03yw85t8qyf2"]
 
-[ext_resource type="Script" path="res://Scenes/Stages/1_Stage/stage_1.gd" id="1_sjpfr"]
+[ext_resource type="Script" uid="uid://bcfxfsqcjn5js" path="res://Scenes/Stages/1_Stage/stage_1.gd" id="1_sjpfr"]
 [ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Player/Player.tscn" id="2_0j8e6"]
 [ext_resource type="PackedScene" uid="uid://54msct5mm3np" path="res://Scenes/Cube/Floating Disc/floating_disc.tscn" id="2_akl1l"]
 [ext_resource type="TileSet" uid="uid://buud1shxc1yr2" path="res://Assets/Tileset/pyramid_tileset.tres" id="2_f1gwu"]
-[ext_resource type="Texture2D" uid="uid://b4or30hio36fm" path="res://Assets/background_3.png" id="2_vbrga"]
+[ext_resource type="Texture2D" uid="uid://b4or30hio36fm" path="res://Assets/UI/background_3.png" id="2_vbrga"]
 [ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/state_machine.gd" id="4_n86wx"]
 [ext_resource type="Script" uid="uid://btdyr5fij8mdv" path="res://Scenes/Stages/Scripts/States/ready.gd" id="5_nceub"]
 [ext_resource type="Script" uid="uid://cf0fhq4jg7n28" path="res://Scenes/Stages/Scripts/States/playing.gd" id="6_7828x"]
@@ -15,7 +15,6 @@
 [ext_resource type="Script" uid="uid://47wo1rcc8wi5" path="res://Scripts/ScoreUI.gd" id="13_lhrxu"]
 [ext_resource type="PackedScene" uid="uid://b8p53gfj0k65k" path="res://Scenes/user_interface/game_over/game_over_menu.tscn" id="26_8x5cj"]
 [ext_resource type="PackedScene" uid="uid://c4h7s8wpriilm" path="res://Scenes/user_interface/game_paused/paused_menu.tscn" id="27_055xg"]
-[ext_resource type="PackedScene" uid="uid://do3tung4um34e" path="res://Scenes/Stages/1_Stage/stage1music.tscn" id="28_sjpfr"]
 [ext_resource type="PackedScene" uid="uid://dlefw2di5wvbd" path="res://Scenes/user_interface/level_cleared/level_cleared_menu.tscn" id="28_vbrga"]
 
 [node name="Stage1" type="Node2D" node_paths=PackedStringArray("tilemap_layer", "player", "level_cleared_menu", "game_over_menu", "rythim_manager")]
@@ -42,22 +41,20 @@ grow_vertical = 2
 texture = ExtResource("2_vbrga")
 
 [node name="FloatingDisc1" parent="." instance=ExtResource("2_akl1l")]
-position = Vector2(578, 486)
+position = Vector2(597, 504)
 target_marker = NodePath("../Marker2D")
 
 [node name="FloatingDisc2" parent="." instance=ExtResource("2_akl1l")]
-position = Vector2(680, 485)
+position = Vector2(699, 503)
 target_marker = NodePath("../Marker2D")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(115.99999, -33.999996)
-scale = Vector2(0.2, 0.2)
-tile_map_data = PackedByteArray("AAADAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAACAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAABAAQAAAAAAAAAAAACAAUAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAFAAkAAAAAAAAAAAAEAAgAAAAAAAAAAAADAAcAAAAAAAAAAAACAAYAAAAAAAAAAAABAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAD//wQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAYAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAoAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAYAAAAAAAAAAAADAAkAAAAAAAAAAAADAAoAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAsAAAAAAAAAAAAAAAcAAAAAAAAAAAABAAgAAAAAAAAAAAACAAkAAAAAAAAAAAD//wYAAAAAAAAAAAD+/wUAAAAAAAAAAAD9/wQAAAAAAAAAAAAEAAsAAAAAAAAAAAAFAAwAAAAAAAAAAAD9/wUAAAAAAAAAAAD+/wYAAAAAAAAAAAD//wcAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAkAAAAAAAAAAAACAAoAAAAAAAAAAAADAAsAAAAAAAAAAAAEAAwAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD2/w8ABgAAAAAAAAD3/w0ABgAAAAAAAAD3/xAABgAAAAAAAAD4/w4ABgAAAAAAAAD4/xEABgAAAAAAAAD5/wwABgAAAAAAAAD5/w8ABgAAAAAAAAD5/xIABgAAAAAAAAD6/w0ABgAAAAAAAAD6/xAABgAAAAAAAAD6/xMABgAAAAAAAAD7/wsABgAAAAAAAAD7/w4ABgAAAAAAAAD7/xEABgAAAAAAAAD7/xQABgAAAAAAAAD8/wwABgAAAAAAAAD8/xIABgAAAAAAAAD8/xUABgAAAAAAAAD9/woABgAAAAAAAAD9/w0ABgAAAAAAAAD9/xMABgAAAAAAAAD9/xYABgAAAAAAAAD+/wsABgAAAAAAAAD+/w4ABgAAAAAAAAD+/xEABgAAAAAAAAD+/xQABgAAAAAAAAD//wkABgAAAAAAAAD//wwABgAAAAAAAAD//w8ABgAAAAAAAAD//xIABgAAAAAAAAD//xUABgAAAAAAAAAAAAoABgAAAAAAAAAAAA0ABgAAAAAAAAAAABAABgAAAAAAAAAAABMABgAAAAAAAAABAAgABgAAAAAAAAABAAsABgAAAAAAAAABAA4ABgAAAAAAAAABABEABgAAAAAAAAACAAkABgAAAAAAAAACAAwABgAAAAAAAAACAA8ABgAAAAAAAAADAAcABgAAAAAAAAADAAoABgAAAAAAAAADAA0ABgAAAAAAAAAEAAsABgAAAAAAAAAFAAkABgAAAAAAAAAEAAgABgAAAAAAAAA=")
 tile_set = ExtResource("2_f1gwu")
 
 [node name="Player" parent="." node_paths=PackedStringArray("world") instance=ExtResource("2_0j8e6")]
 z_index = 1
-position = Vector2(610, 296)
+position = Vector2(648, 123)
 world = NodePath("..")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -80,12 +77,12 @@ script = ExtResource("8_7828x")
 player = NodePath("../Player")
 
 [node name="AbeEnemy3" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("11_r1t47")]
-position = Vector2(832, 552)
+position = Vector2(847, 559)
 world = NodePath("..")
 target_move_counter = 2
 
 [node name="AbeEnemy2" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("11_r1t47")]
-position = Vector2(330, 403)
+position = Vector2(347, 410)
 world = NodePath("..")
 target_move_counter = 2
 
@@ -119,9 +116,7 @@ text = "Score: 0"
 horizontal_alignment = 1
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(625, 121)
-
-[node name="MusicPlayer" parent="." instance=ExtResource("28_sjpfr")]
+position = Vector2(648, 123)
 
 [node name="LevelClearedMenu" parent="." instance=ExtResource("28_vbrga")]
 

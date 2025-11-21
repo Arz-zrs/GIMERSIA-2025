@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://54msct5mm3np"]
 
 [ext_resource type="Script" uid="uid://bvi52wdd26dih" path="res://Scenes/Cube/Floating Disc/Script/floating_disc.gd" id="1_6mhe8"]
-[ext_resource type="Texture2D" uid="uid://hsxsu84anpng" path="res://Assets/Stage_1_Block_Melayang.png" id="1_dc313"]
+[ext_resource type="Texture2D" uid="uid://hsxsu84anpng" path="res://Assets/Tilemaps/Cube/Stage_1_Block_Melayang.png" id="1_dc313"]
 
 [node name="FloatingDisc" type="Node2D" groups=["disc"]]
 script = ExtResource("1_6mhe8")

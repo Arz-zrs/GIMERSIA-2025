@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bhg2ek4b2v330"]
 
 [ext_resource type="Script" uid="uid://blqxm2qtw031a" path="res://Scenes/Rythim/Scripts/rythm_manager.gd" id="1_hwo2s"]
-[ext_resource type="Texture2D" uid="uid://cq0bi32cr507g" path="res://Assets/beat.png" id="2_ajohh"]
+[ext_resource type="Texture2D" uid="uid://cq0bi32cr507g" path="res://Assets/UI/beat.png" id="2_ajohh"]
 [ext_resource type="Gradient" uid="uid://mlqfwqvuwh2a" path="res://indicator.tres" id="2_dk1pf"]
-[ext_resource type="Texture2D" uid="uid://lph132g3ni4c" path="res://Assets/Heart.png" id="4_fn3e5"]
+[ext_resource type="Texture2D" uid="uid://lph132g3ni4c" path="res://Assets/UI/Heart.png" id="4_fn3e5"]
 
 [sub_resource type="Gradient" id="Gradient_dk1pf"]
 colors = PackedColorArray(1, 1, 1, 1, 0.97269875, 0.8214018, 1.540184e-06, 1)
@@ -19,15 +19,6 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_hwo2s")
 metadata/_edit_use_anchors_ = true
-
-[node name="BeatIndicator" type="ColorRect" parent="."]
-visible = false
-modulate = Color(0.47397572, 0.47397572, 0.47397572, 1)
-layout_mode = 0
-offset_left = 49.0
-offset_top = 655.0
-offset_right = 1230.0
-offset_bottom = 695.0
 
 [node name="BeatTimer" type="Timer" parent="."]
 

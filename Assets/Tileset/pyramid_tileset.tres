@@ -1,84 +1,18 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://buud1shxc1yr2"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://buud1shxc1yr2"]
 
-[ext_resource type="Texture2D" uid="uid://dve2ta0mklgfs" path="res://Assets/Stage_1_Next.png" id="1_gyjhy"]
-[ext_resource type="Texture2D" uid="uid://dro3jgdxadct" path="res://Assets/Tilemaps/Cube/Level1.png" id="2_766sf"]
-[ext_resource type="Texture2D" uid="uid://es687bcelsy0" path="res://Assets/Stage_2.png" id="2_tg74n"]
-[ext_resource type="Texture2D" uid="uid://b1iieuvkjmkhl" path="res://Assets/Tilemaps/Cube/Stage_1.png" id="4_6o6wk"]
-[ext_resource type="Texture2D" uid="uid://pbcrostcgjs1" path="res://Assets/Stage_3.png" id="4_tg74n"]
-[ext_resource type="Texture2D" uid="uid://deyjlau68aiu7" path="res://Assets/Tilemaps/Cube/stage_1_tileset.png" id="6_wc3gl"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_766sf"]
-texture = ExtResource("1_gyjhy")
-texture_region_size = Vector2i(512, 512)
-0:0/0 = 0
-0:0/0/custom_data_2 = 1
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-0:1/0/custom_data_1 = 1
-0:1/0/custom_data_2 = 1
-1:1/0 = 0
-1:1/0/custom_data_1 = 1
-1:1/0/custom_data_2 = 1
-2:1/0 = 0
-2:1/0/custom_data_1 = 1
-2:1/0/custom_data_2 = 1
-3:1/0 = 0
-3:1/0/custom_data_1 = 1
-3:1/0/custom_data_2 = 1
+[ext_resource type="Texture2D" uid="uid://bp2d0qww6b5mo" path="res://Assets/Tilemaps/Cube/stage_2_tileset.png" id="2_766sf"]
+[ext_resource type="Texture2D" uid="uid://bokn4v2cpruod" path="res://Assets/Tilemaps/Cube/stage_3_tileset.png" id="3_tg74n"]
+[ext_resource type="Texture2D" uid="uid://873gv2u5b8ri" path="res://Assets/Tilemaps/Cube/stage_1_tileset.png" id="6_wc3gl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6o6wk"]
-texture = ExtResource("2_tg74n")
-texture_region_size = Vector2i(512, 512)
-0:0/0 = 0
-0:0/0/custom_data_2 = 1
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-0:1/0/custom_data_1 = 1
-0:1/0/custom_data_2 = 1
-1:1/0 = 0
-1:1/0/custom_data_1 = 1
-1:1/0/custom_data_2 = 1
-2:1/0 = 0
-2:1/0/custom_data_1 = 1
-2:1/0/custom_data_2 = 1
-3:1/0 = 0
-3:1/0/custom_data_1 = 1
-3:1/0/custom_data_2 = 1
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bikhe"]
-texture = ExtResource("2_766sf")
-texture_region_size = Vector2i(512, 512)
-0:0/0 = 0
-0:0/0/custom_data_2 = 1
-0:1/0 = 0
-0:1/0/custom_data_1 = 1
-0:1/0/custom_data_2 = 1
-1:0/0 = 0
-1:1/0 = 0
-1:1/0/custom_data_1 = 1
-1:1/0/custom_data_2 = 1
-2:0/0 = 0
-2:1/0 = 0
-2:1/0/custom_data_1 = 1
-2:1/0/custom_data_2 = 1
-3:0/0 = 0
-3:1/0 = 0
-3:1/0/custom_data_1 = 1
-3:1/0/custom_data_2 = 1
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5n85"]
-texture = ExtResource("4_6o6wk")
+texture = ExtResource("6_wc3gl")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 0:0/0/custom_data_2 = 1
-1:0/0 = 0
-1:0/0/custom_data_2 = 1
 2:0/0 = 0
 2:0/0/custom_data_2 = 1
+1:0/0 = 0
+1:0/0/custom_data_2 = 1
 0:1/0 = 0
 0:1/0/custom_data_1 = 1
 0:1/0/custom_data_2 = 1
@@ -90,28 +24,7 @@ texture_region_size = Vector2i(100, 100)
 2:1/0/custom_data_2 = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wc3gl"]
-texture = ExtResource("4_tg74n")
-texture_region_size = Vector2i(512, 512)
-0:0/0 = 0
-0:0/0/custom_data_2 = 1
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-0:1/0/custom_data_1 = 1
-0:1/0/custom_data_2 = 1
-1:1/0 = 0
-1:1/0/custom_data_1 = 1
-1:1/0/custom_data_2 = 1
-2:1/0 = 0
-2:1/0/custom_data_1 = 1
-2:1/0/custom_data_2 = 1
-3:1/0 = 0
-3:1/0/custom_data_1 = 1
-3:1/0/custom_data_2 = 1
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yob8x"]
-texture = ExtResource("6_wc3gl")
+texture = ExtResource("2_766sf")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 0:0/0/custom_data_2 = 1
@@ -122,12 +35,31 @@ texture_region_size = Vector2i(100, 100)
 0:1/0 = 0
 0:1/0/custom_data_1 = 1
 0:1/0/custom_data_2 = 1
-2:1/0 = 0
-2:1/0/custom_data_1 = 1
-2:1/0/custom_data_2 = 1
 1:1/0 = 0
 1:1/0/custom_data_1 = 1
 1:1/0/custom_data_2 = 1
+2:1/0 = 0
+2:1/0/custom_data_1 = 1
+2:1/0/custom_data_2 = 1
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5n85"]
+texture = ExtResource("3_tg74n")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+0:0/0/custom_data_2 = 1
+1:0/0 = 0
+1:0/0/custom_data_2 = 1
+2:0/0 = 0
+2:0/0/custom_data_2 = 1
+0:1/0 = 0
+0:1/0/custom_data_1 = 1
+0:1/0/custom_data_2 = 1
+1:1/0 = 0
+1:1/0/custom_data_1 = 1
+1:1/0/custom_data_2 = 1
+2:1/0 = 0
+2:1/0/custom_data_1 = 1
+2:1/0/custom_data_2 = 1
 
 [resource]
 tile_shape = 1
@@ -139,9 +71,6 @@ custom_data_layer_1/name = "color_index"
 custom_data_layer_1/type = 2
 custom_data_layer_2/name = "target_index"
 custom_data_layer_2/type = 2
-sources/2 = SubResource("TileSetAtlasSource_bikhe")
-sources/0 = SubResource("TileSetAtlasSource_766sf")
-sources/1 = SubResource("TileSetAtlasSource_6o6wk")
-sources/4 = SubResource("TileSetAtlasSource_wc3gl")
-sources/3 = SubResource("TileSetAtlasSource_s5n85")
-sources/5 = SubResource("TileSetAtlasSource_yob8x")
+sources/6 = SubResource("TileSetAtlasSource_6o6wk")
+sources/7 = SubResource("TileSetAtlasSource_wc3gl")
+sources/8 = SubResource("TileSetAtlasSource_s5n85")
