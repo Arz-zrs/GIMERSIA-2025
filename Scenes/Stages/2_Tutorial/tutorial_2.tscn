@@ -54,10 +54,11 @@ target_marker = NodePath("../Marker2D")
 tile_map_data = PackedByteArray("AAABAB4AAAAAAAAAAAACACIAAAAAAAAAAAADACYAAAAAAAAAAAAEACoAAAAAAAAAAAD6/wwABgAAAAAAAAD5/w4ABgAAAAAAAAD9/wkABgAAAAAAAAD8/wsABgAAAAAAAAD7/w0ABgAAAAAAAAD6/w8ABgAAAAAAAAD+/woABgAAAAAAAAD9/wwABgAAAAAAAAD8/w4ABgAAAAAAAAD7/xAABgAAAAAAAAD//wsABgAAAAAAAAD+/w0ABgAAAAAAAAD9/w8ABgAAAAAAAAAAAAwABgAAAAAAAAD//w4ABgAAAAAAAAD+/xAABgAAAAAAAAABAA0ABgAAAAAAAAAAAA8ABgAAAAAAAAD//xEABgAAAAAAAAD7/woABgAAAAAAAAA=")
 tile_set = ExtResource("3_f1fj2")
 
-[node name="Player" parent="." node_paths=PackedStringArray("world") instance=ExtResource("4_rv26m")]
+[node name="Player" parent="." node_paths=PackedStringArray("world", "conductor") instance=ExtResource("4_rv26m")]
 z_index = 1
 position = Vector2(305, 403)
 world = NodePath("..")
+conductor = NodePath("../Conductor")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_5w5nh")

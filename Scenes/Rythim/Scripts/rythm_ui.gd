@@ -1,5 +1,7 @@
 extends Control
 
+const HIT_WINDOW: float = 0.15
+
 @export var conductor: Node 
 @export var player: Player
 @export var note_scene: PackedScene
@@ -58,8 +60,9 @@ func _on_conductor_beat_hit(beat_num: int):
 	_handle_beat_logic()
 
 func _handle_beat_logic():
-
-	if player.is_hopping:
+	var beat_diff = abs(conductor.song_position_in_beats - player.last_hop_beat)
+	
+	if player.is_hopping and beat_diff <= HIT_WINDOW:
 		# SUCCESS CASE
 		AudioAutoloader.playPerfectSound()
 		_flash_indicator(Color.GREEN)

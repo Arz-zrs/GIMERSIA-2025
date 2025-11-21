@@ -3,10 +3,12 @@ class_name Player extends CharacterBody2D
 signal hit_by_enemy
 
 @export var world: Node2D
+@export var conductor: Node
 var current_grid_pos: Vector2i
 var input_buffer: Vector2i = Vector2i.ZERO
 var lives: int = 3
 var is_hopping: bool = false
+var last_hop_beat: float = -10.0
 var target_grid_pos: Vector2i
 
 @onready var sprite: Sprite2D = $Sprite2D

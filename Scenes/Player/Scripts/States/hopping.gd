@@ -31,16 +31,13 @@ func enter(previous_state_path: String, data := {}) -> void:
 func handle_input(_event: InputEvent) -> void:
 	var move_dir = Vector2i.ZERO
 	
-	if _event.is_action_pressed("Up"):
+	if _event.is_action_pressed("Up") and not _event.is_echo():
 		move_dir = moves[0]
-		
-	elif _event.is_action_pressed("Right"):
+	elif _event.is_action_pressed("Right") and not _event.is_echo():
 		move_dir = moves[1]
-		
-	elif _event.is_action_pressed("Left"):
+	elif _event.is_action_pressed("Left") and not _event.is_echo():
 		move_dir = moves[2]
-		
-	elif _event.is_action_pressed("Down"):
+	elif _event.is_action_pressed("Down") and not _event.is_echo():
 		move_dir = moves[3]
 		
 
@@ -50,6 +47,10 @@ func handle_input(_event: InputEvent) -> void:
 
 func _start_hop(target_grid_pos: Vector2i):
 	player.is_hopping = true
+	
+	if player.conductor:
+		player.last_hop_beat = player.conductor.song_position_in_beats
+	
 	var target_screen_pos = player.world.get_screen_pos_for_cell(target_grid_pos)
 	
 	hop_tween = player.create_tween()
@@ -64,7 +65,7 @@ func _start_hop(target_grid_pos: Vector2i):
 	arc_tween.tween_property(player.sprite, "scale:y", DEFAULT_SCALE.y, 0.125)
 	
 	await hop_tween.finished
-	
 	var data: Dictionary = {"target_grid_pos": target_grid_pos, "next_move" : next_move}
+	
 	finished.emit(LANDING, data)
 	
