@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bbqdep6yobyec"]
 
 [ext_resource type="Script" uid="uid://47wo1rcc8wi5" path="res://Scenes/user_interface/score_display/score.gd" id="1_t6uwd"]
-[ext_resource type="FontFile" uid="uid://c6tdn2mbktk1h" path="res://Assets/Fonts/IBM_Plex_Mono,Raleway/Raleway/static/Raleway-Light.ttf" id="2_luqqh"]
+[ext_resource type="FontFile" uid="uid://c6tdn2mbktk1h" path="res://Assets/Fonts/Raleway/static/Raleway-Light.ttf" id="2_luqqh"]
 
 [node name="Score" type="CanvasLayer"]
 script = ExtResource("1_t6uwd")
