@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://5jf1d8r4hhcw"]
+[gd_scene load_steps=16 format=4 uid="uid://5jf1d8r4hhcw"]
 
 [ext_resource type="Script" uid="uid://btqtaju2ak8av" path="res://Scenes/Stages/1_Tutorial/tutorial_1.gd" id="1_quoc6"]
 [ext_resource type="PackedScene" uid="uid://54msct5mm3np" path="res://Scenes/Cube/Floating Disc/floating_disc.tscn" id="2_jyy2b"]
@@ -15,7 +15,6 @@
 [ext_resource type="Script" uid="uid://47wo1rcc8wi5" path="res://Scripts/ScoreUI.gd" id="14_j214j"]
 [ext_resource type="PackedScene" uid="uid://dlefw2di5wvbd" path="res://Scenes/user_interface/level_cleared/level_cleared_menu.tscn" id="15_3mbfy"]
 [ext_resource type="PackedScene" uid="uid://c4h7s8wpriilm" path="res://Scenes/user_interface/game_paused/paused_menu.tscn" id="16_aaqmk"]
-[ext_resource type="PackedScene" uid="uid://do3tung4um34e" path="res://Scenes/Stages/1_Stage/stage1music.tscn" id="27_wwam5"]
 
 [node name="Tutorial1" type="Node2D" node_paths=PackedStringArray("tilemap_layer", "player", "level_cleared_menu", "game_over_menu", "rythim_manager")]
 script = ExtResource("1_quoc6")
@@ -41,22 +40,20 @@ grow_vertical = 2
 texture = ExtResource("2_r78vx")
 
 [node name="FloatingDisc1" parent="." instance=ExtResource("2_jyy2b")]
-position = Vector2(353, 493)
+position = Vector2(388, 492)
 target_marker = NodePath("../Marker2D")
 
 [node name="FloatingDisc2" parent="." instance=ExtResource("2_jyy2b")]
-position = Vector2(875, 496)
+position = Vector2(910, 495)
 target_marker = NodePath("../Marker2D")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(-1.9999999, 79.99999)
-scale = Vector2(0.2, 0.2)
-tile_map_data = PackedByteArray("AAAFAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAACAAYAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAkAAAAAAAAAAAAFAAoAAAAAAAAAAAAEAAkAAAAAAAAAAAADAAgAAAAAAAAAAAACAAcAAAAAAAAAAAABAAYAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD6/w4ABgAAAAAAAAD7/w8ABgAAAAAAAAD8/w0ABgAAAAAAAAD8/xAABgAAAAAAAAD9/w4ABgAAAAAAAAD9/xEABgAAAAAAAAD+/wwABgAAAAAAAAD+/w8ABgAAAAAAAAD+/xIABgAAAAAAAAD//w0ABgAAAAAAAAD//xAABgAAAAAAAAAAAAsABgAAAAAAAAAAAA4ABgAAAAAAAAABAAwABgAAAAAAAAACAAoABgAAAAAAAAA=")
 tile_set = ExtResource("3_xqfws")
 
 [node name="Player" parent="." node_paths=PackedStringArray("world") instance=ExtResource("4_wwam5")]
 z_index = 1
-position = Vector2(610, 296)
+position = Vector2(655, 218)
 world = NodePath("..")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -108,9 +105,7 @@ text = "Score: 0"
 horizontal_alignment = 1
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(612, 237)
-
-[node name="MusicPlayer" parent="." instance=ExtResource("27_wwam5")]
+position = Vector2(649, 214)
 
 [node name="GameOverMenu" parent="." instance=ExtResource("14_10aex")]
 

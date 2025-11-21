@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cv4twbftmt123"]
+[gd_scene load_steps=17 format=4 uid="uid://cv4twbftmt123"]
 
 [ext_resource type="Script" uid="uid://do4mhy4w2voh" path="res://Scenes/Stages/3_Tutorial/tutorial_3.gd" id="1_s8qog"]
 [ext_resource type="Texture2D" uid="uid://b4or30hio36fm" path="res://Assets/UI/background_3.png" id="2_l2rko"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://c4h7s8wpriilm" path="res://Scenes/user_interface/game_paused/paused_menu.tscn" id="17_c4r23"]
 [ext_resource type="Script" uid="uid://47wo1rcc8wi5" path="res://Scripts/ScoreUI.gd" id="19_v1sax"]
 [ext_resource type="PackedScene" uid="uid://b8p53gfj0k65k" path="res://Scenes/user_interface/game_over/game_over_menu.tscn" id="26_rlyal"]
-[ext_resource type="PackedScene" uid="uid://do3tung4um34e" path="res://Scenes/Stages/1_Stage/stage1music.tscn" id="27_sjjsy"]
 [ext_resource type="PackedScene" uid="uid://dlefw2di5wvbd" path="res://Scenes/user_interface/level_cleared/level_cleared_menu.tscn" id="28_l2rko"]
 [ext_resource type="PackedScene" uid="uid://bodfdnmi8mavi" path="res://Scenes/Enemy/Abe Enemy/abe_enemy.tscn" id="29_ttf55"]
 
@@ -42,22 +41,20 @@ grow_vertical = 2
 texture = ExtResource("2_l2rko")
 
 [node name="FloatingDisc1" parent="." instance=ExtResource("2_p486q")]
-position = Vector2(579, 503)
+position = Vector2(559, 472)
 target_marker = NodePath("../Marker2D2")
 
 [node name="FloatingDisc2" parent="." instance=ExtResource("2_p486q")]
-position = Vector2(1141, 434)
+position = Vector2(1151, 418)
 target_marker = NodePath("../Marker2D")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(62, 16)
-scale = Vector2(0.2, 0.2)
-tile_map_data = PackedByteArray("AAADAAgAAAAAAAAAAAADAAkAAAAAAAAAAAADAAoAAAAAAAAAAAAEAAgAAAAAAAAAAAAEAAkAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAkAAAAAAAAAAAAFAAoAAAAAAAAAAAAFAAsAAAAAAAAAAAAGAAoAAAAAAAAAAAAGAAwAAAAAAAAAAAAGAAsAAAAAAAAAAAAHAAwAAAAAAAAAAAAHAA0AAAAAAAAAAAAIAA0AAAAAAAAAAAD//wMAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAABAAYAAAAAAAAAAAABAAcAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD3/woABgAAAAAAAAD4/wsABgAAAAAAAAD5/wkABgAAAAAAAAD5/wwABgAAAAAAAAD6/woABgAAAAAAAAD6/w0ABgAAAAAAAAD7/wgABgAAAAAAAAD7/wsABgAAAAAAAAD7/w4ABgAAAAAAAAD8/wkABgAAAAAAAAD8/wwABgAAAAAAAAD8/xMABgAAAAAAAAD9/wcABgAAAAAAAAD9/woABgAAAAAAAAD9/xEABgAAAAAAAAD+/wgABgAAAAAAAAD+/w8ABgAAAAAAAAD+/xIABgAAAAAAAAD//wYABgAAAAAAAAD//xAABgAAAAAAAAD//xMABgAAAAAAAAAAAA4ABgAAAAAAAAAAABEABgAAAAAAAAAAABQABgAAAAAAAAABAA8ABgAAAAAAAAABABIABgAAAAAAAAABABUABgAAAAAAAAACABAABgAAAAAAAAACABMABgAAAAAAAAADABQABgAAAAAAAAA=")
 tile_set = ExtResource("3_f1fj2")
 
 [node name="Player" parent="." node_paths=PackedStringArray("world") instance=ExtResource("4_rv26m")]
 z_index = 1
-position = Vector2(610, 296)
+position = Vector2(305, 190)
 world = NodePath("..")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -109,20 +106,18 @@ text = "Score: 0"
 horizontal_alignment = 1
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(316, 241)
+position = Vector2(300, 186)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(677, 468)
-
-[node name="MusicPlayer" parent="." instance=ExtResource("27_sjjsy")]
+position = Vector2(700, 441)
 
 [node name="AbeEnemy3" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("29_ttf55")]
-position = Vector2(931, 522)
+position = Vector2(950, 515)
 world = NodePath("..")
 target_move_counter = 4
 
 [node name="AbeEnemy2" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("29_ttf55")]
-position = Vector2(318, 380)
+position = Vector2(301, 347)
 world = NodePath("..")
 target_move_counter = 6
 
