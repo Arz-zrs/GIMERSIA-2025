@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://cv4twbftmt123"]
+[gd_scene load_steps=40 format=4 uid="uid://cv4twbftmt123"]
 
 [ext_resource type="Script" uid="uid://do4mhy4w2voh" path="res://Scenes/Stages/3_Tutorial/tutorial_3.gd" id="1_s8qog"]
 [ext_resource type="Texture2D" uid="uid://b4or30hio36fm" path="res://Assets/background_3.png" id="2_l2rko"]
@@ -27,7 +27,6 @@
 [ext_resource type="Texture2D" uid="uid://do5ilt2p8aaf0" path="res://Assets/Menu/Toggle_Bar_Volume.png" id="24_es54c"]
 [ext_resource type="Texture2D" uid="uid://de6fgpqoxnfkr" path="res://Assets/Menu/Bar_Volume.png" id="25_g8j46"]
 [ext_resource type="Texture2D" uid="uid://cixayqhfxd7tp" path="res://Assets/Menu/Icon_Music.png" id="26_ul4vm"]
-[ext_resource type="PackedScene" uid="uid://do3tung4um34e" path="res://Scenes/Stages/1_Stage/stage1music.tscn" id="27_sjjsy"]
 [ext_resource type="PackedScene" uid="uid://bodfdnmi8mavi" path="res://Scenes/Enemy/Abe Enemy/abe_enemy.tscn" id="29_ttf55"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nsdeq"]
@@ -456,8 +455,6 @@ position = Vector2(316, 241)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
 position = Vector2(677, 468)
-
-[node name="MusicPlayer" parent="." instance=ExtResource("27_sjjsy")]
 
 [node name="AbeEnemy3" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("29_ttf55")]
 position = Vector2(931, 522)

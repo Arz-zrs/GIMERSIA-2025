@@ -8,7 +8,7 @@ class_name Level extends Node2D
 var current_cleared_cube = 0
 var target_cleared_cube = 15
 
-const TILE_OFFSET = Vector2(0.2, 0.2)
+const TILE_OFFSET = Vector2(1, 1)
 
 func _ready() -> void:
 	GameStates.reset_game_stats()
@@ -42,8 +42,6 @@ func on_player_landed(grid_pos: Vector2i):
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,1))
 		await get_tree().create_timer(0.05).timeout
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,1))
-		await get_tree().create_timer(0.1).timeout
-		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(3,1))
 		await get_tree().create_timer(0.05).timeout
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,1))
 		return
@@ -52,8 +50,6 @@ func on_player_landed(grid_pos: Vector2i):
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
 		await get_tree().create_timer(0.05).timeout
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
-		await get_tree().create_timer(0.1).timeout
-		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(3,0))
 		await get_tree().create_timer(0.05).timeout
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,1))
 		current_cleared_cube += 1

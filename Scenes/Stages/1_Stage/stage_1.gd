@@ -13,7 +13,7 @@ func get_cell_for_global_pos(global_pos: Vector2) -> Vector2i:
 	return tilemap_layer.local_to_map(local_pos)
 
 func get_spawn_pos() -> Vector2i:
-	return Vector2i(4,5)
+	return Vector2i(0,9)
 
 
 func _on_next_button_pressed() -> void:

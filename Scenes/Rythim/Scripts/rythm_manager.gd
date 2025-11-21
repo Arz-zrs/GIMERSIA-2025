@@ -24,6 +24,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if beat_timer.is_stopped():
+		print(beat_timer)
 		return
 	
 	left_progress_bar.value = beat_timer.time_left * 100

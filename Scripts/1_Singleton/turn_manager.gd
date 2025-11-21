@@ -3,11 +3,9 @@ extends Node
 signal player_turn_taken(move_dir: Vector2i)
 signal player_spawn_finished
 
-
 @export var pause_menu_scene: PackedScene
 
 var pause_menu_instance: Control
-
 
 func _ready():
 	if pause_menu_scene:
