@@ -7,6 +7,7 @@ var current_grid_pos: Vector2i
 var input_buffer: Vector2i = Vector2i.ZERO
 var lives: int = 3
 var is_hopping: bool = false
+var target_grid_pos: Vector2i
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -16,3 +17,4 @@ var is_hopping: bool = false
 func _ready():
 	current_grid_pos = world.get_spawn_pos()
 	global_position = world.get_screen_pos_for_cell(current_grid_pos)
+	target_grid_pos = current_grid_pos

@@ -58,3 +58,9 @@ func on_player_landed(grid_pos: Vector2i):
 		await get_tree().create_timer(0.05).timeout
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,1))
 		current_cleared_cube += 1
+
+func is_tile_walkable(grid_pos: Vector2i) -> bool:
+	if tilemap_layer.get_cell_source_id(grid_pos) != -1:
+		return true
+	
+	return false

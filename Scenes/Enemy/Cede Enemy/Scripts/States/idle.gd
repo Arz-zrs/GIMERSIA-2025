@@ -41,4 +41,4 @@ func _on_player_turn(player_move_dir: Vector2i):
 func _get_grid_distance(pos1: Vector2i, pos2: Vector2i) -> int:
 	var dx = abs(pos1.x - pos2.x)
 	var dy = abs(pos1.y - pos2.y)
-	return max(dx, dy)
+	return dx + dy
