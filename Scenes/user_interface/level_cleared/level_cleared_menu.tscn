@@ -102,4 +102,6 @@ offset_bottom = 306.5
 theme_override_font_sizes/font_size = 28
 text = "Score: 0"
 
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_pressed"]
