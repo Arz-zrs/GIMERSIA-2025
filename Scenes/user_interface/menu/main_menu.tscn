@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://co1arptro4wbk"]
 
-[ext_resource type="Script" uid="uid://cp3l3muckag3y" path="res://Scenes/Stages/Scripts/main_menu.gd" id="1_xamy8"]
+[ext_resource type="Script" uid="uid://cp3l3muckag3y" path="res://Scenes/user_interface/menu/main_menu.gd" id="1_xamy8"]
 [ext_resource type="Texture2D" uid="uid://d3fecxfi6qdfs" path="res://Assets/Menu/Title_Main_Menu_1.png" id="2_lhiuk"]
 [ext_resource type="Texture2D" uid="uid://2n80vopu5jw1" path="res://Assets/Menu/Bacgkround_Main_Menu.png" id="3_i1wka"]
 [ext_resource type="FontFile" uid="uid://c4taoa7bk06us" path="res://Assets/Fonts/CALIFB.TTF" id="4_g81y2"]
-[ext_resource type="Script" path="res://Scenes/Stages/Scripts/button_animation.gd" id="5_saren"]
+[ext_resource type="Script" uid="uid://pkxbsbgdyifc" path="res://Scenes/Stages/Scripts/button_animation.gd" id="5_saren"]
 [ext_resource type="Texture2D" uid="uid://cxikslb53m3q8" path="res://Assets/Menu/Indikator_Left.png" id="6_nsg0c"]
 [ext_resource type="Texture2D" uid="uid://bkg65yfm2wn6x" path="res://Assets/Menu/Indikator_RIght.png" id="7_d5opv"]
 

@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8p53gfj0k65k"]
+
+[ext_resource type="Script" uid="uid://drw3spke2r61c" path="res://Scenes/user_interface/game_over/game_over_menu.gd" id="1_32vnu"]
+[ext_resource type="Texture2D" uid="uid://doa2lmuqeux4f" path="res://Assets/Menu/Asset_27.png" id="2_s6eht"]
+[ext_resource type="Texture2D" uid="uid://cwofxiij4ywav" path="res://Assets/Menu/Pause_Bg_Menu.png" id="3_jm87y"]
+[ext_resource type="Texture2D" uid="uid://c2qgma72oly7f" path="res://Assets/Menu/Bacground_text_Game_Paused.png" id="4_gxc5k"]
+[ext_resource type="FontFile" uid="uid://c4taoa7bk06us" path="res://Assets/Fonts/CALIFB.TTF" id="5_21hek"]
+[ext_resource type="Texture2D" uid="uid://lnemlcpfswv6" path="res://Assets/Menu/Asset_26.png" id="6_uce8w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_akl1l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1krj1"]
+
+[node name="GameOverMenu" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_32vnu")
+
+[node name="RetryButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.00006
+offset_top = -15.0
+offset_right = -16.000061
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.7726254, 1.8718567)
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+theme_override_styles/focus = SubResource("StyleBoxEmpty_akl1l")
+icon = ExtResource("2_s6eht")
+flat = true
+
+[node name="background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(618.5, 348.5)
+texture = ExtResource("3_jm87y")
+
+[node name="textBackground" type="Sprite2D" parent="."]
+position = Vector2(629, 226)
+texture = ExtResource("4_gxc5k")
+
+[node name="Label" type="Label" parent="textBackground"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -245.0
+offset_top = -34.0
+offset_right = 31.0
+offset_bottom = 145.0
+grow_horizontal = 2
+scale = Vector2(0.7199453, 0.7199453)
+theme_override_font_sizes/font_size = 64
+text = "You Lose
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 567.0
+offset_top = 268.0
+offset_right = 672.0
+offset_bottom = 307.0
+theme_override_font_sizes/font_size = 28
+text = "Score: 0"
+
+[node name="MenuButton" type="Button" parent="."]
+offset_left = 458.0
+offset_top = 372.0
+offset_right = 520.0
+offset_bottom = 433.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("5_21hek")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1krj1")
+icon = ExtResource("6_uce8w")
+flat = true
+icon_alignment = 1
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_pressed"]

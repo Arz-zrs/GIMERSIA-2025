@@ -51,7 +51,7 @@ func _on_beat_timer_timeout():
 		beat_sprite.frame_coords = Vector2(0, 0)
 		return
 	
-	TurnManager.player_turn_taken.emit(Vector2i.ZERO)
+	GameStates.player_turn_taken.emit(Vector2i.ZERO)
 	
 	GameStates.reset_multiplier()
 	beat_indicator.color = Color.RED

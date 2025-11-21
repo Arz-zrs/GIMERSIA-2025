@@ -15,7 +15,6 @@ func _ready() -> void:
 		owner.hit_by_enemy.connect(_on_owner_hit)
 	state.enter("")
 
-
 func _unhandled_input(event: InputEvent) -> void:
 	state.handle_input(event)
 

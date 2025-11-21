@@ -2,7 +2,7 @@ class_name Stage2 extends Level
 
 func _ready() -> void:
 	super._ready()
-	target_cleared_cube = 47
+	target_cleared_cube = 44
 
 func get_screen_pos_for_cell(grid_pos: Vector2i) -> Vector2:
 	return tilemap_layer.map_to_local(grid_pos) * TILE_OFFSET + Vector2(116, -34)
