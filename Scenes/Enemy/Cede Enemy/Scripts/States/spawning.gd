@@ -47,7 +47,7 @@ func _start_spawn_animation():
 func exit():
 	
 	if GameStates.player_turn_taken.is_connected(_on_player_turn):
-		GameStates.player_turn_taken.disconnect(_on_player_turn)
+		GameStates	.player_turn_taken.disconnect(_on_player_turn)
 	
 	cede.sprite.modulate.a = 1.0
 	cede.sprite.show()

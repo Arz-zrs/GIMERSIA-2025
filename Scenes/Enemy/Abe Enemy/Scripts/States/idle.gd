@@ -1,5 +1,6 @@
 extends AbeState
 
+var _last_moved_turn: int = -1
 var _next_move_dir: Vector2i = Vector2i.ZERO
 
 func enter(previous_state_path: String, data := {}) -> void:
@@ -16,10 +17,14 @@ func enter(previous_state_path: String, data := {}) -> void:
 	abe.move_highlighter.global_position = target_screen_pos
 	abe.move_highlighter.show()
 	
-	GameStates.player_turn_taken.connect(_on_player_turn)
+	if not GameStates.player_turn_taken.is_connected(_on_player_turn):
+		GameStates.player_turn_taken.connect(_on_player_turn)
 
 func _on_player_turn(player_move_dir: Vector2i):
-	GameStates.game_turn += 1
+	var current_turn = GameStates.game_turn
+	if current_turn == _last_moved_turn:
+		return 
+	_last_moved_turn = current_turn
 	abe.move_highlighter.hide()
 	finished.emit(HOPPING, {"move_direction": _next_move_dir})
 

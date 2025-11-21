@@ -20,7 +20,7 @@ func _on_player_turn(_move_dir: Vector2i):
 		return
 
 	move_counter += 1
-	print(move_counter)
+	print(move_counter, "/",abe.target_move_counter)
 	if move_counter >= abe.target_move_counter:
 		GameStates.player_turn_taken.disconnect(_on_player_turn)
 		_start_spawn_animation()

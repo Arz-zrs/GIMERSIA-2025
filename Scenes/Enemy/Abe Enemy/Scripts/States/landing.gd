@@ -17,6 +17,6 @@ func _is_valid_cell(grid_pos: Vector2i) -> bool:
 
 func _is_on_player_tile(grid_pos: Vector2i) -> bool:
 	var player_node = abe.get_meta("player_node")
-	if player_node and player_node.current_grid_pos == grid_pos:
+	if player_node and player_node.target_grid_pos == grid_pos:
 		return true
 	return false

@@ -21,9 +21,11 @@ func enter(previous_state_path: String, data := {}) -> void:
 			player.animation_player.play("hop_down")
 		
 		var target_grid_pos = player.current_grid_pos + next_move
-		
+		player.target_grid_pos = target_grid_pos
 		_start_hop(target_grid_pos)
+		
 	else:
+		player.target_grid_pos = player.current_grid_pos
 		finished.emit(IDLE, {"next_move" : Vector2i.ZERO})
 
 func handle_input(_event: InputEvent) -> void:
@@ -40,6 +42,8 @@ func handle_input(_event: InputEvent) -> void:
 		
 	elif _event.is_action_pressed("Down"):
 		move_dir = moves[3]
+		
+
 
 	if move_dir != Vector2i.ZERO:
 		player.input_buffer = move_dir
