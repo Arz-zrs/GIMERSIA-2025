@@ -5,7 +5,6 @@ var falling_tween: Tween
 func enter(previous_state_path: String, data := {}) -> void:
 	if falling_tween and falling_tween.is_running():
 		falling_tween.kill()
-	
 	_start_falling()
 
 func _start_falling():
@@ -35,7 +34,6 @@ func _start_falling():
 	).set_trans(Tween.TRANS_SINE)
 	
 	await falling_tween.finished
-
 	finished.emit(DEAD)
 
 func exit():

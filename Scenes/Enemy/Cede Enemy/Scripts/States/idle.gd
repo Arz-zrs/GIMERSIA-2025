@@ -1,19 +1,27 @@
 extends CedeState
 
+var _last_moved_turn: int = -1
+
 func enter(previous_state_path: String, data := {}) -> void:
-	GameStates.player_turn_taken.connect(_on_player_turn)
+	if not GameStates.player_turn_taken.is_connected(_on_player_turn):
+		GameStates.player_turn_taken.connect(_on_player_turn)
 
 func exit() -> void:
-	GameStates.player_turn_taken.disconnect(_on_player_turn)
+	if GameStates.player_turn_taken.is_connected(_on_player_turn):
+		GameStates.player_turn_taken.disconnect(_on_player_turn)
 
 func _on_player_turn(player_move_dir: Vector2i):
-	GameStates.game_turn += 1
-	cede.player_move_count += 1
-	if cede.player_move_count < 2:
+	var current_turn = GameStates.game_turn
+	if current_turn == _last_moved_turn:
 		return
-	cede.player_move_count = 0
+	if current_turn % 2 != 0:
+		return
+	_last_moved_turn = current_turn
 	
-	var player_node: Node2D = cede.get_meta("player_node")
+	var player_node = _get_player_from_group()
+	if not player_node:
+		printerr("CedeEnemy: Could not find node in group 'player'!")
+		return
 	var my_pos: Vector2i = cede.current_grid_pos
 	var player_current_pos: Vector2i = player_node.current_grid_pos
 	var player_target_pos: Vector2i = player_current_pos + player_move_dir
@@ -24,7 +32,6 @@ func _on_player_turn(player_move_dir: Vector2i):
 		Vector2i(0, -1),  # Left
 		Vector2i(-1, 0)    # Down
 	]
-	
 
 	var best_move: Vector2i = Vector2i.ZERO
 	var min_distance: int = _get_grid_distance(my_pos, player_target_pos)
@@ -42,3 +49,9 @@ func _get_grid_distance(pos1: Vector2i, pos2: Vector2i) -> int:
 	var dx = abs(pos1.x - pos2.x)
 	var dy = abs(pos1.y - pos2.y)
 	return dx + dy
+
+func _get_player_from_group() -> Node2D:
+	var nodes = get_tree().get_nodes_in_group("player")
+	if nodes.size() > 0:
+		return nodes[0]
+	return null

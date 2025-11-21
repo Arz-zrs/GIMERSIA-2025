@@ -22,10 +22,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 		
 		var target_grid_pos = player.current_grid_pos + next_move
 		player.target_grid_pos = target_grid_pos
-		if player.world.is_tile_walkable(target_grid_pos):
-			_start_hop(target_grid_pos)
-		else:
-			finished.emit(FALLING)
+		_start_hop(target_grid_pos)
 		
 	else:
 		player.target_grid_pos = player.current_grid_pos

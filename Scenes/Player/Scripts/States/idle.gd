@@ -31,5 +31,4 @@ func handle_input(_event: InputEvent) -> void:
 	if move_dir != Vector2i.ZERO:
 		player.input_buffer = move_dir
 		GameStates.player_turn_taken.emit(move_dir)
-		GameStates.game_turn += 1
 	finished.emit(HOPPING)

@@ -51,6 +51,7 @@ func _on_beat_timer_timeout():
 		beat_sprite.frame_coords = Vector2(0, 0)
 		return
 	
+	GameStates.game_turn += 1
 	GameStates.player_turn_taken.emit(Vector2i.ZERO)
 	
 	GameStates.reset_multiplier()
