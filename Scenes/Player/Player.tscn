@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://bkd2van6gammi"]
 
 [ext_resource type="Script" uid="uid://c02yytw51mm1q" path="res://Scenes/Player/Scripts/player.gd" id="1_ft8w5"]
-[ext_resource type="Texture2D" uid="uid://buh727b76yvah" path="res://Assets/Player.png" id="2_825xp"]
+[ext_resource type="Texture2D" uid="uid://buh727b76yvah" path="res://Assets/Entity/Player.png" id="2_825xp"]
 [ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/state_machine.gd" id="3_4wape"]
 [ext_resource type="Script" uid="uid://djjx43xw7eb7k" path="res://Scenes/Player/Scripts/States/idle.gd" id="4_t26db"]
 [ext_resource type="Script" uid="uid://b6t7lundra15l" path="res://Scenes/Player/Scripts/States/hopping.gd" id="5_fk5o5"]
@@ -284,7 +284,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_825xp"]
 radius = 22.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_ft8w5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

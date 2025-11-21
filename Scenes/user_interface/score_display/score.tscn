@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbqdep6yobyec"]
+
+[ext_resource type="Script" uid="uid://47wo1rcc8wi5" path="res://Scenes/user_interface/score_display/score.gd" id="1_t6uwd"]
+[ext_resource type="FontFile" uid="uid://c6tdn2mbktk1h" path="res://Assets/Fonts/Raleway/static/Raleway-Light.ttf" id="2_luqqh"]
+
+[node name="Score" type="CanvasLayer"]
+script = ExtResource("1_t6uwd")
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.5
+offset_right = 52.5
+offset_bottom = 39.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_luqqh")
+theme_override_font_sizes/font_size = 28
+text = "Score: 0"
+
+[node name="MultiplierLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -53.0
+offset_top = 36.0
+offset_right = 52.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_luqqh")
+theme_override_font_sizes/font_size = 28
+text = "Score: 0"
+horizontal_alignment = 1

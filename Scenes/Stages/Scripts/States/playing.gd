@@ -1,9 +1,10 @@
 extends LevelState
 
-
-
 func enter(previous_state_path: String, data := {}) -> void:
-	level.rythim_manager.beat_start()
+	level.conductor.start_music()
+	if !AudioAutoloader.stage_1_music.playing:
+		print("Played first time")
+		AudioAutoloader.playStage1Music()
 	print("Game Started")
 
 func update(_delta: float) -> void:

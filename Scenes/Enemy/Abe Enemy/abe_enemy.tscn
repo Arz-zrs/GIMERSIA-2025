@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bodfdnmi8mavi"]
 
 [ext_resource type="Script" uid="uid://67phwo4v7smj" path="res://Scenes/Enemy/Abe Enemy/Scripts/abe_enemy.gd" id="1_ipp3g"]
-[ext_resource type="Texture2D" uid="uid://bbt7torhgmp4b" path="res://Assets/Abe.png" id="2_uddw2"]
+[ext_resource type="Texture2D" uid="uid://bbt7torhgmp4b" path="res://Assets/Entity/Abe.png" id="2_uddw2"]
 [ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/state_machine.gd" id="3_e8apx"]
 [ext_resource type="Script" uid="uid://dotwni1q2bh7u" path="res://Scenes/Enemy/Abe Enemy/Scripts/States/idle.gd" id="4_6bmev"]
 [ext_resource type="Script" uid="uid://ddgs0r173jhwt" path="res://Scenes/Enemy/Abe Enemy/Scripts/States/hopping.gd" id="5_6oqfi"]

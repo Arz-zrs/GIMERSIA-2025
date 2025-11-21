@@ -19,10 +19,10 @@ func _on_player_turn(player_move_dir: Vector2i):
 	var player_target_pos: Vector2i = player_current_pos + player_move_dir
 	
 	var possible_moves = [
-		Vector2i(1, 0), # Up
-		Vector2i(0, 1),  # Right
-		Vector2i(0, -1),  # Left
-		Vector2i(-1, 0)    # Down
+		Vector2i(2, -1), # Up
+		Vector2i(-1, 2),  # Right
+		Vector2i(1, -2), # Left
+		Vector2i(-2, 1)  # Down
 	]
 	
 

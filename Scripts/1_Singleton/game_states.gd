@@ -22,7 +22,7 @@ var levels: Array[String] = [
 @onready var scene_main_menu = preload("res://Scenes/user_interface/menu/main_menu.tscn")
 @onready var scene_level_selector = preload("res://Scenes/user_interface/level_selection/level_selection.tscn")
 
-signal game
+#signal game
 signal player_turn_taken(move_dir: Vector2i)
 signal player_spawn_finished
 signal score_updated(new_score)
