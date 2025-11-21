@@ -1,10 +1,10 @@
 extends CedeState
 
 func enter(previous_state_path: String, data := {}) -> void:
-	TurnManager.player_turn_taken.connect(_on_player_turn)
+	GameStates.player_turn_taken.connect(_on_player_turn)
 
 func exit() -> void:
-	TurnManager.player_turn_taken.disconnect(_on_player_turn)
+	GameStates.player_turn_taken.disconnect(_on_player_turn)
 
 func _on_player_turn(player_move_dir: Vector2i):
 	GameStates.game_turn += 1

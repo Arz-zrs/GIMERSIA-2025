@@ -13,7 +13,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	has_player_spawned = false
 	cede.sprite.hide()
 	
-	TurnManager.player_turn_taken.connect(_on_player_turn)
+	GameStates.player_turn_taken.connect(_on_player_turn)
 
 func _on_player_turn(_move_dir: Vector2i):
 	if has_player_spawned:
@@ -22,7 +22,7 @@ func _on_player_turn(_move_dir: Vector2i):
 	move_counter += 1
 	print(move_counter)
 	if move_counter >= cede.target_move_counter:
-		TurnManager.player_turn_taken.disconnect(_on_player_turn)
+		GameStates.player_turn_taken.disconnect(_on_player_turn)
 		_start_spawn_animation()
 
 func _start_spawn_animation():
@@ -46,8 +46,8 @@ func _start_spawn_animation():
 
 func exit():
 	
-	if TurnManager.player_turn_taken.is_connected(_on_player_turn):
-		TurnManager.player_turn_taken.disconnect(_on_player_turn)
+	if GameStates.player_turn_taken.is_connected(_on_player_turn):
+		GameStates.player_turn_taken.disconnect(_on_player_turn)
 	
 	cede.sprite.modulate.a = 1.0
 	cede.sprite.show()

@@ -5,6 +5,7 @@ class_name Level extends Node2D
 @export var level_cleared_menu: CanvasLayer
 @export var game_over_menu: CanvasLayer
 @export var rythim_manager: Control
+
 var current_cleared_cube = 0
 var target_cleared_cube = 15
 
@@ -12,9 +13,7 @@ const TILE_OFFSET = Vector2(1, 1)
 
 func _ready() -> void:
 	GameStates.reset_game_stats()
-	get_tree().paused = false
-	level_cleared_menu.retry_button.connect("pressed", _on_level_cleared_retry_pressed)
-	game_over_menu.retry_button.connect("pressed", _on_game_over_retry_pressed)
+	get_tree().paused = false	
 	print(get_screen_pos_for_cell(get_spawn_pos()))
 	
 func get_screen_pos_for_cell(grid_pos: Vector2i) -> Vector2:
@@ -22,7 +21,6 @@ func get_screen_pos_for_cell(grid_pos: Vector2i) -> Vector2:
 
 func get_cell_for_global_pos(global_pos: Vector2) -> Vector2i:
 	var local_pos = tilemap_layer.to_local(global_pos)
-	
 	return tilemap_layer.local_to_map(local_pos)
 
 func get_spawn_pos() -> Vector2i:
@@ -31,6 +29,9 @@ func get_spawn_pos() -> Vector2i:
 func on_player_landed(grid_pos: Vector2i):
 	GameStates.add_score()
 	var tile_data = tilemap_layer.get_cell_tile_data(grid_pos)
+	if not tile_data:
+		return
+
 	var current_index = tile_data.get_custom_data("color_index")
 	var target_index = tile_data.get_custom_data("target_index")
 	
@@ -53,26 +54,3 @@ func on_player_landed(grid_pos: Vector2i):
 		await get_tree().create_timer(0.05).timeout
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,1))
 		current_cleared_cube += 1
-
-func _on_level_cleared_retry_pressed():
-	get_tree().reload_current_scene()
-
-func _on_game_over_retry_pressed():
-	get_tree().reload_current_scene()
-
-func _on_pause_button_pressed() -> void:
-	get_tree().paused = true
-	$PausedMenu/PauseButton.visible = false
-	$PausedMenu/CanvasLayer.visible = true
-
-
-func _on_resume_button_pressed() -> void:
-	get_tree().paused = false
-	$PausedMenu/PauseButton.visible = true
-	$PausedMenu/CanvasLayer.visible = false
-
-func _on_quit_button_pressed() -> void:
-	get_tree().quit(0)
-
-func _on_menu_button_pressed() -> void:
-	get_tree().change_scene_to_packed(GameStates.scene_main_menu)
