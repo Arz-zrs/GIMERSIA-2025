@@ -41,7 +41,7 @@ func handle_input(_event: InputEvent) -> void:
 		move_dir = moves[2]
 		
 	elif _event.is_action_pressed("Down"):
-		move_dir = Vector2i(-1, 0)
+		move_dir = moves[3]
 		
 
 
