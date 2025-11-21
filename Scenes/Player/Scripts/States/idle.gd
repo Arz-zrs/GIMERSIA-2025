@@ -19,13 +19,13 @@ func enter(previous_state_path: String, data := {}) -> void:
 func handle_input(_event: InputEvent) -> void:
 	var move_dir = Vector2i.ZERO
 	
-	if _event.is_action_pressed("Up"):
+	if _event.is_action_pressed("Up") and not _event.is_echo():
 		move_dir = moves[0]
-	elif _event.is_action_pressed("Right"):
+	elif _event.is_action_pressed("Right") and not _event.is_echo():
 		move_dir = moves[1]
-	elif _event.is_action_pressed("Left"):
+	elif _event.is_action_pressed("Left") and not _event.is_echo():
 		move_dir = moves[2]
-	elif _event.is_action_pressed("Down"):
+	elif _event.is_action_pressed("Down") and not _event.is_echo():
 		move_dir = moves[3]
 
 	if move_dir != Vector2i.ZERO:
