@@ -30,6 +30,7 @@ signal multiplier_updated(new_multiplier)
 
 const POINTS_PER_JUMP = 10
 const JUMPS_FOR_MULTIPLIER = 5
+const HIT_WINDOW: float = 0.34
 
 func load_next_level():
 	var current_scene_file = get_tree().current_scene.scene_file_path
