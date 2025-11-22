@@ -28,28 +28,25 @@ func enter(previous_state_path: String, data := {}) -> void:
 		player.target_grid_pos = player.current_grid_pos
 		finished.emit(IDLE, {"next_move" : Vector2i.ZERO})
 
-func handle_input(_event: InputEvent) -> void:
-	var move_dir = Vector2i.ZERO
+#func handle_input(_event: InputEvent) -> void:
+	#if not _event.is_pressed() or _event.is_echo():
+		#return
+#
+	#var move_dir = Vector2i.ZERO
+	#
+	#if _event.is_action("Up"):
+		#move_dir = moves[0]
+	#elif _event.is_action("Right"):
+		#move_dir = moves[1]
+	#elif _event.is_action("Left"):
+		#move_dir = moves[2]
+	#elif _event.is_action("Down"):
+		#move_dir = moves[3]
+	#
+	#player.input_buffer = move_dir
 	
-	if _event.is_action_pressed("Up") and not _event.is_echo():
-		move_dir = moves[0]
-	elif _event.is_action_pressed("Right") and not _event.is_echo():
-		move_dir = moves[1]
-	elif _event.is_action_pressed("Left") and not _event.is_echo():
-		move_dir = moves[2]
-	elif _event.is_action_pressed("Down") and not _event.is_echo():
-		move_dir = moves[3]
-		
-
-
-	if move_dir != Vector2i.ZERO:
-		player.input_buffer = move_dir
-
 func _start_hop(target_grid_pos: Vector2i):
 	player.is_hopping = true
-	
-	if player.conductor:
-		player.last_hop_beat = player.conductor.song_position_in_beats
 	
 	var target_screen_pos = player.world.get_screen_pos_for_cell(target_grid_pos)
 	

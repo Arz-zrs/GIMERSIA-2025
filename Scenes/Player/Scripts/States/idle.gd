@@ -13,23 +13,50 @@ func enter(previous_state_path: String, data := {}) -> void:
 	else:
 		player.animation_player.play("idle_down")
 	
-	if player.input_buffer != Vector2i.ZERO:
-		finished.emit(HOPPING)
+	#if player.input_buffer == Vector2i.ZERO:
+		#return
+	#
+	#var song_pos = player.conductor.song_position_in_beats
+	#
+	#var closest_beat = round(song_pos) 
+	#var beat_diff = abs(song_pos - closest_beat)
+	#
+	#if beat_diff > GameStates.HIT_WINDOW:
+		##print("OFF BEAT! Diff: ", time_off_beat) Debugging only
+		#return 
+#
+	#player.last_hop_beat = int(closest_beat)
+	#
+	#finished.emit(HOPPING)
 
 func handle_input(_event: InputEvent) -> void:
+	if not _event.is_pressed() or _event.is_echo():
+		return
+
 	var move_dir = Vector2i.ZERO
-	
-	if _event.is_action_pressed("Up") and not _event.is_echo():
+
+	if _event.is_action("Up"):
 		move_dir = moves[0]
-	elif _event.is_action_pressed("Right") and not _event.is_echo():
+	elif _event.is_action("Right"):
 		move_dir = moves[1]
-	elif _event.is_action_pressed("Left") and not _event.is_echo():
+	elif _event.is_action("Left"):
 		move_dir = moves[2]
-	elif _event.is_action_pressed("Down") and not _event.is_echo():
+	elif _event.is_action("Down"):
 		move_dir = moves[3]
 
-	if move_dir != Vector2i.ZERO:
-		player.input_buffer = move_dir
-		#GameStates.player_turn_taken.emit(move_dir) i comment this so that enemy will move on beat only
+	if move_dir == Vector2i.ZERO:
+		return
+	
+	var song_pos = player.conductor.song_position_in_beats
+	
+	var closest_beat = round(song_pos) 
+	var beat_diff = abs(song_pos - closest_beat)
+	
+	if beat_diff > GameStates.HIT_WINDOW:
+		#print("OFF BEAT! Diff: ", time_off_beat) Debugging only
+		return 
 		
+	player.input_buffer = move_dir
+	player.last_hop_beat = int(closest_beat)
+	
 	finished.emit(HOPPING)

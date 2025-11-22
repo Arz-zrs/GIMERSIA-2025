@@ -20,6 +20,24 @@ anchors_preset = 0
 script = ExtResource("1_y8bx2")
 metadata/_edit_use_anchors_ = true
 
+[node name="RTimingWindowIndicator" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 668.0
+offset_top = 652.0
+offset_right = 708.0
+offset_bottom = 692.0
+color = Color(0.8367193, 0.27851036, 0.0390737, 1)
+
+[node name="LTimingWindowIndicator" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 589.0
+offset_top = 652.0
+offset_right = 628.0
+offset_bottom = 692.0
+color = Color(0.8367193, 0.27851036, 0.0390737, 1)
+
 [node name="BeatIndicator" type="ColorRect" parent="."]
 visible = false
 layout_mode = 0

@@ -10,6 +10,8 @@ const ON_DISC = "OnDisc"
 
 const DEFAULT_SCALE: Vector2 = Vector2(0.2, 0.2)
 
+
+
 const moves = [
 	Vector2i(2, -1), # Up
 	Vector2i(-1, 2),  # Right
