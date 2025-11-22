@@ -2,10 +2,11 @@ class_name Cede extends CharacterBody2D
 
 @export var world: Node2D
 @export var target_move_counter: int = 5
-var current_grid_pos: Vector2i
-var spawn_grid_pos: Vector2i
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var state_machine = $StateMachine
+@onready var move_highlighter: Sprite2D = $MoveHighlighter
+var current_grid_pos: Vector2i
+var spawn_grid_pos: Vector2i
 var is_active: bool = false
 var player_move_count: int = 0
 

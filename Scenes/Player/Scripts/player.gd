@@ -10,6 +10,7 @@ var lives: int = 3
 var is_hopping: bool = false
 var last_hop_beat: float = -10.0
 var target_grid_pos: Vector2i
+var has_iframe: bool = false
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

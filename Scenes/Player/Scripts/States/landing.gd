@@ -1,6 +1,7 @@
 extends PlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
+	player.has_iframe = false
 	player.current_grid_pos = data["target_grid_pos"]
 	
 	var overlapping_areas = player.hitbox.get_overlapping_areas()
