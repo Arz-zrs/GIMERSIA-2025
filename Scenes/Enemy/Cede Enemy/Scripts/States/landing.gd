@@ -6,8 +6,11 @@ func enter(previous_state_path: String, data := {}) -> void:
 	if _is_valid_cell(cede.current_grid_pos):
 		if _is_on_player_tile(cede.current_grid_pos):
 			var player_node = cede.get_meta("player_node")
-			AudioAutoloader.playHitSound()
-			player_node.emit_signal("hit_by_enemy")
+			if not player_node.has_iframe:
+				AudioAutoloader.playHitSound()
+				player_node.emit_signal("hit_by_enemy")
+			else:
+				print("player has iframe")
 		finished.emit(IDLE)
 	else:
 		finished.emit(FALLING)
@@ -17,6 +20,8 @@ func _is_valid_cell(grid_pos: Vector2i) -> bool:
 
 func _is_on_player_tile(grid_pos: Vector2i) -> bool:
 	var player_node = cede.get_meta("player_node")
-	if player_node and player_node.target_grid_pos == grid_pos:
-		return true
-	return false
+	if not player_node:
+		return false
+	if player_node.has_iframe:
+		return false
+	return player_node.current_grid_pos == grid_pos

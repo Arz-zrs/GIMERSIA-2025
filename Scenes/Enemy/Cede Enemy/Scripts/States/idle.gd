@@ -6,7 +6,7 @@ var _planned_move_dir: Vector2i = Vector2i.ZERO
 func enter(previous_state_path: String, data := {}) -> void:
 	if not GameStates.player_turn_taken.is_connected(_on_player_turn):
 		GameStates.player_turn_taken.connect(_on_player_turn)
-	_update_highlighter()
+	_calculate_and_show_intent()
 
 func exit() -> void:
 	cede.move_highlighter.hide()
@@ -15,28 +15,26 @@ func exit() -> void:
 
 func _on_player_turn(player_move_dir: Vector2i):
 	var current_turn = GameStates.game_turn
-	if current_turn == _last_moved_turn:
-		return
+	
 	if current_turn % 2 != 0:
 		_calculate_and_show_intent()
 		return
-	_last_moved_turn = current_turn
+
 	cede.move_highlighter.hide()
-	var final_move_dir = _calculate_best_move()
-	
-	finished.emit(HOPPING, {"move_direction": final_move_dir})
+	finished.emit(HOPPING, {"move_direction": _planned_move_dir})
 
 func _calculate_and_show_intent():
+	if GameStates.game_turn == _last_moved_turn:
+		return 
+
 	var best_move = _calculate_best_move()
 	_planned_move_dir = best_move
-	
-	if best_move != Vector2i.ZERO:
-		var target_grid_pos = cede.current_grid_pos + best_move
-		var target_screen_pos = cede.world.get_screen_pos_for_cell(target_grid_pos)
-		cede.move_highlighter.global_position = target_screen_pos
-		cede.move_highlighter.show()
-	#else:
-		#cede.move_highlighter.hide()
+	_last_moved_turn = GameStates.game_turn
+
+	var target_grid_pos = cede.current_grid_pos + best_move
+	var target_screen_pos = cede.world.get_screen_pos_for_cell(target_grid_pos)
+	cede.move_highlighter.global_position = target_screen_pos
+	cede.move_highlighter.show()
 
 func _update_highlighter():
 	if GameStates.game_turn % 2 != 0:
@@ -58,7 +56,6 @@ func _calculate_best_move() -> Vector2i:
 		Vector2i(1, -2), # Left
 		Vector2i(-2, 1)  # Down
 	]
-	# ---------------------------------------
 
 	var best_move: Vector2i = Vector2i.ZERO
 	var min_distance: float = _get_grid_distance(cede_pos, player_target_pos)
