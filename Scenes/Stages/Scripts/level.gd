@@ -4,7 +4,7 @@ class_name Level extends Node2D
 @export var player: Player
 @export var level_cleared_menu: CanvasLayer
 @export var game_over_menu: CanvasLayer
-@export var rythim_manager: Control
+@export var rythim_manager: CanvasLayer
 @export var conductor: Node
 @export var beat_map: BeatMap
 

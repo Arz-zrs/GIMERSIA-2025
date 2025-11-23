@@ -45,12 +45,16 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -684.0
+offset_top = -784.0
+offset_right = 683.5
+offset_bottom = 423.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_wahff")
 
 [node name="FloatingDisc1" parent="." instance=ExtResource("2_akl1l")]
-position = Vector2(198, 398)
+position = Vector2(201, 354)
 target_marker = NodePath("../Marker2D2")
 sprite_texture = ExtResource("4_hmm0u")
 

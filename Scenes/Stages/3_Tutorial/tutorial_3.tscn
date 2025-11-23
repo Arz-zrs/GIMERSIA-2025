@@ -41,16 +41,20 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -613.0
+offset_top = -560.0
+offset_right = 498.5
+offset_bottom = 496.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_l2rko")
 
 [node name="FloatingDisc1" parent="." instance=ExtResource("2_p486q")]
-position = Vector2(559, 472)
+position = Vector2(554, 428)
 target_marker = NodePath("../Marker2D2")
 
 [node name="FloatingDisc2" parent="." instance=ExtResource("2_p486q")]
-position = Vector2(1151, 418)
+position = Vector2(1149, 372)
 target_marker = NodePath("../Marker2D")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
