@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @export var conductor: Node 
 @export var player: Player

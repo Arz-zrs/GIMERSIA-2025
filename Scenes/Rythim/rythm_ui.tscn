@@ -14,15 +14,12 @@ gradient = SubResource("Gradient_dk1pf")
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_2rhx6"]
 gradient = ExtResource("2_2j7v5")
 
-[node name="RythmUI" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="RythmUI" type="CanvasLayer"]
 script = ExtResource("1_y8bx2")
 metadata/_edit_use_anchors_ = true
 
 [node name="RTimingWindowIndicator" type="ColorRect" parent="."]
 visible = false
-layout_mode = 0
 offset_left = 668.0
 offset_top = 652.0
 offset_right = 708.0
@@ -31,7 +28,6 @@ color = Color(0.8367193, 0.27851036, 0.0390737, 1)
 
 [node name="LTimingWindowIndicator" type="ColorRect" parent="."]
 visible = false
-layout_mode = 0
 offset_left = 589.0
 offset_top = 652.0
 offset_right = 628.0
@@ -40,7 +36,6 @@ color = Color(0.8367193, 0.27851036, 0.0390737, 1)
 
 [node name="BeatIndicator" type="ColorRect" parent="."]
 visible = false
-layout_mode = 0
 offset_left = 617.0
 offset_top = 643.0
 offset_right = 682.0
@@ -48,7 +43,6 @@ offset_bottom = 708.0
 
 [node name="left_progress_bar" type="TextureProgressBar" parent="."]
 visible = false
-layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 53.0
@@ -64,7 +58,6 @@ texture_progress = SubResource("GradientTexture1D_fn3e5")
 
 [node name="right_progress_bar" type="TextureProgressBar" parent="."]
 visible = false
-layout_mode = 0
 offset_left = 647.0
 offset_top = 660.0
 offset_right = 903.0
@@ -81,7 +74,6 @@ texture = ExtResource("3_hpcjs")
 hframes = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
 offset_left = 14.000015
 offset_top = 13.000001
 offset_right = 1753.0
