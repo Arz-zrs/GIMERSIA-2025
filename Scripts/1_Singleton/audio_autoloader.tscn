@@ -13,7 +13,7 @@ stream = ExtResource("1_ie4j8")
 
 [node name="PerfectSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_6exk0")
-volume_db = -26.578
+volume_db = -7.394
 
 [node name="TickSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_a6rpu")

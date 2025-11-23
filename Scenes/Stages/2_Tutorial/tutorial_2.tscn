@@ -42,12 +42,16 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -402.0
+offset_top = -438.0
+offset_right = 365.0
+offset_bottom = 388.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_66qgx")
 
 [node name="FloatingDisc2" parent="." instance=ExtResource("2_p486q")]
-position = Vector2(912, 444)
+position = Vector2(902, 402)
 target_marker = NodePath("../Marker2D")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
