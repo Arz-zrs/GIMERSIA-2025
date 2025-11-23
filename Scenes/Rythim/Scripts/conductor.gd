@@ -54,6 +54,7 @@ func _process(delta: float):
 		last_reported_beat = int(song_position_in_beats)
 		emit_signal("beat_hit", last_reported_beat)
 		GameStates.player_turn_taken.emit(Vector2i.ZERO)
+		AudioAutoloader.playTickSound()
 		GameStates.game_turn += 1
 		
 		if current_map.bpm_changes.has(last_reported_beat):

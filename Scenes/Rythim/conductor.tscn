@@ -6,6 +6,7 @@
 script = ExtResource("1_jidbd")
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+bus = &"Music"
 
 [node name="DebugLayer" type="CanvasLayer" parent="."]
 
