@@ -38,7 +38,7 @@ func _on_respawning():
 
 func _on_iframe_ended():
 	player.has_iframe = false
-	print("iframe end")
+	#print("iframe end")
 
 func exit():
 	player.sprite.modulate.a = 1.0

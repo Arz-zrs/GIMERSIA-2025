@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+enum Match {PERFECT, OK, MISS}
+
 @export var conductor: Node 
 @export var player: Player
 @export var note_scene: PackedScene
@@ -19,25 +21,30 @@ var last_processed_beat: int = -1
 @onready var left_timing_window = $LTimingWindowIndicator
 @onready var right_timing_window = $RTimingWindowIndicator
 
+@onready var beat_label: Label = $BeatLabel
+
 func _ready() -> void:
 	if conductor:
 		conductor.beat_hit.connect(_on_conductor_beat_hit)
 		last_spawned_beat = int(conductor.song_position_in_beats)
-		if conductor.debug_mode:
-			left_timing_window.visible = true
-			right_timing_window.visible = true
+		#if conductor.debug_mode:
+			#left_timing_window.visible = true
+			#right_timing_window.visible = true
 	
 	right_progress_bar.max_value = 1.0
 	left_progress_bar.max_value = 1.0
+	beat_label.set_text("")
 
 func _process(_delta: float) -> void:
 	if not conductor or not conductor.is_active:
 		return
 	
-	var beat_progress = fmod(conductor.song_position_in_beats, 1.0)
-	var time_left_visual = 1.0 - beat_progress
-	left_progress_bar.value = time_left_visual
-	right_progress_bar.value = time_left_visual
+	#var beat_progress = fmod(conductor.song_position_in_beats, 1.0)
+	#var time_left_visual = 1.0 - beat_progress
+	#left_progress_bar.visible = true
+	#right_progress_bar.visible = true
+	#left_progress_bar.value = time_left_visual
+	#right_progress_bar.value = time_left_visual #uncomment this if you want progress bar
 	
 	if player.is_hopping and player.last_hop_beat != last_processed_beat:
 		_validate_player_hit()
@@ -45,8 +52,29 @@ func _process(_delta: float) -> void:
 	_handle_note_spawning()
 
 func _validate_player_hit():
-	AudioAutoloader.playPerfectSound()
-	_beat_indicator()
+	var target_beat = round(player.last_song_pos)
+	
+	var diff_beats = abs(player.last_song_pos - target_beat)
+	
+	var diff_seconds = diff_beats * conductor.sec_per_beat
+	
+	print("Hit Offset: %.3f sec" % diff_seconds)
+
+	if diff_seconds <= 0.1: 
+		AudioAutoloader.playPerfectSound()
+		_beat_indicator()
+		#print("PERFECT")
+		beat_label.set_text("PERFECT")
+		player.current_match = Match.PERFECT
+	elif diff_seconds <= 0.25:
+		_beat_indicator()
+		#print("OK")
+		beat_label.set_text("OK")
+		player.current_match = Match.OK
+	else:
+		beat_label.set_text("")
+		player.current_match = Match.MISS
+		#print("Miss (Timing off)")
 
 	last_processed_beat = player.last_hop_beat
 

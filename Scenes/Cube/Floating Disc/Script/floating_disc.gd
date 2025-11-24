@@ -36,7 +36,7 @@ func start_ride(player: Player):
 	tween.tween_callback(self._on_tween_complete.bind(player, original_parent))
 
 func _on_tween_complete(player: Player, original_parent):
-	print("On Disc Finished (Tween Callback)") 
+	#print("On Disc Finished (Tween Callback)") 
 	
 	player.reparent(original_parent)
 	player.current_grid_pos = player.world.get_cell_for_global_pos(target_position)

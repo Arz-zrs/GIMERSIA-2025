@@ -34,9 +34,9 @@ func handle_input(_event: InputEvent) -> void:
 	if move_dir == Vector2i.ZERO:
 		return
 	
-	var song_pos = player.conductor.song_position_in_beats
+	var song_beat = player.conductor.song_position_in_beats
 	
-	var closest_beat = round(song_pos) 
+	var closest_beat = round(song_beat) 
 	
 	#if beat_diff > GameStates.HIT_WINDOW:
 		##print("OFF BEAT! Diff: ", time_off_beat) Debugging only
