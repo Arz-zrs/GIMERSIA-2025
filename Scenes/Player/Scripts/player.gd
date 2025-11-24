@@ -21,6 +21,7 @@ var current_match = Match.MISS
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine = $StateMachine
 @onready var hitbox: Area2D = $Hitbox
+@onready var camera: Camera2D = $Camera2D
 
 func _ready():
 	current_grid_pos = world.get_spawn_pos()

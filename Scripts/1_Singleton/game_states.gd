@@ -1,6 +1,8 @@
 extends Node
 
 ## SINGLETON / AUTOLOAD
+enum Match {PERFECT, OK, MISS}
+
 var game_over: bool = false
 
 var score: int = 0

@@ -1,7 +1,5 @@
 class_name Level extends Node2D
 
-enum Match {PERFECT, OK, MISS}
-
 @export var tilemap_layer: TileMapLayer
 @export var player: Player
 @export var level_cleared_menu: CanvasLayer
@@ -41,32 +39,36 @@ func on_player_landed(grid_pos: Vector2i):
 	var current_index = tile_data.get_custom_data("color_index")
 	var target_index = tile_data.get_custom_data("target_index")
 	
-	if player.current_match == Match.PERFECT:
-		current_index += 2
-	elif player.current_match == Match.OK:
-		current_index += 1
-	else:
-		if current_index == 2: # If Lit up
-			tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,1))
-			await get_tree().create_timer(0.05).timeout
-			tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,1))
-			await get_tree().create_timer(0.05).timeout
-			tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,1))
-		elif current_index == 1: # If Half Lit Up
-			tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
-			await get_tree().create_timer(0.03).timeout
-			tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
-			await get_tree().create_timer(0.03).timeout
-			tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,0))
-			await get_tree().create_timer(0.03).timeout
-			tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
-		else: # If not lit up
-			tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
-			await get_tree().create_timer(0.05).timeout
-			tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
-			await get_tree().create_timer(0.05).timeout
-			tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,0))
-		return
+	match player.current_match:
+		GameStates.Match.PERFECT:
+			current_index += 2
+		GameStates.Match.OK:
+			current_index += 1
+		GameStates.Match.MISS:
+			if current_index == 2: # If Lit up
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,1))
+				await get_tree().create_timer(0.05).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,1))
+				await get_tree().create_timer(0.05).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,1))
+				
+			elif current_index == 1: # If Half Lit Up
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
+				await get_tree().create_timer(0.03).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
+				await get_tree().create_timer(0.03).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,0))
+				await get_tree().create_timer(0.03).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
+				
+			else: # If not lit up
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
+				await get_tree().create_timer(0.05).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
+				await get_tree().create_timer(0.05).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,0))
+			return
+		
 	
 	#print("Current Cleared Cube Is : ", current_cleared_cube)
 	
