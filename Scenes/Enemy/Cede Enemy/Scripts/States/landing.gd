@@ -2,7 +2,7 @@ extends CedeState
 
 func enter(previous_state_path: String, data := {}) -> void:
 	cede.current_grid_pos = data["target_grid_pos"]
-	print("cede",cede.current_grid_pos)
+	#print("cede",cede.current_grid_pos)
 	if _is_valid_cell(cede.current_grid_pos):
 		if _is_on_player_tile(cede.current_grid_pos):
 			var player_node = cede.get_meta("player_node")
@@ -10,7 +10,8 @@ func enter(previous_state_path: String, data := {}) -> void:
 				AudioAutoloader.playHitSound()
 				player_node.emit_signal("hit_by_enemy")
 			else:
-				print("player has iframe")
+				#print("player has iframe")
+				pass
 		finished.emit(IDLE)
 	else:
 		finished.emit(FALLING)

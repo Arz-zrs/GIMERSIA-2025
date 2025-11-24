@@ -7,16 +7,16 @@ class_name Level extends Node2D
 @export var rythim_manager: CanvasLayer
 @export var conductor: Node
 @export var beat_map: BeatMap
+@export var target_cleared_cube: int = 15
 
 var current_cleared_cube = 0
-var target_cleared_cube = 15
 
 const TILE_OFFSET = Vector2(1, 1)
 
 func _ready() -> void:
 	GameStates.reset_game_stats()
 	get_tree().paused = false	
-	print(get_screen_pos_for_cell(get_spawn_pos()))
+	#print(get_screen_pos_for_cell(get_spawn_pos()))
 	conductor.load_map(beat_map)
 	
 func get_screen_pos_for_cell(grid_pos: Vector2i) -> Vector2:
@@ -35,12 +35,42 @@ func on_player_landed(grid_pos: Vector2i):
 	if not tile_data:
 		return
 
+	var source_id = tilemap_layer.get_cell_source_id(grid_pos)
 	var current_index = tile_data.get_custom_data("color_index")
 	var target_index = tile_data.get_custom_data("target_index")
 	
-	current_index += 1
-	print("Current Cleared Cube Is : ", current_cleared_cube)
-	var source_id = tilemap_layer.get_cell_source_id(grid_pos)
+	match player.current_match:
+		GameStates.Match.PERFECT:
+			current_index += 2
+		GameStates.Match.OK:
+			current_index += 1
+		GameStates.Match.MISS:
+			if current_index == 2: # If Lit up
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,1))
+				await get_tree().create_timer(0.05).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,1))
+				await get_tree().create_timer(0.05).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,1))
+				
+			elif current_index == 1: # If Half Lit Up
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
+				await get_tree().create_timer(0.03).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
+				await get_tree().create_timer(0.03).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,0))
+				await get_tree().create_timer(0.03).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
+				
+			else: # If not lit up
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
+				await get_tree().create_timer(0.05).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
+				await get_tree().create_timer(0.05).timeout
+				tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,0))
+			return
+		
+	
+	#print("Current Cleared Cube Is : ", current_cleared_cube)
 	
 	if current_index > target_index:
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,1))
@@ -50,7 +80,18 @@ func on_player_landed(grid_pos: Vector2i):
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,1))
 		return
 	
-	if current_index == target_index:
+	if current_index == 1:
+		#GameStates.add_score()
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
+		await get_tree().create_timer(0.03).timeout
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
+		await get_tree().create_timer(0.03).timeout
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,0))
+		await get_tree().create_timer(0.03).timeout
+		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
+		return
+	
+	if current_index == 2:
 		GameStates.add_score()
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
 		await get_tree().create_timer(0.05).timeout
@@ -58,6 +99,7 @@ func on_player_landed(grid_pos: Vector2i):
 		await get_tree().create_timer(0.05).timeout
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(0,1))
 		current_cleared_cube += 1
+		return
 
 func is_tile_walkable(grid_pos: Vector2i) -> bool:
 	if tilemap_layer.get_cell_source_id(grid_pos) != -1:

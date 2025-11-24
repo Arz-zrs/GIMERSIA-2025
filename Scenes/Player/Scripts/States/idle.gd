@@ -12,22 +12,9 @@ func enter(previous_state_path: String, data := {}) -> void:
 			player.animation_player.play("idle_down")
 	else:
 		player.animation_player.play("idle_down")
-	
-	#if player.input_buffer == Vector2i.ZERO:
-		#return
-	#
-	#var song_pos = player.conductor.song_position_in_beats
-	#
-	#var closest_beat = round(song_pos) 
-	#var beat_diff = abs(song_pos - closest_beat)
-	#
-	#if beat_diff > GameStates.HIT_WINDOW:
-		##print("OFF BEAT! Diff: ", time_off_beat) Debugging only
-		#return 
-#
-	#player.last_hop_beat = int(closest_beat)
-	#
-	#finished.emit(HOPPING)
+
+	if player.input_buffer != Vector2i.ZERO:
+		finished.emit(HOPPING)
 
 func handle_input(_event: InputEvent) -> void:
 	if not _event.is_pressed() or _event.is_echo():
@@ -47,14 +34,13 @@ func handle_input(_event: InputEvent) -> void:
 	if move_dir == Vector2i.ZERO:
 		return
 	
-	var song_pos = player.conductor.song_position_in_beats
+	var song_beat = player.conductor.song_position_in_beats
 	
-	var closest_beat = round(song_pos) 
-	var beat_diff = abs(song_pos - closest_beat)
+	var closest_beat = round(song_beat) 
 	
-	if beat_diff > GameStates.HIT_WINDOW:
-		#print("OFF BEAT! Diff: ", time_off_beat) Debugging only
-		return 
+	#if beat_diff > GameStates.HIT_WINDOW:
+		##print("OFF BEAT! Diff: ", time_off_beat) Debugging only
+		#return 
 		
 	player.input_buffer = move_dir
 	player.last_hop_beat = int(closest_beat)

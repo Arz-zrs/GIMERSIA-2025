@@ -1,13 +1,14 @@
 extends Node
 
 ## SINGLETON / AUTOLOAD
+enum Match {PERFECT, OK, MISS}
+
 var game_over: bool = false
 
 var score: int = 0
 var multiplier: int = 1
 var consecutive_jumps: int = 0
 var on_ride_disc: bool = false
-var player_lives: int = 3
 var game_turn: int = 0
 
 var levels: Array[String] = [
@@ -30,7 +31,9 @@ signal multiplier_updated(new_multiplier)
 
 const POINTS_PER_JUMP = 10
 const JUMPS_FOR_MULTIPLIER = 5
-const HIT_WINDOW: float = 0.34
+const HIT_WINDOW: float = 0.1
+const PERFECT_WINDOW: float = 0.100
+const OK_WINDOW: float = 0.250
 
 func load_next_level():
 	var current_scene_file = get_tree().current_scene.scene_file_path
@@ -41,7 +44,8 @@ func load_next_level():
 			var next_level_path = levels[next_index]
 			get_tree().change_scene_to_file(next_level_path)
 		else:
-			print("Final level check")
+			#print("Final level check")
+			pass
 	else:
 		push_error("Current level not found in GameStates.levels list!")
 
@@ -66,7 +70,6 @@ func reset_game_stats():
 	score = 0
 	multiplier = 1
 	consecutive_jumps = 0
-	player_lives = 3
 	game_turn = 0
 	game_over = false
 	score_updated.emit(score)

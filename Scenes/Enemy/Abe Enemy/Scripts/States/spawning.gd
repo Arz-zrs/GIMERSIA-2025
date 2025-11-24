@@ -9,7 +9,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	abe.current_grid_pos = abe.spawn_grid_pos
 	abe.global_position = abe.world.get_screen_pos_for_cell(abe.current_grid_pos)
 	move_counter = 0
-	print("test")
+	#print("test")
 	has_player_spawned = false
 	abe.sprite.hide()
 	
@@ -20,7 +20,7 @@ func _on_player_turn(_move_dir: Vector2i):
 		return
 
 	move_counter += 1
-	print(move_counter, "/",abe.target_move_counter)
+	#print(move_counter, "/",abe.target_move_counter)
 	if move_counter >= abe.target_move_counter:
 		GameStates.player_turn_taken.disconnect(_on_player_turn)
 		_start_spawn_animation()

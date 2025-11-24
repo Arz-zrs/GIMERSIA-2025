@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://blqxm2qtw031a" path="res://Scenes/Rythim/Scripts/rythm_ui.gd" id="1_y8bx2"]
 [ext_resource type="Gradient" uid="uid://mlqfwqvuwh2a" path="res://indicator.tres" id="2_2j7v5"]
 [ext_resource type="Texture2D" uid="uid://cq0bi32cr507g" path="res://Assets/UI/beat.png" id="3_hpcjs"]
-[ext_resource type="Texture2D" uid="uid://lph132g3ni4c" path="res://Assets/UI/Heart.png" id="4_0vxig"]
+[ext_resource type="FontFile" uid="uid://c6tdn2mbktk1h" path="res://Assets/Fonts/Raleway/static/Raleway-Light.ttf" id="4_y8bx2"]
 
 [sub_resource type="Gradient" id="Gradient_dk1pf"]
 colors = PackedColorArray(1, 1, 1, 1, 0.97269875, 0.8214018, 1.540184e-06, 1)
@@ -73,26 +73,6 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_hpcjs")
 hframes = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = 14.000015
-offset_top = 13.000001
-offset_right = 1753.0
-offset_bottom = 526.0
-scale = Vector2(0.1, 0.1)
-theme_override_constants/separation = 100
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("4_0vxig")
-
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("4_0vxig")
-
-[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("4_0vxig")
-
 [node name="CenterSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(650, 673)
 
@@ -101,3 +81,16 @@ position = Vector2(1000, 673)
 
 [node name="LeftSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(300, 673)
+
+[node name="BeatLabel" type="Label" parent="."]
+offset_left = 576.0
+offset_top = 49.0
+offset_right = 680.0
+offset_bottom = 113.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_y8bx2")
+theme_override_font_sizes/font_size = 32
+text = "Beat"
+horizontal_alignment = 1
