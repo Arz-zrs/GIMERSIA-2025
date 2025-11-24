@@ -28,6 +28,7 @@ game_over_menu = NodePath("GameOverMenu")
 rythim_manager = NodePath("RythmManager")
 conductor = NodePath("Conductor")
 beat_map = ExtResource("2_7udmw")
+target_cleared_cube = 20
 
 [node name="Conductor" parent="." instance=ExtResource("3_x51x2")]
 

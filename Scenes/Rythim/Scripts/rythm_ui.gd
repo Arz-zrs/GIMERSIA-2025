@@ -15,7 +15,6 @@ var last_processed_beat: int = -1
 @onready var beat_sprite = $Sprite2D
 @onready var right_progress_bar = $right_progress_bar
 @onready var left_progress_bar = $left_progress_bar
-@onready var health_bar = $HBoxContainer
 
 @onready var left_timing_window = $LTimingWindowIndicator
 @onready var right_timing_window = $RTimingWindowIndicator
@@ -80,11 +79,3 @@ func _beat_indicator():
 	await get_tree().create_timer(0.1).timeout
 	
 	beat_sprite.frame_coords = Vector2(0, 0)
-
-func update_hp():
-	#print("Updating HP") # debug only
-	var current_lives: int = GameStates.player_lives
-
-	for i in range(health_bar.get_child_count()):
-		var heart_icon = health_bar.get_child(i)
-		heart_icon.visible = i < current_lives

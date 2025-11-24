@@ -29,6 +29,7 @@ game_over_menu = NodePath("GameOverMenu")
 rythim_manager = NodePath("RythmManager")
 conductor = NodePath("Conductor")
 beat_map = ExtResource("2_fyn12")
+target_cleared_cube = 47
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

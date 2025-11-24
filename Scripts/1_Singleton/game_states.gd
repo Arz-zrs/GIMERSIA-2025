@@ -7,7 +7,6 @@ var score: int = 0
 var multiplier: int = 1
 var consecutive_jumps: int = 0
 var on_ride_disc: bool = false
-var player_lives: int = 3
 var game_turn: int = 0
 
 var levels: Array[String] = [
@@ -30,7 +29,7 @@ signal multiplier_updated(new_multiplier)
 
 const POINTS_PER_JUMP = 10
 const JUMPS_FOR_MULTIPLIER = 5
-const HIT_WINDOW: float = 0.34
+const HIT_WINDOW: float = 0.1
 
 func load_next_level():
 	var current_scene_file = get_tree().current_scene.scene_file_path
@@ -66,7 +65,6 @@ func reset_game_stats():
 	score = 0
 	multiplier = 1
 	consecutive_jumps = 0
-	player_lives = 3
 	game_turn = 0
 	game_over = false
 	score_updated.emit(score)

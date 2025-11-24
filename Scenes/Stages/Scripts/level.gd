@@ -7,9 +7,10 @@ class_name Level extends Node2D
 @export var rythim_manager: CanvasLayer
 @export var conductor: Node
 @export var beat_map: BeatMap
+@export var target_cleared_cube: int = 15
 
 var current_cleared_cube = 0
-var target_cleared_cube = 15
+
 
 const TILE_OFFSET = Vector2(1, 1)
 
