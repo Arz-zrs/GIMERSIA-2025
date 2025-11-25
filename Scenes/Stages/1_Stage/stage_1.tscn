@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=4 uid="uid://c03yw85t8qyf2"]
 
 [ext_resource type="Script" uid="uid://bcfxfsqcjn5js" path="res://Scenes/Stages/1_Stage/stage_1.gd" id="1_sjpfr"]
-[ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Player/Player.tscn" id="2_0j8e6"]
+[ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Entity/Player.tscn" id="2_0j8e6"]
 [ext_resource type="PackedScene" uid="uid://54msct5mm3np" path="res://Scenes/Cube/Floating Disc/floating_disc.tscn" id="2_akl1l"]
 [ext_resource type="TileSet" uid="uid://buud1shxc1yr2" path="res://Assets/Tileset/pyramid_tileset.tres" id="2_f1gwu"]
 [ext_resource type="Resource" uid="uid://b27arfdlt8vbj" path="res://Resources/BeatMap/stage_1_beat_map.tres" id="2_fyn12"]
@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://cf0fhq4jg7n28" path="res://Scenes/Stages/Scripts/States/playing.gd" id="6_7828x"]
 [ext_resource type="Script" uid="uid://dpgsgkseg6256" path="res://Scenes/Stages/Scripts/States/level_cleared.gd" id="7_nceub"]
 [ext_resource type="Script" uid="uid://daxnu8a1uxkjv" path="res://Scenes/Stages/Scripts/States/game_over.gd" id="8_7828x"]
-[ext_resource type="PackedScene" uid="uid://bodfdnmi8mavi" path="res://Scenes/Enemy/Abe Enemy/abe_enemy.tscn" id="11_r1t47"]
+[ext_resource type="PackedScene" uid="uid://bodfdnmi8mavi" path="res://Scenes/Entity/abe_enemy.tscn" id="11_r1t47"]
 [ext_resource type="PackedScene" uid="uid://bhg2ek4b2v330" path="res://Scenes/Rythim/rythm_ui.tscn" id="12_1bqcc"]
 [ext_resource type="PackedScene" uid="uid://067ld416cqg2" path="res://Scenes/Rythim/rythm_note.tscn" id="13_rw52e"]
 [ext_resource type="PackedScene" uid="uid://bbqdep6yobyec" path="res://Scenes/user_interface/score_display/score.tscn" id="15_fyn12"]

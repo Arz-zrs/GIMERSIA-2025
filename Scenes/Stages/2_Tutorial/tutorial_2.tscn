@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://54msct5mm3np" path="res://Scenes/Cube/Floating Disc/floating_disc.tscn" id="2_p486q"]
 [ext_resource type="TileSet" uid="uid://buud1shxc1yr2" path="res://Assets/Tileset/pyramid_tileset.tres" id="3_f1fj2"]
 [ext_resource type="PackedScene" uid="uid://onb5x76uqfsx" path="res://Scenes/Rythim/conductor.tscn" id="3_x51x2"]
-[ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Player/Player.tscn" id="4_rv26m"]
+[ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Entity/Player.tscn" id="4_rv26m"]
 [ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/state_machine.gd" id="5_5w5nh"]
 [ext_resource type="Script" uid="uid://btdyr5fij8mdv" path="res://Scenes/Stages/Scripts/States/ready.gd" id="6_jq02e"]
 [ext_resource type="Script" uid="uid://cf0fhq4jg7n28" path="res://Scenes/Stages/Scripts/States/playing.gd" id="7_pa7pk"]

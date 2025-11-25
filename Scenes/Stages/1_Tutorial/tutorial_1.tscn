@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://54msct5mm3np" path="res://Scenes/Cube/Floating Disc/floating_disc.tscn" id="2_jyy2b"]
 [ext_resource type="Texture2D" uid="uid://b4or30hio36fm" path="res://Assets/UI/background_3.png" id="2_r78vx"]
 [ext_resource type="TileSet" uid="uid://buud1shxc1yr2" path="res://Assets/Tileset/pyramid_tileset.tres" id="3_xqfws"]
-[ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Player/Player.tscn" id="4_wwam5"]
+[ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Entity/Player.tscn" id="4_wwam5"]
 [ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/state_machine.gd" id="5_r78vx"]
 [ext_resource type="Script" uid="uid://btdyr5fij8mdv" path="res://Scenes/Stages/Scripts/States/ready.gd" id="6_nsdeq"]
 [ext_resource type="Script" uid="uid://cf0fhq4jg7n28" path="res://Scenes/Stages/Scripts/States/playing.gd" id="7_mrr7p"]

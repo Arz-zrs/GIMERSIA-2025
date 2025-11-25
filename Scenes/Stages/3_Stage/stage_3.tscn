@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=4 uid="uid://bxavt201ne8dd"]
 
 [ext_resource type="Script" uid="uid://wchgvoygwfam" path="res://Scenes/Stages/3_Stage/stage_3.gd" id="1_wahff"]
-[ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Player/Player.tscn" id="2_0j8e6"]
+[ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Entity/Player.tscn" id="2_0j8e6"]
 [ext_resource type="Resource" uid="uid://csybxbrw26mnk" path="res://Resources/BeatMap/stage_3_beat_map.tres" id="2_36h0e"]
 [ext_resource type="PackedScene" uid="uid://54msct5mm3np" path="res://Scenes/Cube/Floating Disc/floating_disc.tscn" id="2_akl1l"]
 [ext_resource type="TileSet" uid="uid://buud1shxc1yr2" path="res://Assets/Tileset/pyramid_tileset.tres" id="2_f1gwu"]
@@ -13,14 +13,14 @@
 [ext_resource type="Script" uid="uid://cf0fhq4jg7n28" path="res://Scenes/Stages/Scripts/States/playing.gd" id="6_7828x"]
 [ext_resource type="Script" uid="uid://dpgsgkseg6256" path="res://Scenes/Stages/Scripts/States/level_cleared.gd" id="7_nceub"]
 [ext_resource type="Script" uid="uid://daxnu8a1uxkjv" path="res://Scenes/Stages/Scripts/States/game_over.gd" id="8_7828x"]
-[ext_resource type="PackedScene" uid="uid://bodfdnmi8mavi" path="res://Scenes/Enemy/Abe Enemy/abe_enemy.tscn" id="11_r1t47"]
+[ext_resource type="PackedScene" uid="uid://bodfdnmi8mavi" path="res://Scenes/Entity/abe_enemy.tscn" id="11_r1t47"]
 [ext_resource type="PackedScene" uid="uid://bhg2ek4b2v330" path="res://Scenes/Rythim/rythm_ui.tscn" id="12_1bqcc"]
 [ext_resource type="PackedScene" uid="uid://067ld416cqg2" path="res://Scenes/Rythim/rythm_note.tscn" id="15_3l3oa"]
 [ext_resource type="PackedScene" uid="uid://bbqdep6yobyec" path="res://Scenes/user_interface/score_display/score.tscn" id="18_36h0e"]
 [ext_resource type="PackedScene" uid="uid://c4h7s8wpriilm" path="res://Scenes/user_interface/game_paused/paused_menu.tscn" id="19_f0tlj"]
 [ext_resource type="PackedScene" uid="uid://b8p53gfj0k65k" path="res://Scenes/user_interface/game_over/game_over_menu.tscn" id="28_guj40"]
 [ext_resource type="PackedScene" uid="uid://dlefw2di5wvbd" path="res://Scenes/user_interface/level_cleared/level_cleared_menu.tscn" id="30_hmm0u"]
-[ext_resource type="PackedScene" uid="uid://3lfqcf0p51yk" path="res://Scenes/Enemy/Cede Enemy/cede_enemy.tscn" id="31_2c5un"]
+[ext_resource type="PackedScene" uid="uid://3lfqcf0p51yk" path="res://Scenes/Entity/cede_enemy.tscn" id="31_2c5un"]
 
 [node name="Stage3" type="Node2D" node_paths=PackedStringArray("tilemap_layer", "player", "level_cleared_menu", "game_over_menu", "rythim_manager", "conductor")]
 script = ExtResource("1_wahff")

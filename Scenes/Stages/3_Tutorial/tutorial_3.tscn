@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://54msct5mm3np" path="res://Scenes/Cube/Floating Disc/floating_disc.tscn" id="2_p486q"]
 [ext_resource type="Resource" uid="uid://bd8d5ufmh56ie" path="res://Resources/BeatMap/tutorial_3_beat_map.tres" id="2_ynsex"]
 [ext_resource type="TileSet" uid="uid://buud1shxc1yr2" path="res://Assets/Tileset/pyramid_tileset.tres" id="3_f1fj2"]
-[ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Player/Player.tscn" id="4_rv26m"]
+[ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Entity/Player.tscn" id="4_rv26m"]
 [ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/state_machine.gd" id="5_5w5nh"]
 [ext_resource type="Script" uid="uid://btdyr5fij8mdv" path="res://Scenes/Stages/Scripts/States/ready.gd" id="6_jq02e"]
 [ext_resource type="Script" uid="uid://cf0fhq4jg7n28" path="res://Scenes/Stages/Scripts/States/playing.gd" id="7_pa7pk"]
@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://onb5x76uqfsx" path="res://Scenes/Rythim/conductor.tscn" id="19_o0g43"]
 [ext_resource type="PackedScene" uid="uid://b8p53gfj0k65k" path="res://Scenes/user_interface/game_over/game_over_menu.tscn" id="26_rlyal"]
 [ext_resource type="PackedScene" uid="uid://dlefw2di5wvbd" path="res://Scenes/user_interface/level_cleared/level_cleared_menu.tscn" id="28_l2rko"]
-[ext_resource type="PackedScene" uid="uid://bodfdnmi8mavi" path="res://Scenes/Enemy/Abe Enemy/abe_enemy.tscn" id="29_ttf55"]
+[ext_resource type="PackedScene" uid="uid://bodfdnmi8mavi" path="res://Scenes/Entity/abe_enemy.tscn" id="29_ttf55"]
 
 [node name="Tutorial3" type="Node2D" node_paths=PackedStringArray("tilemap_layer", "player", "level_cleared_menu", "game_over_menu", "rythim_manager", "conductor")]
 script = ExtResource("1_s8qog")

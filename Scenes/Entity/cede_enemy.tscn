@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=3 uid="uid://3lfqcf0p51yk"]
+
+[ext_resource type="Script" uid="uid://c28gnhrtf0um" path="res://Scripts/3_Entity/cede_enemy.gd" id="1_5aou6"]
+[ext_resource type="Texture2D" uid="uid://duv7iohj2h1lx" path="res://Assets/Entity/cd.png" id="2_asux8"]
+[ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/state_machine.gd" id="3_yiwq0"]
+[ext_resource type="Script" uid="uid://bvfsrs0ihp335" path="res://Scripts/2_State/Cede/cede_idle.gd" id="4_l3wtb"]
+[ext_resource type="Script" uid="uid://djj2xxd5ik113" path="res://Scripts/2_State/Entity/enemy_hopping.gd" id="5_xpq43"]
+[ext_resource type="Script" uid="uid://csx03bj1rabks" path="res://Scripts/2_State/Entity/enemy_spawning.gd" id="6_qoem0"]
+[ext_resource type="Script" uid="uid://caqttqs71bt4u" path="res://Scripts/2_State/Entity/enemy_landing.gd" id="7_iupsn"]
+[ext_resource type="Script" uid="uid://bsw0bfyxd6vob" path="res://Scripts/2_State/Entity/entity_falling.gd" id="8_1gmtp"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_00r8d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ucn6"]
+radius = 26.076809
+
+[node name="CedeEnemy" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_5aou6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3, -52.000008)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_asux8")
+hframes = 4
+vframes = 6
+
+[node name="MoveHighlighter" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(57.75, 57.75)
+texture = SubResource("PlaceholderTexture2D_00r8d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -29)
+shape = SubResource("CircleShape2D_3ucn6")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_yiwq0")
+initial_state = NodePath("Spawning")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_l3wtb")
+
+[node name="Hopping" type="Node" parent="StateMachine"]
+script = ExtResource("5_xpq43")
+
+[node name="Spawning" type="Node" parent="StateMachine"]
+script = ExtResource("6_qoem0")
+
+[node name="Landing" type="Node" parent="StateMachine"]
+script = ExtResource("7_iupsn")
+
+[node name="Falling" type="Node" parent="StateMachine"]
+script = ExtResource("8_1gmtp")
