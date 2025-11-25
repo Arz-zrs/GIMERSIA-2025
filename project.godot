@@ -17,12 +17,12 @@ config/icon="res://icon.svg"
 
 [audio]
 
-buses/default_bus_layout="res://Scenes/user_interface/game_paused/AudioSetting.tres"
+buses/default_bus_layout="res://Resources/Audio/AudioSetting.tres"
 
 [autoload]
 
 GameStates="*res://Scripts/1_Singleton/game_states.gd"
-AudioAutoloader="*res://Scripts/1_Singleton/audio_autoloader.tscn"
+AudioAutoloader="*res://Scenes/Singleton/audio_autoloader.tscn"
 
 [display]
 
