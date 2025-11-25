@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BeatMap" load_steps=3 format=3 uid="uid://b27arfdlt8vbj"]
 
-[ext_resource type="Script" uid="uid://dwvk7qlfxywef" path="res://Resources/BeatMap/beat_map.gd" id="1_dcy8f"]
+[ext_resource type="Script" uid="uid://dwvk7qlfxywef" path="res://Scripts/5_Resources/beat_map.gd" id="1_dcy8f"]
 [ext_resource type="AudioStream" uid="uid://lqdmdb7pbdn7" path="res://Assets/Audio/70 skips (long)~1.mp3" id="1_sqxua"]
 
 [resource]

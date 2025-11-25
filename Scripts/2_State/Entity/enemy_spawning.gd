@@ -13,16 +13,16 @@ func enter(previous_state_path: String, data := {}) -> void:
 	has_player_spawned = false
 	owner.sprite.hide()
 	
-	GameStates.player_turn_taken.connect(_on_player_turn)
+	GameStates.beat_hit.connect(_on_beat_hit)
 
-func _on_player_turn(_move_dir: Vector2i):
+func _on_beat_hit(_beat_num: int):
 	if has_player_spawned:
 		return
 
 	move_counter += 1
 	
 	if move_counter >= owner.target_move_counter:
-		GameStates.player_turn_taken.disconnect(_on_player_turn)
+		GameStates.beat_hit.disconnect(_on_beat_hit)
 		_start_spawn_animation()
 
 func _start_spawn_animation():
@@ -46,8 +46,8 @@ func _start_spawn_animation():
 	finished.emit(IDLE)
 
 func exit():
-	if GameStates.player_turn_taken.is_connected(_on_player_turn):
-		GameStates.player_turn_taken.disconnect(_on_player_turn)
+	if GameStates.beat_hit.is_connected(_on_beat_hit):
+		GameStates.beat_hit.disconnect(_on_beat_hit)
 	
 	owner.sprite.modulate.a = 1.0
 	owner.sprite.show()

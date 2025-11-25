@@ -4,16 +4,21 @@ var _last_moved_turn: int = -1
 var _planned_move_dir: Vector2i = Vector2i.ZERO
 
 func enter(previous_state_path: String, data := {}) -> void:
-	if not GameStates.player_turn_taken.is_connected(_on_player_turn):
-		GameStates.player_turn_taken.connect(_on_player_turn)
+	if not GameStates.beat_hit.is_connected(_on_beat_hit):
+		GameStates.beat_hit.connect(_on_beat_hit)
 	_calculate_and_show_intent()
+
+#func update(_delta: float) -> void:
+	#if GameStates.beat_hit:
+		#print("Cede Preparing to Move")
+		#_on_player_turn()
 
 func exit() -> void:
 	cede.move_highlighter.hide()
-	if GameStates.player_turn_taken.is_connected(_on_player_turn):
-		GameStates.player_turn_taken.disconnect(_on_player_turn)
+	if GameStates.beat_hit.is_connected(_on_beat_hit):
+		GameStates.beat_hit.disconnect(_on_beat_hit)
 
-func _on_player_turn(player_move_dir: Vector2i):
+func _on_beat_hit(_beat_num: int):
 	var current_turn = GameStates.game_turn
 	
 	if current_turn % 2 != 0:

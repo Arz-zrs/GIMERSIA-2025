@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c28gnhrtf0um" path="res://Scripts/3_Entity/cede_enemy.gd" id="1_5aou6"]
 [ext_resource type="Texture2D" uid="uid://duv7iohj2h1lx" path="res://Assets/Entity/cd.png" id="2_asux8"]
-[ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/state_machine.gd" id="3_yiwq0"]
+[ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/0_Templates/state_machine.gd" id="3_yiwq0"]
 [ext_resource type="Script" uid="uid://bvfsrs0ihp335" path="res://Scripts/2_State/Cede/cede_idle.gd" id="4_l3wtb"]
 [ext_resource type="Script" uid="uid://djj2xxd5ik113" path="res://Scripts/2_State/Entity/enemy_hopping.gd" id="5_xpq43"]
 [ext_resource type="Script" uid="uid://csx03bj1rabks" path="res://Scripts/2_State/Entity/enemy_spawning.gd" id="6_qoem0"]

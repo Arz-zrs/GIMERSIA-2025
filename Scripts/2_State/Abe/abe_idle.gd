@@ -17,10 +17,15 @@ func enter(previous_state_path: String, data := {}) -> void:
 	abe.move_highlighter.global_position = target_screen_pos
 	abe.move_highlighter.show()
 	
-	if not GameStates.player_turn_taken.is_connected(_on_player_turn):
-		GameStates.player_turn_taken.connect(_on_player_turn)
+	if not GameStates.beat_hit.is_connected(_on_beat_hit):
+		GameStates.beat_hit.connect(_on_beat_hit)
 
-func _on_player_turn(player_move_dir: Vector2i):
+#func update(_delta: float) -> void:
+	#if GameStates.beat_hit:
+		#_on_beat_hit()
+	
+
+func _on_beat_hit(_beat_num: int):
 	var current_turn = GameStates.game_turn
 	if current_turn == _last_moved_turn:
 		return 
@@ -30,5 +35,5 @@ func _on_player_turn(player_move_dir: Vector2i):
 
 func exit() -> void:
 	abe.move_highlighter.hide()
-	if GameStates.player_turn_taken.is_connected(_on_player_turn):
-		GameStates.player_turn_taken.disconnect(_on_player_turn)
+	if GameStates.beat_hit.is_connected(_on_beat_hit):
+		GameStates.beat_hit.disconnect(_on_beat_hit)

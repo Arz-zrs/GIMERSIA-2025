@@ -1,7 +1,5 @@
 class_name AbeState extends EntityState
 
-const SPAWNING = "Spawning"
-
 var abe: Abe
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

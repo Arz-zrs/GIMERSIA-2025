@@ -34,7 +34,13 @@ func _start_falling():
 	).set_trans(Tween.TRANS_SINE)
 	
 	await falling_tween.finished
-	finished.emit(DEAD)
+	
+	if owner is Player:
+		print("Player")
+		finished.emit(DEAD)
+	elif owner is Abe or owner is Cede:
+		print("Abe or Cede")
+		finished.emit(SPAWNING)
 
 func exit():
 	if falling_tween and falling_tween.is_running():

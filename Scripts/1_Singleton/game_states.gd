@@ -12,19 +12,18 @@ var on_ride_disc: bool = false
 var game_turn: int = 0
 
 var levels: Array[String] = [
-	"res://Scenes/Stages/1_Tutorial/tutorial_1.tscn",
-	"res://Scenes/Stages/2_Tutorial/tutorial_2.tscn",
-	"res://Scenes/Stages/3_Tutorial/tutorial_3.tscn",
-	"res://Scenes/Stages/1_Stage/stage_1.tscn",
-	"res://Scenes/Stages/2_Stage/stage_2.tscn",
-	"res://Scenes/Stages/3_Stage/stage_3.tscn",
+	"res://Scenes/Stages/tutorial_1.tscn",
+	"res://Scenes/Stages/tutorial_2.tscn",
+	"res://Scenes/Stages/tutorial_3.tscn",
+	"res://Scenes/Stages/stage_1.tscn",
+	"res://Scenes/Stages/stage_2.tscn",
+	"res://Scenes/Stages/stage_3.tscn",
 ]
 
 @onready var scene_main_menu = preload("res://Scenes/user_interface/menu/main_menu.tscn")
 @onready var scene_level_selector = preload("res://Scenes/user_interface/level_selection/level_selection.tscn")
 
-#signal game
-signal player_turn_taken(move_dir: Vector2i)
+signal beat_hit(beat_num: int)
 signal player_spawn_finished
 signal score_updated(new_score)
 signal multiplier_updated(new_multiplier)
@@ -49,6 +48,7 @@ func load_next_level():
 	else:
 		push_error("Current level not found in GameStates.levels list!")
 
+
 func add_score():
 	score += POINTS_PER_JUMP * multiplier
 	score_updated.emit(score)
@@ -57,14 +57,17 @@ func add_score():
 	if consecutive_jumps % JUMPS_FOR_MULTIPLIER == 0:
 		_increment_multiplier()
 
+
 func reset_multiplier():
 	multiplier = 1
 	consecutive_jumps = 0
 	multiplier_updated.emit(multiplier)
 
+
 func _increment_multiplier():
 	multiplier += 1
 	multiplier_updated.emit(multiplier)
+
 
 func reset_game_stats():
 	score = 0
