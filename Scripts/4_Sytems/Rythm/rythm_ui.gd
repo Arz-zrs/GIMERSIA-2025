@@ -98,7 +98,6 @@ func spawn_visual_note(target_beat_num: int):
 
 func _on_beat_hit(beat_num: int):
 	if player.last_hop_beat < beat_num and !GameStates.on_ride_disc:
-		GameStates.reset_multiplier()
 		_beat_indicator()
 
 func _beat_indicator():

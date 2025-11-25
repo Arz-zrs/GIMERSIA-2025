@@ -89,7 +89,6 @@ func on_player_landed(grid_pos: Vector2i):
 	
 	## If OK and the Cube are half lit or PERFECT and the cube are not lit or PERFECT and the cube are half lit
 	if current_index == 2 or (current_index == 3 and player.current_match == GameStates.Match.PERFECT):
-		GameStates.add_score()
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(1,0))
 		await get_tree().create_timer(0.05).timeout
 		tilemap_layer.set_cell(grid_pos, source_id, Vector2i(2,0))
