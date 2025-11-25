@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://5jf1d8r4hhcw"]
+[gd_scene load_steps=17 format=4 uid="uid://5jf1d8r4hhcw"]
 
 [ext_resource type="Script" uid="uid://btqtaju2ak8av" path="res://Scripts/4_Sytems/Stages/tutorial_1.gd" id="1_quoc6"]
 [ext_resource type="Resource" uid="uid://biie0c3y42wsb" path="res://Resources/BeatMap/tutorial_1_beat_map.tres" id="2_aaqmk"]
@@ -12,10 +12,9 @@
 [ext_resource type="Script" uid="uid://daxnu8a1uxkjv" path="res://Scripts/2_State/Stage/game_over.gd" id="9_75rwc"]
 [ext_resource type="PackedScene" uid="uid://bhg2ek4b2v330" path="res://Scenes/Rythm/rythm_ui.tscn" id="12_q3fcs"]
 [ext_resource type="PackedScene" uid="uid://067ld416cqg2" path="res://Scenes/Rythm/rythm_note.tscn" id="13_87tsh"]
-[ext_resource type="PackedScene" uid="uid://b8p53gfj0k65k" path="res://Scenes/user_interface/game_over/game_over_menu.tscn" id="14_10aex"]
-[ext_resource type="PackedScene" uid="uid://bbqdep6yobyec" path="res://Scenes/user_interface/score_display/score.tscn" id="14_aaqmk"]
-[ext_resource type="PackedScene" uid="uid://dlefw2di5wvbd" path="res://Scenes/user_interface/level_cleared/level_cleared_menu.tscn" id="15_3mbfy"]
-[ext_resource type="PackedScene" uid="uid://c4h7s8wpriilm" path="res://Scenes/user_interface/game_paused/paused_menu.tscn" id="16_aaqmk"]
+[ext_resource type="PackedScene" uid="uid://b8p53gfj0k65k" path="res://Scenes/user_interface/game_over_menu.tscn" id="14_10aex"]
+[ext_resource type="PackedScene" uid="uid://dlefw2di5wvbd" path="res://Scenes/user_interface/level_cleared_menu.tscn" id="15_3mbfy"]
+[ext_resource type="PackedScene" uid="uid://c4h7s8wpriilm" path="res://Scenes/user_interface/paused_menu.tscn" id="16_aaqmk"]
 [ext_resource type="PackedScene" uid="uid://onb5x76uqfsx" path="res://Scenes/Rythm/conductor.tscn" id="18_hv2v1"]
 
 [node name="Tutorial1" type="Node2D" node_paths=PackedStringArray("tilemap_layer", "player", "level_cleared_menu", "game_over_menu", "rythim_manager", "conductor")]
@@ -79,8 +78,6 @@ script = ExtResource("9_75rwc")
 conductor = NodePath("../Conductor")
 player = NodePath("../Player")
 note_scene = ExtResource("13_87tsh")
-
-[node name="Score" parent="." instance=ExtResource("14_aaqmk")]
 
 [node name="GameOverMenu" parent="." instance=ExtResource("14_10aex")]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dlefw2di5wvbd"]
 
-[ext_resource type="Script" uid="uid://5boubu6k3rn6" path="res://Scenes/user_interface/level_cleared/level_cleared_menu.gd" id="1_aq7xc"]
+[ext_resource type="Script" uid="uid://5boubu6k3rn6" path="res://Scripts/4_Sytems/UI/level_cleared_menu.gd" id="1_aq7xc"]
 [ext_resource type="Texture2D" uid="uid://doa2lmuqeux4f" path="res://Assets/Menu/Asset_27.png" id="2_sarff"]
 [ext_resource type="Texture2D" uid="uid://bn2ycn6juow7f" path="res://Assets/Menu/Asset_25.png" id="3_nku0d"]
 [ext_resource type="Texture2D" uid="uid://cwofxiij4ywav" path="res://Assets/Menu/Pause_Bg_Menu.png" id="4_2bau2"]
@@ -93,15 +93,3 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_1krj1")
 icon = ExtResource("7_i5d5e")
 flat = true
 icon_alignment = 1
-
-[node name="ScoreLabel" type="Label" parent="."]
-offset_left = 562.0
-offset_top = 267.5
-offset_right = 667.0
-offset_bottom = 306.5
-theme_override_font_sizes/font_size = 28
-text = "Score: 0"
-
-[connection signal="pressed" from="RetryButton" to="." method="_on_retry_pressed"]
-[connection signal="pressed" from="NextButton" to="." method="_on_next_pressed"]
-[connection signal="pressed" from="MenuButton" to="." method="_on_menu_pressed"]

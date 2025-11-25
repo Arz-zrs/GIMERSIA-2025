@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://5bnw4logfsd2"]
 
-[ext_resource type="Script" uid="uid://cy1ogfes0820g" path="res://Scenes/user_interface/level_selection/level_selection.gd" id="1_8xar1"]
+[ext_resource type="Script" uid="uid://cy1ogfes0820g" path="res://Scripts/4_Sytems/UI/level_selection.gd" id="1_8xar1"]
 [ext_resource type="Texture2D" uid="uid://2n80vopu5jw1" path="res://Assets/Menu/Bacgkround_Main_Menu.png" id="2_tcw1j"]
 [ext_resource type="Texture2D" uid="uid://bqy5shoby8sow" path="res://Assets/Menu/Level_Not_Clear.png" id="2_wrvio"]
 [ext_resource type="FontFile" uid="uid://c4taoa7bk06us" path="res://Assets/Fonts/CALIFB.TTF" id="3_tcw1j"]
@@ -213,10 +213,10 @@ icon = ExtResource("6_w142l")
 flat = true
 icon_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Stage1" to="." method="_on_stage_1_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Stage2" to="." method="_on_stage_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Stage3" to="." method="_on_stage_3_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Stage4" to="." method="_on_stage_4_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Stage5" to="." method="_on_stage_5_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Stage6" to="." method="_on_stage_6_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Stage1" to="." method="_change_to_stage" binds= [0]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Stage2" to="." method="_change_to_stage" binds= [1]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Stage3" to="." method="_change_to_stage" binds= [2]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Stage4" to="." method="_change_to_stage" binds= [3]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Stage5" to="." method="_change_to_stage" binds= [4]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Stage6" to="." method="_change_to_stage" binds= [5]]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

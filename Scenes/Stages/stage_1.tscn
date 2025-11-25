@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c03yw85t8qyf2"]
+[gd_scene load_steps=18 format=4 uid="uid://c03yw85t8qyf2"]
 
 [ext_resource type="Script" uid="uid://bcfxfsqcjn5js" path="res://Scripts/4_Sytems/Stages/stage_1.gd" id="1_a3nje"]
 [ext_resource type="Resource" uid="uid://b27arfdlt8vbj" path="res://Resources/BeatMap/stage_1_beat_map.tres" id="2_2j2vi"]
@@ -13,10 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bhg2ek4b2v330" path="res://Scenes/Rythm/rythm_ui.tscn" id="12_22sso"]
 [ext_resource type="PackedScene" uid="uid://067ld416cqg2" path="res://Scenes/Rythm/rythm_note.tscn" id="13_euq63"]
 [ext_resource type="PackedScene" uid="uid://bodfdnmi8mavi" path="res://Scenes/Entity/abe_enemy.tscn" id="14_nfpxi"]
-[ext_resource type="PackedScene" uid="uid://bbqdep6yobyec" path="res://Scenes/user_interface/score_display/score.tscn" id="15_4751n"]
-[ext_resource type="PackedScene" uid="uid://dlefw2di5wvbd" path="res://Scenes/user_interface/level_cleared/level_cleared_menu.tscn" id="16_q05fk"]
-[ext_resource type="PackedScene" uid="uid://b8p53gfj0k65k" path="res://Scenes/user_interface/game_over/game_over_menu.tscn" id="17_2fsv8"]
-[ext_resource type="PackedScene" uid="uid://c4h7s8wpriilm" path="res://Scenes/user_interface/game_paused/paused_menu.tscn" id="18_6c63l"]
+[ext_resource type="PackedScene" uid="uid://dlefw2di5wvbd" path="res://Scenes/user_interface/level_cleared_menu.tscn" id="16_q05fk"]
+[ext_resource type="PackedScene" uid="uid://b8p53gfj0k65k" path="res://Scenes/user_interface/game_over_menu.tscn" id="17_2fsv8"]
+[ext_resource type="PackedScene" uid="uid://c4h7s8wpriilm" path="res://Scenes/user_interface/paused_menu.tscn" id="18_6c63l"]
 [ext_resource type="PackedScene" uid="uid://onb5x76uqfsx" path="res://Scenes/Rythm/conductor.tscn" id="19_56f2l"]
 
 [node name="Stage1" type="Node2D" node_paths=PackedStringArray("tilemap_layer", "player", "level_cleared_menu", "game_over_menu", "rythim_manager", "conductor")]
@@ -90,9 +89,6 @@ target_move_counter = 2
 position = Vector2(347, 410)
 world = NodePath("..")
 target_move_counter = 2
-
-[node name="Score" parent="." instance=ExtResource("15_4751n")]
-visible = false
 
 [node name="LevelClearedMenu" parent="." instance=ExtResource("16_q05fk")]
 

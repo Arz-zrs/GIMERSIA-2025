@@ -11,7 +11,7 @@ var consecutive_jumps: int = 0
 var on_ride_disc: bool = false
 var game_turn: int = 0
 
-var levels: Array[String] = [
+const levels: Array[String] = [
 	"res://Scenes/Stages/tutorial_1.tscn",
 	"res://Scenes/Stages/tutorial_2.tscn",
 	"res://Scenes/Stages/tutorial_3.tscn",
@@ -20,8 +20,8 @@ var levels: Array[String] = [
 	"res://Scenes/Stages/stage_3.tscn",
 ]
 
-@onready var scene_main_menu = preload("res://Scenes/user_interface/menu/main_menu.tscn")
-@onready var scene_level_selector = preload("res://Scenes/user_interface/level_selection/level_selection.tscn")
+@onready var scene_main_menu = preload("res://Scenes/user_interface/main_menu.tscn")
+@onready var scene_level_selector = preload("res://Scenes/user_interface/level_selection.tscn")
 
 signal beat_hit(beat_num: int)
 signal player_spawn_finished

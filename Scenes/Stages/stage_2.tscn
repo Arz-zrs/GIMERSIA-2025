@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://rw5ak8hsavi4"]
+[gd_scene load_steps=19 format=4 uid="uid://rw5ak8hsavi4"]
 
 [ext_resource type="Script" uid="uid://dgtfth0ejig1m" path="res://Scripts/4_Sytems/Stages/stage_2.gd" id="1_ds88h"]
 [ext_resource type="PackedScene" uid="uid://bkd2van6gammi" path="res://Scenes/Entity/Player.tscn" id="2_0j8e6"]
@@ -13,11 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://bodfdnmi8mavi" path="res://Scenes/Entity/abe_enemy.tscn" id="11_r1t47"]
 [ext_resource type="PackedScene" uid="uid://bhg2ek4b2v330" path="res://Scenes/Rythm/rythm_ui.tscn" id="12_1bqcc"]
 [ext_resource type="PackedScene" uid="uid://067ld416cqg2" path="res://Scenes/Rythm/rythm_note.tscn" id="13_ibkev"]
-[ext_resource type="PackedScene" uid="uid://bbqdep6yobyec" path="res://Scenes/user_interface/score_display/score.tscn" id="16_c6ep6"]
-[ext_resource type="PackedScene" uid="uid://c4h7s8wpriilm" path="res://Scenes/user_interface/game_paused/paused_menu.tscn" id="19_fyuq8"]
+[ext_resource type="PackedScene" uid="uid://c4h7s8wpriilm" path="res://Scenes/user_interface/paused_menu.tscn" id="19_fyuq8"]
 [ext_resource type="PackedScene" uid="uid://onb5x76uqfsx" path="res://Scenes/Rythm/conductor.tscn" id="20_c6ep6"]
-[ext_resource type="PackedScene" uid="uid://b8p53gfj0k65k" path="res://Scenes/user_interface/game_over/game_over_menu.tscn" id="28_lrxf1"]
-[ext_resource type="PackedScene" uid="uid://dlefw2di5wvbd" path="res://Scenes/user_interface/level_cleared/level_cleared_menu.tscn" id="30_2m653"]
+[ext_resource type="PackedScene" uid="uid://b8p53gfj0k65k" path="res://Scenes/user_interface/game_over_menu.tscn" id="28_lrxf1"]
+[ext_resource type="PackedScene" uid="uid://dlefw2di5wvbd" path="res://Scenes/user_interface/level_cleared_menu.tscn" id="30_2m653"]
 [ext_resource type="PackedScene" uid="uid://3lfqcf0p51yk" path="res://Scenes/Entity/cede_enemy.tscn" id="31_rqmrp"]
 
 [node name="Stage2" type="Node2D" node_paths=PackedStringArray("tilemap_layer", "player", "level_cleared_menu", "game_over_menu", "rythim_manager", "conductor")]
@@ -85,8 +84,6 @@ note_scene = ExtResource("13_ibkev")
 [node name="AbeEnemy" parent="." node_paths=PackedStringArray("world") groups=["Enemies"] instance=ExtResource("11_r1t47")]
 position = Vector2(444, 563)
 world = NodePath("..")
-
-[node name="Score" parent="." instance=ExtResource("16_c6ep6")]
 
 [node name="CedeEnemy" parent="." node_paths=PackedStringArray("world") instance=ExtResource("31_rqmrp")]
 position = Vector2(845, 412)
