@@ -16,10 +16,11 @@ func enter(previous_state_path: String, data := {}) -> void:
 			finished.emit(ON_DISC, {"disc":area.get_parent()})
 			return
 	
-	print(player.current_grid_pos)
+	#print(player.current_grid_pos)
 	if _is_valid_cell(player.current_grid_pos):
 		if _is_on_enemy_tile(player.current_grid_pos):
 			AudioAutoloader.playHitSound()
+			
 			finished.emit(FALLING)
 		else:
 			match player.current_match:

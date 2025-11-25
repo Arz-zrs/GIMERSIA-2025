@@ -1,13 +1,9 @@
 extends Node
 
 ## SINGLETON / AUTOLOAD
+# Enumeration to define the quality of a player's action match with the beat.
 enum Match {PERFECT, OK, MISS}
 
-var game_over: bool = false
-
-var score: int = 0
-var multiplier: int = 1
-var consecutive_jumps: int = 0
 var on_ride_disc: bool = false
 var game_turn: int = 0
 
@@ -25,8 +21,6 @@ const levels: Array[String] = [
 
 signal beat_hit(beat_num: int)
 signal player_spawn_finished
-signal score_updated(new_score)
-signal multiplier_updated(new_multiplier)
 
 const POINTS_PER_JUMP = 10
 const JUMPS_FOR_MULTIPLIER = 5
@@ -48,32 +42,5 @@ func load_next_level():
 	else:
 		push_error("Current level not found in GameStates.levels list!")
 
-
-func add_score():
-	score += POINTS_PER_JUMP * multiplier
-	score_updated.emit(score)
-	
-	consecutive_jumps += 1
-	if consecutive_jumps % JUMPS_FOR_MULTIPLIER == 0:
-		_increment_multiplier()
-
-
-func reset_multiplier():
-	multiplier = 1
-	consecutive_jumps = 0
-	multiplier_updated.emit(multiplier)
-
-
-func _increment_multiplier():
-	multiplier += 1
-	multiplier_updated.emit(multiplier)
-
-
 func reset_game_stats():
-	score = 0
-	multiplier = 1
-	consecutive_jumps = 0
 	game_turn = 0
-	game_over = false
-	score_updated.emit(score)
-	multiplier_updated.emit(multiplier)

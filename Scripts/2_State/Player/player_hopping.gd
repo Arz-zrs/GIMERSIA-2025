@@ -67,5 +67,6 @@ func _start_hop(target_grid_pos: Vector2i):
 	await hop_tween.finished
 	var data: Dictionary = {"target_grid_pos": target_grid_pos, "next_move" : next_move}
 	
+	player.last_grid_pos = player.current_grid_pos
 	finished.emit(LANDING, data)
 	

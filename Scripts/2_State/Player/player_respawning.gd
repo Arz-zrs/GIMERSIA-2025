@@ -10,7 +10,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 
 func _on_respawning():
 	player.has_iframe = true
-	player.current_grid_pos = player.world.get_spawn_pos()
+	player.current_grid_pos = player.last_grid_pos
 	player.global_position = player.world.get_screen_pos_for_cell(player.current_grid_pos)
 	
 	respawing_tween = player.create_tween()
