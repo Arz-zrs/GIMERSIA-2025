@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlefw2di5wvbd"]
+[gd_scene load_steps=12 format=3 uid="uid://dlefw2di5wvbd"]
 
 [ext_resource type="Script" uid="uid://5boubu6k3rn6" path="res://Scripts/4_Sytems/UI/level_cleared_menu.gd" id="1_aq7xc"]
 [ext_resource type="Texture2D" uid="uid://doa2lmuqeux4f" path="res://Assets/Menu/Asset_27.png" id="2_sarff"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c2qgma72oly7f" path="res://Assets/Menu/Bacground_text_Game_Paused.png" id="5_7woqo"]
 [ext_resource type="FontFile" uid="uid://c4taoa7bk06us" path="res://Assets/Fonts/CALIFB.TTF" id="6_ukm0k"]
 [ext_resource type="Texture2D" uid="uid://lnemlcpfswv6" path="res://Assets/Menu/Asset_26.png" id="7_i5d5e"]
+[ext_resource type="Texture2D" uid="uid://do5ilt2p8aaf0" path="res://Assets/Menu/Toggle_Bar_Volume.png" id="8_8ey3q"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_055xg"]
 
@@ -93,3 +94,23 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_1krj1")
 icon = ExtResource("7_i5d5e")
 flat = true
 icon_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 549.0
+offset_top = 275.0
+offset_right = 608.0
+offset_bottom = 315.0
+scale = Vector2(2.2230074, 1.4238809)
+alignment = 1
+
+[node name="star1" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_8ey3q")
+
+[node name="star2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_8ey3q")
+
+[node name="star3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_8ey3q")

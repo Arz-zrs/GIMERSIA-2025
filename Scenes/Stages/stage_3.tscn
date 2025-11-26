@@ -31,7 +31,8 @@ conductor = NodePath("Conductor")
 beat_map = ExtResource("2_36h0e")
 target_cleared_cube = 41
 
-[node name="Conductor" parent="." instance=ExtResource("3_n0x4r")]
+[node name="Conductor" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_n0x4r")]
+player = NodePath("../Player")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

@@ -96,4 +96,5 @@ target_move_counter = 2
 
 [node name="PausedMenu" parent="." instance=ExtResource("18_6c63l")]
 
-[node name="Conductor" parent="." instance=ExtResource("19_56f2l")]
+[node name="Conductor" parent="." node_paths=PackedStringArray("player") instance=ExtResource("19_56f2l")]
+player = NodePath("../Player")

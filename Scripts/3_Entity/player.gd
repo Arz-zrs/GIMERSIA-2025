@@ -6,13 +6,23 @@ enum Match {PERFECT, OK, MISS}
 
 @export var world: Node2D
 @export var conductor: Node
+@export var floating_label: PackedScene
 
 # Pulse Configuration
-
+@export_group("Camera Shake Setting")
 @export var pulse_up_duration: float = 0.1
 @export var pulse_down_duration: float = 0.4
 @export var pulse_ease_in: Tween.TransitionType = Tween.TRANS_SINE
 @export var pulse_ease_out: Tween.TransitionType = Tween.TRANS_LINEAR
+
+# Stomp Configuration
+@export_group("Stomp Settings")
+@export var perfect_deduction: int = 8
+@export var perfect_label_text: String = "PERFECT"
+@export var ok_deduction: int = 4
+@export var ok_label_text: String = "OK"
+@export var miss_deduction: int = 0
+@export var miss_label_text: String = "MISS"
 
 var tween: Tween = null
 var facing_to: int = 3
@@ -28,7 +38,7 @@ var last_hop_beat: float = -10.0
 var last_song_pos: float
 var current_match = Match.MISS
 
-var has_iframe: bool = false
+var has_moved: bool = false
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

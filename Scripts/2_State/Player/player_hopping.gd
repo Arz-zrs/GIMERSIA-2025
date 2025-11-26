@@ -4,7 +4,7 @@ var hop_tween: Tween
 var next_move
 
 func enter(previous_state_path: String, data := {}) -> void:
-	player.has_iframe = true
+	player.has_moved = true
 	if hop_tween and hop_tween.is_running():
 		hop_tween.kill()
 	

@@ -9,6 +9,7 @@ var current_grid_pos: Vector2i
 var spawn_grid_pos: Vector2i
 var is_active: bool = false
 var player_move_count: int = 0
+var has_iframe = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

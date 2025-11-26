@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://bkd2van6gammi"]
+[gd_scene load_steps=24 format=3 uid="uid://bkd2van6gammi"]
 
 [ext_resource type="Script" uid="uid://c02yytw51mm1q" path="res://Scripts/3_Entity/player.gd" id="1_ft8w5"]
 [ext_resource type="Texture2D" uid="uid://buh727b76yvah" path="res://Assets/Entity/Player.png" id="2_825xp"]
+[ext_resource type="PackedScene" uid="uid://c71at31oaccjh" path="res://Scenes/user_interface/floating_label.tscn" id="2_ttkxq"]
 [ext_resource type="Script" uid="uid://btub6qvcv4npx" path="res://Scripts/0_Templates/state_machine.gd" id="3_4wape"]
 [ext_resource type="Script" uid="uid://djjx43xw7eb7k" path="res://Scripts/2_State/Player/player_idle.gd" id="4_t26db"]
 [ext_resource type="Script" uid="uid://b6t7lundra15l" path="res://Scripts/2_State/Player/player_hopping.gd" id="5_fk5o5"]
@@ -286,6 +287,11 @@ radius = 22.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_ft8w5")
+floating_label = ExtResource("2_ttkxq")
+
+[node name="FloatingLabel" parent="." instance=ExtResource("2_ttkxq")]
+offset_right = 1.0
+offset_bottom = 23.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.999999, -56)

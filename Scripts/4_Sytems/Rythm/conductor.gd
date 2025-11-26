@@ -3,6 +3,7 @@ extends Node
 
 
 @export var debug_mode: bool = true
+@export var player: Player
 
 @onready var music_player = $MusicPlayer
 @onready var debug_label = $DebugLayer/Label
@@ -54,13 +55,16 @@ func _process(delta: float):
 		last_reported_beat = int(song_position_in_beats)
 		GameStates.beat_hit.emit(last_reported_beat)
 		AudioAutoloader.playTickSound()
-		GameStates.game_turn += 1
+		
+		# checks if player has moved, then increments game_turn
+		if player.has_moved:
+			GameStates.game_turn += 1
 		
 		if current_map.bpm_changes.has(last_reported_beat):
 			_update_bpm(current_map.bpm_changes[last_reported_beat])
 
 	if debug_mode:
-		debug_label.text = "BPM: %s\nBeat: %d\nSub-beat: %.2f" % [current_bpm, last_reported_beat, fmod(song_position_in_beats, 1.0)]
+		debug_label.text = "BPM: %s\nBeat: %d\nGameTurn: %d\nSub-beat: %.2f" % [current_bpm, last_reported_beat, GameStates.game_turn, fmod(song_position_in_beats, 1.0)]
 
 func _update_bpm(new_bpm: float):
 	current_bpm = new_bpm

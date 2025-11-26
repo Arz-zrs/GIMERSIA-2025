@@ -1,7 +1,6 @@
 extends PlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
-	player.has_iframe = false
 	player.current_grid_pos = data["target_grid_pos"]
 	
 	var overlapping_areas = player.hitbox.get_overlapping_areas()
@@ -13,10 +12,12 @@ func enter(previous_state_path: String, data := {}) -> void:
 	
 	#print(player.current_grid_pos)
 	if _is_valid_cell(player.current_grid_pos):
-		if _is_on_enemy_tile(player.current_grid_pos):
-			AudioAutoloader.playHitSound()
-			
-			finished.emit(FALLING)
+		# Cheks enemy position and run stomp logic if detected
+		var enemy = _get_enemy_at_position(player.current_grid_pos)
+		if enemy:
+			_handle_stomp_logic(enemy)
+			player.world.on_player_landed(player.current_grid_pos)
+			finished.emit(IDLE, {"next_move" : data["next_move"]})
 		else:
 			match player.current_match:
 				GameStates.Match.PERFECT:
@@ -30,14 +31,90 @@ func enter(previous_state_path: String, data := {}) -> void:
 	else:
 		finished.emit(FALLING)
 
-func _is_valid_cell(grid_pos: Vector2i) -> bool:
-	return player.world.tilemap_layer.get_cell_source_id(Vector2i(grid_pos.x, grid_pos.y)) != -1
+func _handle_stomp_logic(enemy_node: Node2D):
+	
+	 #Check iframe
+	if "has_iframe" in enemy_node and enemy_node.has_iframe:
+		#print("Enemy iframe on")
+		return
 
-func _is_on_enemy_tile(grid_pos: Vector2i) -> bool:
+	AudioAutoloader.playHitSound()
+	
+	var deduction = 0
+	var label_text = ""
+	var label_color = Color.WHITE
+	
+	# Determine game_turn subtraction and label text
+	match player.current_match:
+		GameStates.Match.PERFECT:
+			deduction = player.perfect_deduction
+			label_text = "%s, -%d turn" % [player.perfect_label_text, deduction]
+			label_color = Color.GOLD
+		GameStates.Match.OK:
+			deduction = player.ok_deduction
+			label_text = "%s, -%d turn" % [player.ok_label_text, deduction]
+			label_color = Color.GREEN_YELLOW
+		GameStates.Match.MISS:
+			deduction = player.miss_deduction
+			label_text = "%s, -%d turn" % [player.miss_label_text, deduction]
+			label_color = Color.GRAY
+			
+	# Set the floating label
+	if player.floating_label:
+		var label_instance = player.floating_label.instantiate()
+		player.get_parent().add_child(label_instance)
+		
+		#Position it above the enemy
+		label_instance.global_position = enemy_node.global_position + Vector2(0, -40)
+		
+		#Set text and color
+		if label_instance.has_method("set_text_and_color"):
+			label_instance.set_text_and_color(label_text, label_color)
+	else:
+		print("Warning: floating_label_scene not assigned in Player!")
+
+	# Game Turn reduced based on stomp
+	if deduction > 0:
+		GameStates.game_turn -= deduction
+		if GameStates.game_turn < 0:
+			GameStates.game_turn = 0
+		print("Debug: Game Turn updated to ", GameStates.game_turn)
+
+	# Enemy kill
+	#TODO: remove redundant checking
+	if enemy_node.has_node("StateMachine"):
+		var sm = enemy_node.get_node("StateMachine")
+			
+		# Check if the target state node exists
+		if sm.has_node("Spawning"):
+			var new_state = sm.get_node("Spawning")
+				
+			# 1. Exit the current state
+			if sm.state:
+				sm.state.exit()
+
+				# 2. Update the State Machine's 'state' variable
+			sm.state = new_state
+				
+			# 3. Enter the new state
+			# We pass the old state's name as the "previous_path"
+			sm.state.enter(sm.state.name, {})
+				
+			print("Forced transition to Spawning")
+		else:
+			print("Error: Enemy StateMachine has no 'Spawning' node!")
+	else:
+		print("Enemy hit but has no StateMachine node!")
+
+# get enemy grid position
+func _get_enemy_at_position(grid_pos: Vector2i) -> Node2D:
 	for enemy in get_tree().get_nodes_in_group("enemies"):
 		if enemy.current_grid_pos == grid_pos and enemy.is_active:
-			return true
-	return false
+			return enemy
+	return null
+
+func _is_valid_cell(grid_pos: Vector2i) -> bool:
+	return player.world.tilemap_layer.get_cell_source_id(Vector2i(grid_pos.x, grid_pos.y)) != -1
 
 func _get_camera() -> Camera2D:
 	return player.camera
