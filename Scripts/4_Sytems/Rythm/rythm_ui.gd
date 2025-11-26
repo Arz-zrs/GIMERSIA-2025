@@ -72,6 +72,7 @@ func _validate_player_hit():
 		beat_label.set_text("OK")
 		player.current_match = Match.OK
 	else:
+		_beat_indicator()
 		beat_label.set_text("")
 		player.current_match = Match.MISS
 		#print("Miss (Timing off)")
@@ -97,7 +98,8 @@ func spawn_visual_note(target_beat_num: int):
 	note_left.setup(conductor, target_beat_num, approach_beats, left_spawn_pos, center_pos  + Vector2(-20, 0))
 
 func _on_beat_hit(beat_num: int):
-	if player.last_hop_beat < beat_num and !GameStates.on_ride_disc:
+	if player.last_hop_beat < beat_num and !GameStates.on_ride_disc and GameStates.game_start:
+		_screen_shake()
 		_beat_indicator()
 
 func _beat_indicator():
@@ -106,3 +108,14 @@ func _beat_indicator():
 	await get_tree().create_timer(0.1).timeout
 	
 	beat_sprite.frame_coords = Vector2(0, 0)
+
+func _screen_shake():
+	var cam = player.camera
+	if not cam: return
+	
+	var tween = create_tween()
+	# Shake heavily then return to zero
+	for i in range(5):
+		var random_offset = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * GameStates.SHAKE_INTENSITY
+		tween.tween_property(cam, "offset", random_offset, GameStates.SHAKE_DURATION / 5.0)
+	tween.tween_property(cam, "offset", Vector2.ZERO, 0.05)

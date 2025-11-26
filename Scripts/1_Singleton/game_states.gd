@@ -6,6 +6,7 @@ enum Match {PERFECT, OK, MISS}
 
 var on_ride_disc: bool = false
 var game_turn: int = 0
+var game_start: bool = false
 
 const levels: Array[String] = [
 	"res://Scenes/Stages/tutorial_1.tscn",
@@ -27,6 +28,12 @@ const JUMPS_FOR_MULTIPLIER = 5
 const HIT_WINDOW: float = 0.1
 const PERFECT_WINDOW: float = 0.100
 const OK_WINDOW: float = 0.250
+
+## Rythm Visual Feedback Configuration
+const SHAKE_INTENSITY := 12.0
+const SHAKE_DURATION := 0.2
+const BOUNCE_OFFSET_OK := 6.0
+const BOUNCE_OFFSET_PERFECT := 16.0
 
 func load_next_level():
 	var current_scene_file = get_tree().current_scene.scene_file_path
