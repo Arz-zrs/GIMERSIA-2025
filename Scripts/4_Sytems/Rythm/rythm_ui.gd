@@ -110,7 +110,7 @@ func _beat_indicator():
 	beat_sprite.frame_coords = Vector2(0, 0)
 
 func _screen_shake():
-	var cam = player.camera
+	var cam = get_viewport().get_camera_2d()
 	if not cam: return
 	
 	var tween = create_tween()

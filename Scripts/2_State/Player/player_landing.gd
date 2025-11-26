@@ -111,11 +111,8 @@ func _get_enemy_at_position(grid_pos: Vector2i) -> Node2D:
 func _is_valid_cell(grid_pos: Vector2i) -> bool:
 	return player.world.tilemap_layer.get_cell_source_id(Vector2i(grid_pos.x, grid_pos.y)) != -1
 
-func _get_camera() -> Camera2D:
-	return player.camera
-
 func _tween_shake() -> void:
-	var cam = _get_camera()
+	var cam = get_viewport().get_camera_2d()
 	if not cam: return
 	
 	var tween = create_tween()
@@ -126,7 +123,7 @@ func _tween_shake() -> void:
 	tween.tween_property(cam, "offset", Vector2.ZERO, 0.05)
 
 func _tween_bounce(is_perfect: bool) -> void:
-	var cam = _get_camera()
+	var cam = get_viewport().get_camera_2d()
 	if not cam: return
 	
 	var intensity = GameStates.BOUNCE_OFFSET_PERFECT if is_perfect else GameStates.BOUNCE_OFFSET_OK

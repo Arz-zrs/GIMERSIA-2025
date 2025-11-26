@@ -87,3 +87,6 @@ note_scene = ExtResource("14_63o0w")
 [node name="GameOverMenu" parent="." instance=ExtResource("25_70mwo")]
 
 [node name="PausedMenu" parent="." instance=ExtResource("16_c47oa")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(651, 357)

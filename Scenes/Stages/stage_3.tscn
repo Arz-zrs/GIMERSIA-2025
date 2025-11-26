@@ -103,3 +103,6 @@ target_move_counter = 7
 [node name="GameOverMenu" parent="." instance=ExtResource("28_guj40")]
 
 [node name="PausedMenu" parent="." instance=ExtResource("19_f0tlj")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(651, 357)

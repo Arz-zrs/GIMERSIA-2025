@@ -90,3 +90,6 @@ note_scene = ExtResource("13_87tsh")
 
 [node name="Conductor" parent="." node_paths=PackedStringArray("player") instance=ExtResource("18_hv2v1")]
 player = NodePath("../Player")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(651, 357)

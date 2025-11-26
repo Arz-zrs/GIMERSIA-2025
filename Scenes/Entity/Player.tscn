@@ -339,5 +339,3 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -25)
 shape = SubResource("CircleShape2D_825xp")
-
-[node name="Camera2D" type="Camera2D" parent="."]
