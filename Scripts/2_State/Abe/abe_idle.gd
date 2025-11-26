@@ -4,6 +4,7 @@ var _last_moved_turn: int = -1
 var _next_move_dir: Vector2i = Vector2i.ZERO
 
 func enter(previous_state_path: String, data := {}) -> void:
+	abe.has_iframe = false
 	var possible_moves = [
 		Vector2i(2, -1), # Up
 		Vector2i(-1, 2),  # Right

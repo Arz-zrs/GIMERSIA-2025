@@ -9,7 +9,6 @@ func enter(previous_state_path: String, data := {}) -> void:
 	_on_respawning()
 
 func _on_respawning():
-	player.has_iframe = true
 	player.current_grid_pos = player.last_grid_pos
 	player.global_position = player.world.get_screen_pos_for_cell(player.current_grid_pos)
 	
@@ -33,12 +32,7 @@ func _on_respawning():
 	
 	await respawing_tween.finished
 	GameStates.player_spawn_finished.emit()
-	get_tree().create_timer(1.0).timeout.connect(_on_iframe_ended)
 	finished.emit(IDLE)
-
-func _on_iframe_ended():
-	player.has_iframe = false
-	#print("iframe end")
 
 func exit():
 	player.sprite.modulate.a = 1.0

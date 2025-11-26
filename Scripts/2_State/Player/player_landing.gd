@@ -12,7 +12,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	
 	#print(player.current_grid_pos)
 	if _is_valid_cell(player.current_grid_pos):
-		# Cheks enemy position and run stomp logic if detected
+		# Cheks enemy position and run stomp logic if detected, then switch state
 		var enemy = _get_enemy_at_position(player.current_grid_pos)
 		if enemy:
 			_handle_stomp_logic(enemy)
@@ -31,11 +31,12 @@ func enter(previous_state_path: String, data := {}) -> void:
 	else:
 		finished.emit(FALLING)
 
+# Handles stomp logic when player is on enemy grid
 func _handle_stomp_logic(enemy_node: Node2D):
 	
-	 #Check iframe
+	 #Check if enemy has iframe then stop the stomp logic operation
 	if "has_iframe" in enemy_node and enemy_node.has_iframe:
-		#print("Enemy iframe on")
+		print("enemy iframe", enemy_node.has_iframe) 
 		return
 
 	AudioAutoloader.playHitSound()
