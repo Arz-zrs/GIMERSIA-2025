@@ -13,12 +13,16 @@ func enter(previous_state_path: String, data := {}) -> void:
 		player.input_buffer = Vector2i.ZERO
 		
 		if next_move == moves[0]:
+			player.facing_to = 0
 			player.animation_player.play("hop_up")
 		elif next_move == moves[1]:
+			player.facing_to = 1
 			player.animation_player.play("hop_right")
 		elif next_move == moves[2]:
+			player.facing_to = 2
 			player.animation_player.play("hop_left")
 		elif next_move == moves[3]:
+			player.facing_to = 3
 			player.animation_player.play("hop_down")
 		
 		var target_grid_pos = player.current_grid_pos + next_move

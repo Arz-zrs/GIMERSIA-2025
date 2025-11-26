@@ -98,12 +98,12 @@ toggle_mode = true
 text = "Resume"
 flat = true
 
-[node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="RetryButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("5_dvi71")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_buke8")
-text = "Quit
+text = "Retry
 "
 flat = true
 
