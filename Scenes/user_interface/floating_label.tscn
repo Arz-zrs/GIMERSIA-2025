@@ -4,7 +4,6 @@
 
 [node name="FloatingLabel" type="Label"]
 scale = Vector2(2.3907967, 2.3907967)
-text = "ENEMY KILLED"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_br16s")

@@ -14,6 +14,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	if _is_valid_cell(player.current_grid_pos):
 		# Cheks enemy position and run stomp logic if detected, then switch state
 		var enemy = _get_enemy_at_position(player.current_grid_pos)
+		# Enemy get stomped (killed)
 		if enemy:
 			_handle_stomp_logic(enemy)
 			player.world.on_player_landed(player.current_grid_pos)
@@ -81,26 +82,19 @@ func _handle_stomp_logic(enemy_node: Node2D):
 			GameStates.game_turn = 0
 		print("Debug: Game Turn updated to ", GameStates.game_turn)
 
-	# Enemy kill
-	#TODO: remove redundant checking
+	# Changing Enemy State
 	if enemy_node.has_node("StateMachine"):
 		var sm = enemy_node.get_node("StateMachine")
-			
 		# Check if the target state node exists
 		if sm.has_node("Spawning"):
 			var new_state = sm.get_node("Spawning")
-				
-			# 1. Exit the current state
+			# Exit the current state
 			if sm.state:
 				sm.state.exit()
-
-				# 2. Update the State Machine's 'state' variable
+				# Update the State Machine's 'state' variable
 			sm.state = new_state
-				
-			# 3. Enter the new state
-			# We pass the old state's name as the "previous_path"
+			# Enter the new state, passed "Spawning" into current state
 			sm.state.enter(sm.state.name, {})
-				
 			print("Forced transition to Spawning")
 		else:
 			print("Error: Enemy StateMachine has no 'Spawning' node!")
