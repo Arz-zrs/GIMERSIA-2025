@@ -3,6 +3,7 @@ extends EntityState
 var hop_tween: Tween
 
 func enter(previous_state_path: String, data := {}) -> void:
+	owner.has_iframe = true
 	if hop_tween and hop_tween.is_running():
 		hop_tween.kill()
 	
@@ -35,4 +36,5 @@ func _start_hop(target_grid_pos: Vector2i):
 	
 	await hop_tween.finished
 	var data: Dictionary = {"target_grid_pos": target_grid_pos}
+	owner.has_iframe = false
 	finished.emit(LANDING, data)

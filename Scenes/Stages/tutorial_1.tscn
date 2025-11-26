@@ -28,6 +28,9 @@ rythim_manager = NodePath("RythmManager")
 conductor = NodePath("Conductor")
 beat_map = ExtResource("2_aaqmk")
 target_cleared_cube = 14
+star_1_threshold = 30
+star_2_threshold = 25
+star_3_threshold = 20
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -85,4 +88,8 @@ note_scene = ExtResource("13_87tsh")
 
 [node name="PausedMenu" parent="." instance=ExtResource("16_aaqmk")]
 
-[node name="Conductor" parent="." instance=ExtResource("18_hv2v1")]
+[node name="Conductor" parent="." node_paths=PackedStringArray("player") instance=ExtResource("18_hv2v1")]
+player = NodePath("../Player")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(651, 357)

@@ -111,4 +111,8 @@ target_move_counter = 6
 
 [node name="PausedMenu" parent="." instance=ExtResource("17_c4r23")]
 
-[node name="Conductor" parent="." instance=ExtResource("19_o0g43")]
+[node name="Conductor" parent="." node_paths=PackedStringArray("player") instance=ExtResource("19_o0g43")]
+player = NodePath("../Player")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(651, 357)

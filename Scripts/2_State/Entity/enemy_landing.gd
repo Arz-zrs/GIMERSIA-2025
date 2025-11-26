@@ -1,25 +1,30 @@
 extends EntityState
 
 func enter(previous_state_path: String, data := {}) -> void:
+	owner.has_iframe = false
 	owner.current_grid_pos = data["target_grid_pos"]
-	#print("cede",cede.current_grid_pos)
+
+	# Check grid validity
 	if _is_valid_cell(owner.current_grid_pos):
+		 #Enemy kills when players get stomped
 		if _is_on_player_tile(owner.current_grid_pos):
 			var player_node = owner.get_meta("player_node")
+			# Dont deal damage when player has iframe
 			if not player_node.has_iframe:
 				AudioAutoloader.playHitSound()
 				player_node.emit_signal("hit_by_enemy")
 			else:
-				#print("player has iframe")
 				pass
 		finished.emit(IDLE)
 	else:
 		owner.is_active = false
 		finished.emit(FALLING)
 
+# Calculate grid validity
 func _is_valid_cell(grid_pos: Vector2i) -> bool:
 	return owner.world.tilemap_layer.get_cell_source_id(Vector2i(grid_pos.x, grid_pos.y)) != -1
 
+# Check if player is in the tile
 func _is_on_player_tile(grid_pos: Vector2i) -> bool:
 	var player_node = owner.get_meta("player_node")
 	if not player_node:

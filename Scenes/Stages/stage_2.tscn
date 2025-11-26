@@ -95,4 +95,8 @@ world = NodePath("..")
 
 [node name="PausedMenu" parent="." instance=ExtResource("19_fyuq8")]
 
-[node name="Conductor" parent="." instance=ExtResource("20_c6ep6")]
+[node name="Conductor" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_c6ep6")]
+player = NodePath("../Player")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(651, 357)

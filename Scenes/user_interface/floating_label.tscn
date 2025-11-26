@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c71at31oaccjh"]
+
+[ext_resource type="Script" uid="uid://dfeg4bslpqdpw" path="res://Scripts/4_Sytems/UI/floating_label.gd" id="1_br16s"]
+
+[node name="FloatingLabel" type="Label"]
+scale = Vector2(2.3907967, 2.3907967)
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_br16s")

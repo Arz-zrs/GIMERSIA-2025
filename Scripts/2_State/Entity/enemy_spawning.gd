@@ -5,6 +5,7 @@ var move_counter: int = 0
 var has_player_spawned: bool = false
 
 func enter(previous_state_path: String, data := {}) -> void:
+	owner.has_iframe = true
 	owner.is_active = false
 	owner.current_grid_pos = owner.spawn_grid_pos
 	owner.global_position = owner.world.get_screen_pos_for_cell(owner.current_grid_pos)
