@@ -28,6 +28,9 @@ rythim_manager = NodePath("RythmManager")
 conductor = NodePath("Conductor")
 beat_map = ExtResource("2_aaqmk")
 target_cleared_cube = 14
+star_1_threshold = 30
+star_2_threshold = 25
+star_3_threshold = 20
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

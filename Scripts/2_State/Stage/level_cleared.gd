@@ -7,5 +7,6 @@ func enter(previous_state_path: String, data := {}) -> void:
 	GameStates.game_start = false
 	level.level_cleared_menu.visible = true
 	level.conductor.stop_music()
+	level.show_grade()
 	#player.has_moved = false
 	#print("You Win")

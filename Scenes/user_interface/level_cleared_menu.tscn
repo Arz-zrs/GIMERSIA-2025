@@ -103,14 +103,14 @@ offset_bottom = 315.0
 scale = Vector2(2.2230074, 1.4238809)
 alignment = 1
 
-[node name="star1" type="TextureRect" parent="HBoxContainer"]
+[node name="Star1" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("8_8ey3q")
 
-[node name="star2" type="TextureRect" parent="HBoxContainer"]
+[node name="Star2" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("8_8ey3q")
 
-[node name="star3" type="TextureRect" parent="HBoxContainer"]
+[node name="Star3" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("8_8ey3q")
