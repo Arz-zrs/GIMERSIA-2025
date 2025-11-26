@@ -4,12 +4,16 @@ class_name Abe extends CharacterBody2D
 @export var target_move_counter: int = 5
 
 @export_group("TileMap Data: Enemy highlighter")
-@export var normal_tile_source_id: int = 6
-@export var normal_tile_atlas_coords: Vector2i = Vector2i(0, 0)
-@export var normal_tile_alt_id: int = 0 # The ID for white/grey
+#@export var normal_tile_source_id: int = 6
+#@export var normal_tile_atlas_coords: Vector2i = Vector2i(0, 0)
+#@export var normal_tile_alt_id: int = 0 
 @export var highlight_tile_source_id: int = 6
 @export var highlight_tile_atlas_coords: Vector2i = Vector2i(0, 0)
-@export var highlight_tile_alt_id: int = 1 # The ID for RED
+@export var highlight_tile_alt_id: int = 1
+
+var _last_highlight_original_source_id: int = -1
+var _last_highlight_original_atlas: Vector2i = Vector2i.ZERO
+var _last_highlight_original_alt_id: int = 0
 
 var current_grid_pos: Vector2i
 var spawn_grid_pos: Vector2i
@@ -37,7 +41,7 @@ func _exit_tree() -> void:
 	if _last_highlighted_pos != Vector2i(-999, -999) and world and world.tilemap_layer:
 		world.tilemap_layer.set_cell(
 			_last_highlighted_pos,
-			normal_tile_source_id,
-			normal_tile_atlas_coords,
-			normal_tile_alt_id
+			_last_highlight_original_source_id,
+			_last_highlight_original_atlas,
+			_last_highlight_original_alt_id
 		)
