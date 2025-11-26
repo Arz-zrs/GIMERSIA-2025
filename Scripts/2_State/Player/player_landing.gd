@@ -1,6 +1,7 @@
 extends PlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
+	player.has_iframe = false
 	player.current_grid_pos = data["target_grid_pos"]
 	
 	var overlapping_areas = player.hitbox.get_overlapping_areas()
@@ -51,15 +52,15 @@ func _handle_stomp_logic(enemy_node: Node2D):
 		GameStates.Match.PERFECT:
 			deduction = player.perfect_deduction
 			label_text = "%s, -%d turn" % [player.perfect_label_text, deduction]
-			label_color = Color.GOLD
+			label_color = Color.ORANGE
 		GameStates.Match.OK:
 			deduction = player.ok_deduction
 			label_text = "%s, -%d turn" % [player.ok_label_text, deduction]
-			label_color = Color.GREEN_YELLOW
+			label_color = Color.WEB_GREEN
 		GameStates.Match.MISS:
 			deduction = player.miss_deduction
 			label_text = "%s, -%d turn" % [player.miss_label_text, deduction]
-			label_color = Color.GRAY
+			label_color = Color.DIM_GRAY
 			
 	# Set the floating label
 	if player.floating_label:
@@ -67,7 +68,7 @@ func _handle_stomp_logic(enemy_node: Node2D):
 		player.get_parent().add_child(label_instance)
 		
 		#Position it above the enemy
-		label_instance.global_position = enemy_node.global_position + Vector2(0, -40)
+		label_instance.global_position = enemy_node.global_position + Vector2(-60, -150)
 		
 		#Set text and color
 		if label_instance.has_method("set_text_and_color"):

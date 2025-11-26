@@ -3,6 +3,7 @@ extends PlayerState
 var respawing_tween: Tween
 
 func enter(previous_state_path: String, data := {}) -> void:
+	player.has_iframe = true
 	if respawing_tween and respawing_tween.is_running():
 		respawing_tween.kill()
 	
@@ -35,6 +36,7 @@ func _on_respawning():
 	finished.emit(IDLE)
 
 func exit():
+	player.has_iframe = false
 	player.sprite.modulate.a = 1.0
 	
 	if respawing_tween and respawing_tween.is_running():

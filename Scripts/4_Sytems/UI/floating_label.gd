@@ -1,7 +1,6 @@
 extends Label
 
 @export var animation_duration: float = 1.0
-@export var float_intensity: float = 10
 
 func _ready():
 	# Center the label on its position
@@ -11,7 +10,7 @@ func _ready():
 	tween.set_parallel(true)
 	
 	# Floating up effect
-	tween.tween_property(self, "position:y", position.y - float_intensity, animation_duration).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	#tween.tween_property(self, "position:y", position.y - float_intensity, animation_duration).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	
 	var fade_delay = animation_duration * 0.9
 	var fade_time = animation_duration * 0.1

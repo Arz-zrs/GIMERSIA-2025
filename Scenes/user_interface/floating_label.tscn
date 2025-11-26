@@ -7,4 +7,3 @@ scale = Vector2(2.3907967, 2.3907967)
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_br16s")
-float_intensity = 0.1

@@ -4,6 +4,7 @@ var hop_tween: Tween
 var next_move
 
 func enter(previous_state_path: String, data := {}) -> void:
+	player.has_iframe = true
 	player.has_moved = true
 	if hop_tween and hop_tween.is_running():
 		hop_tween.kill()
@@ -72,5 +73,6 @@ func _start_hop(target_grid_pos: Vector2i):
 	var data: Dictionary = {"target_grid_pos": target_grid_pos, "next_move" : next_move}
 	
 	player.last_grid_pos = player.current_grid_pos
+	player.has_iframe = false
 	finished.emit(LANDING, data)
 	

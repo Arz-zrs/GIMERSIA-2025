@@ -9,8 +9,12 @@ func enter(previous_state_path: String, data := {}) -> void:
 		 #Enemy kills when players get stomped
 		if _is_on_player_tile(owner.current_grid_pos):
 			var player_node = owner.get_meta("player_node")
-			AudioAutoloader.playHitSound()
-			player_node.emit_signal("hit_by_enemy")
+			# Dont deal damage when player has iframe
+			if not player_node.has_iframe:
+				AudioAutoloader.playHitSound()
+				player_node.emit_signal("hit_by_enemy")
+			else:
+				pass
 		finished.emit(IDLE)
 	else:
 		owner.is_active = false
@@ -24,5 +28,7 @@ func _is_valid_cell(grid_pos: Vector2i) -> bool:
 func _is_on_player_tile(grid_pos: Vector2i) -> bool:
 	var player_node = owner.get_meta("player_node")
 	if not player_node:
+		return false
+	if player_node.has_iframe:
 		return false
 	return player_node.current_grid_pos == grid_pos

@@ -39,6 +39,7 @@ var last_song_pos: float
 var current_match = Match.MISS
 
 var has_moved: bool = false
+var has_iframe: bool = false
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
