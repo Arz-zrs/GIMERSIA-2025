@@ -82,25 +82,9 @@ func _handle_stomp_logic(enemy_node: Node2D):
 		if GameStates.game_turn < 0:
 			GameStates.game_turn = 0
 		print("Debug: Game Turn updated to ", GameStates.game_turn)
-
-	# Changing Enemy State
-	if enemy_node.has_node("StateMachine"):
-		var sm = enemy_node.get_node("StateMachine")
-		# Check if the target state node exists
-		if sm.has_node("Spawning"):
-			var new_state = sm.get_node("Spawning")
-			# Exit the current state
-			if sm.state:
-				sm.state.exit()
-				# Update the State Machine's 'state' variable
-			sm.state = new_state
-			# Enter the new state, passed "Spawning" into current state
-			sm.state.enter(sm.state.name, {})
-			print("Forced transition to Spawning")
-		else:
-			print("Error: Enemy StateMachine has no 'Spawning' node!")
-	else:
-		print("Enemy hit but has no StateMachine node!")
+	
+	# Kills the enemy, no longer respawn
+	enemy_node.queue_free()
 
 # get enemy grid position
 func _get_enemy_at_position(grid_pos: Vector2i) -> Node2D:
